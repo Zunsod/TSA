@@ -1,0 +1,108 @@
+% Захиалга баталгаажуулах дарааллын диаграмм — standalone TikZ
+% Compile: xelatex seq_confirm.tex
+\documentclass[border=10pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  participant/.style = {
+    rectangle, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=0.9cm,
+    draw=black!70, line width=0.6pt,
+    fill=blue!8,
+    align=center, font=\small\bfseries
+  },
+  msg/.style = {-Stealth, thick, black!70},
+  ret/.style = {-Stealth, dashed, thick, black!50},
+  msglabel/.style = {font=\scriptsize, fill=white, inner sep=2pt},
+  note/.style = {
+    rectangle, rounded corners=2pt,
+    draw=black!40, fill=yellow!10,
+    font=\scriptsize, align=left, inner sep=4pt
+  }
+]
+
+% ---- Participants ----
+\node[participant] (staff)  at (0, 0)    {Ажилтан\\(Хөтөч)};
+\node[participant] (trpc)   at (4.5, 0)  {tRPC\\(API Router)};
+\node[participant] (prisma) at (9, 0)    {Prisma ORM};
+\node[participant] (db)     at (13.5, 0) {PostgreSQL};
+\node[participant] (notif)  at (18, 0)   {Мэдэгдлийн\\систем};
+
+% ---- Lifelines ----
+\draw[dashed, black!30] (staff.south)  -- ++(0, -13);
+\draw[dashed, black!30] (trpc.south)   -- ++(0, -13);
+\draw[dashed, black!30] (prisma.south) -- ++(0, -13);
+\draw[dashed, black!30] (db.south)     -- ++(0, -13);
+\draw[dashed, black!30] (notif.south)  -- ++(0, -13);
+
+% ---- Activation boxes ----
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(staff.south)  + (-0.15, -0.3)$) rectangle ++(0.3, -12.2);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(trpc.south)   + (-0.15, -1.0)$) rectangle ++(0.3, -9.5);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(prisma.south) + (-0.15, -2.0)$) rectangle ++(0.3, -6.5);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(db.south)     + (-0.15, -3.0)$) rectangle ++(0.3, -3.0);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(notif.south)  + (-0.15, -8.5)$) rectangle ++(0.3, -2.5);
+
+% ---- Messages ----
+
+% 1. Ажилтан → tRPC: Захиалга сонгон батлах
+\draw[msg] ($(staff.south) + (0.15, -1.2)$)
+  -- node[msglabel, above] {1: Хүлээгдэж буй захиалга сонгон батлах}
+  ($(trpc.south) + (-0.15, -1.2)$);
+
+% 2. tRPC → Prisma: confirm mutation
+\draw[msg] ($(trpc.south) + (0.15, -2.5)$)
+  -- node[msglabel, above] {2: booking.confirm mutation}
+  ($(prisma.south) + (-0.15, -2.5)$);
+
+% 3. Prisma → DB: UPDATE status
+\draw[msg] ($(prisma.south) + (0.15, -3.5)$)
+  -- node[msglabel, above] {3: UPDATE bookings SET status=confirmed}
+  ($(db.south) + (-0.15, -3.5)$);
+
+% 4. DB → Prisma: OK
+\draw[ret] ($(db.south) + (-0.15, -4.8)$)
+  -- node[msglabel, above] {4: Статус шинэчлэгдсэн}
+  ($(prisma.south) + (0.15, -4.8)$);
+
+% 5. Prisma → tRPC: updated booking
+\draw[ret] ($(prisma.south) + (-0.15, -6.0)$)
+  -- node[msglabel, above] {5: Баталгаажсан Booking объект}
+  ($(trpc.south) + (0.15, -6.0)$);
+
+% 6. tRPC → Staff: confirmation
+\draw[ret] ($(trpc.south) + (-0.15, -7.3)$)
+  -- node[msglabel, above] {6: Баталгаажуулалт амжилттай}
+  ($(staff.south) + (0.15, -7.3)$);
+
+% 7. tRPC → Notification: Send
+\draw[msg] ($(trpc.south) + (0.15, -8.8)$)
+  -- node[msglabel, above] {7: Үйлчлүүлэгчид мэдэгдэл илгээх}
+  ($(notif.south) + (-0.15, -8.8)$);
+
+% 8. Notification → tRPC: Sent
+\draw[ret] ($(notif.south) + (-0.15, -10.5)$)
+  -- node[msglabel, above] {8: Мэдэгдэл илгээгдсэн}
+  ($(trpc.south) + (0.15, -10.5)$);
+
+% Note
+\node[note] at ($(notif.south) + (0, -11.5)$) {Имэйл / Push\\мэдэгдэл};
+
+% Bottom participants
+\node[participant] (staff2)  at (0, -13.7)    {Ажилтан\\(Хөтөч)};
+\node[participant] (trpc2)   at (4.5, -13.7)  {tRPC\\(API Router)};
+\node[participant] (prisma2) at (9, -13.7)    {Prisma ORM};
+\node[participant] (db2)     at (13.5, -13.7) {PostgreSQL};
+\node[participant] (notif2)  at (18, -13.7)   {Мэдэгдлийн\\систем};
+
+\end{tikzpicture}
+\end{document}

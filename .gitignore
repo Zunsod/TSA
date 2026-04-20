@@ -1,0 +1,23 @@
+# LaTeX build artifacts
+*.aux
+*.bcf
+*.log
+*.lof
+*.lot
+*.out
+*.run.xml
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.bbl
+
+# Build directory
+build/
+
+# macOS
+.DS_Store
+
+# PDF (optional - remove this line if you want to track the PDF)
+# main.pdf

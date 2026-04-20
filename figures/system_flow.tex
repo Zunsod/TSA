@@ -1,0 +1,76 @@
+% Системийн үндсэн урсгалын диаграмм — standalone TikZ
+% Compile: xelatex system_flow.tex
+\documentclass[border=8pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  % ---- styles ----
+  startstop/.style = {
+    rectangle, rounded corners=8pt,
+    minimum width=3.8cm, minimum height=1cm,
+    draw=black!70, line width=0.8pt,
+    fill=black!8,
+    text width=3.4cm, align=center,
+    font=\small\bfseries
+  },
+  process/.style = {
+    rectangle, rounded corners=4pt,
+    minimum width=4.2cm, minimum height=1cm,
+    draw=black!70, line width=0.6pt,
+    fill=white,
+    text width=3.8cm, align=center,
+    font=\small
+  },
+  decision/.style = {
+    diamond, aspect=2.2,
+    minimum width=3cm, minimum height=1cm,
+    draw=black!70, line width=0.6pt,
+    fill=white,
+    text width=2.6cm, align=center,
+    font=\small,
+    inner sep=2pt
+  },
+  arrow/.style = {
+    -Stealth, thick, black!70
+  },
+  yeslabel/.style = {font=\small\itshape, black!60},
+  nolabel/.style  = {font=\small\itshape, black!60},
+  node distance = 0.85cm and 2cm
+]
+
+% ---- nodes ----
+\node[startstop]                       (start)    {Вэб хуудсанд хандах};
+\node[process, below=of start]         (info)     {Ирэх унаа, огноо, хүний тоо сонгох};
+\node[process, below=of info]          (select)   {Сувиллын мэдээлэл, өрөөний жагсаалт харах};
+\node[process, below=of select]        (search)   {Боломжтой өрөө хайлт хийх};
+\node[process, below=of search]        (book)     {Захиалга үүсгэх};
+\node[decision, below=1.0cm of book]   (pay)      {Төлбөр амжилттай?};
+\node[process, below left=1.1cm and 2.8cm of pay] (fail) {Алдааны мэдэгдэл};
+\node[process, below=1.3cm of pay]     (notify)   {Систем мэдэгдэл илгээх};
+\node[startstop, below=of notify]      (end)      {Захиалга бүртгэгдсэн};
+
+% ---- arrows ----
+\draw[arrow] (start)  -- (info);
+\draw[arrow] (info)   -- (select);
+\draw[arrow] (select) -- (search);
+\draw[arrow] (search) -- (book);
+\draw[arrow] (book)   -- (pay);
+
+% Тийм (Yes)
+\draw[arrow] (pay.south) -- node[right, yeslabel] {Тийм} (notify.north);
+
+% Үгүй (No)
+\draw[arrow] (pay.west) -| node[above, nolabel, pos=0.25] {Үгүй} (fail.north);
+
+% Алдааны мэдэгдэл → Захиалга руу буцах
+\draw[arrow] (fail.west) -- ++(-0.4,0) |- (book.west);
+
+\draw[arrow] (notify) -- (end);
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,103 @@
+% Захиалга үүсгэх дарааллын диаграмм — standalone TikZ
+% Compile: xelatex seq_booking.tex
+\documentclass[border=10pt]{standalone}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\begin{document}
+
+\begin{tikzpicture}[
+  participant/.style = {
+    rectangle, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=0.9cm,
+    draw=black!70, line width=0.6pt,
+    fill=blue!8,
+    align=center, font=\small\bfseries
+  },
+  msg/.style = {-Stealth, thick, black!70},
+  ret/.style = {-Stealth, dashed, thick, black!50},
+  msglabel/.style = {font=\scriptsize, fill=white, inner sep=2pt},
+  note/.style = {
+    rectangle, rounded corners=2pt,
+    draw=black!40, fill=yellow!10,
+    font=\scriptsize, align=left, inner sep=4pt
+  }
+]
+
+% ---- Participants ----
+\node[participant] (user)   at (0, 0)    {Үйлчлүүлэгч\\(Хөтөч)};
+\node[participant] (trpc)   at (4.5, 0)  {tRPC\\(API Router)};
+\node[participant] (prisma) at (9, 0)    {Prisma ORM};
+\node[participant] (db)     at (13.5, 0) {PostgreSQL};
+
+% ---- Lifelines ----
+\draw[dashed, black!30] (user.south)   -- ++(0, -12);
+\draw[dashed, black!30] (trpc.south)   -- ++(0, -12);
+\draw[dashed, black!30] (prisma.south) -- ++(0, -12);
+\draw[dashed, black!30] (db.south)     -- ++(0, -12);
+
+% ---- Activation boxes ----
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(user.south)   + (-0.15, -0.3)$) rectangle ++(0.3, -11.2);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(trpc.south)   + (-0.15, -1.0)$) rectangle ++(0.3, -8.5);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(prisma.south) + (-0.15, -2.5)$) rectangle ++(0.3, -5.5);
+\fill[blue!6, draw=black!40, line width=0.4pt]
+  ($(db.south)     + (-0.15, -3.5)$) rectangle ++(0.3, -3.5);
+
+% ---- Messages ----
+
+% 1. Огноо, өрөө, хүний тоо сонгох
+\draw[msg] ($(user.south) + (0.15, -1.2)$)
+  -- node[msglabel, above] {1: Огноо, өрөө, хүний тоо сонгон захиалга илгээх}
+  ($(trpc.south) + (-0.15, -1.2)$);
+
+% 2. tRPC → Prisma: mutation
+\draw[msg] ($(trpc.south) + (0.15, -2.5)$)
+  -- node[msglabel, above] {2: booking.create mutation дуудах}
+  ($(prisma.south) + (-0.15, -2.5)$);
+
+% 3. Prisma → DB: Өрөөний хүртээмж шалгах
+\draw[msg] ($(prisma.south) + (0.15, -3.5)$)
+  -- node[msglabel, above] {3: Өрөөний хүртээмж шалгах (SELECT)}
+  ($(db.south) + (-0.15, -3.5)$);
+
+% 4. DB → Prisma: Хүртээмж OK
+\draw[ret] ($(db.south) + (-0.15, -4.5)$)
+  -- node[msglabel, above] {4: Өрөө хоосон байна}
+  ($(prisma.south) + (0.15, -4.5)$);
+
+% 5. Prisma → DB: INSERT booking
+\draw[msg] ($(prisma.south) + (0.15, -5.5)$)
+  -- node[msglabel, above] {5: INSERT INTO bookings (status=pending)}
+  ($(db.south) + (-0.15, -5.5)$);
+
+% 6. DB → Prisma: Created
+\draw[ret] ($(db.south) + (-0.15, -6.5)$)
+  -- node[msglabel, above] {6: Захиалга амжилттай үүссэн}
+  ($(prisma.south) + (0.15, -6.5)$);
+
+% 7. Prisma → tRPC: booking object
+\draw[ret] ($(prisma.south) + (-0.15, -7.8)$)
+  -- node[msglabel, above] {7: Booking объект буцаах}
+  ($(trpc.south) + (0.15, -7.8)$);
+
+% 8. tRPC → User: Амжилттай
+\draw[ret] ($(trpc.south) + (-0.15, -9.2)$)
+  -- node[msglabel, above] {8: Захиалга үүссэн (status: pending)}
+  ($(user.south) + (0.15, -9.2)$);
+
+% Note
+\node[note] at ($(trpc.south) + (2.8, -1.8)$) {tRPC mutation\\type-safe validation};
+
+% Bottom participants
+\node[participant] (user2)   at (0, -12.7)    {Үйлчлүүлэгч\\(Хөтөч)};
+\node[participant] (trpc2)   at (4.5, -12.7)  {tRPC\\(API Router)};
+\node[participant] (prisma2) at (9, -12.7)    {Prisma ORM};
+\node[participant] (db2)     at (13.5, -12.7) {PostgreSQL};
+
+\end{tikzpicture}
+\end{document}
