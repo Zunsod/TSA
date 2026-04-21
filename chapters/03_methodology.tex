@@ -214,11 +214,51 @@
 
 Үйлчлүүлэгч бүртгүүлсний дараа захиалга үүсгэх, өөрийн захиалгын түүх болон статусыг харах, профайлын мэдээлэл засах, хугацааны нөхцөлийг хангасан захиалгаа цуцлах боломжтой.
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{usecase.drawio.png}
-  \caption{Үйлчлүүлэгчийн юзкейс диаграмм}
-  \label{fig:usecase-customer}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    font=\normalsize,
+    usecase/.style={
+        ellipse,
+        draw=blue!55!black,
+        line width=0.9pt,
+        fill=blue!18,
+        minimum width=4.2cm,
+        minimum height=1.6cm,
+        align=center,
+        inner sep=3pt
+    },
+    arr/.style={-{Latex[length=3mm, width=2mm]}, line width=0.9pt},
+    ext/.style={-{Latex[length=2.5mm, width=1.8mm]}, line width=0.7pt, dashed}
+]
+
+\draw[line width=0.9pt] (0, 0) circle (0.35cm);
+\draw[line width=0.9pt] (0, -0.35) -- (0, -1.5);
+\draw[line width=0.9pt] (-0.7, -0.85) -- (0.7, -0.85);
+\draw[line width=0.9pt] (0, -1.5) -- (-0.5, -2.3);
+\draw[line width=0.9pt] (0, -1.5) -- (0.5, -2.3);
+\node[below=0.1cm] at (0, -2.4) {\textbf{Үйлчлүүлэгч}};
+
+\node[usecase] (register) at (7.5,  4.8)   {Бүртгэл үүсгэх / \\ Нэвтрэх};
+\node[usecase] (viewroom) at (7.5,  2.7)   {Өрөө харах / \\ Хайх};
+\node[usecase] (book)     at (7.5,  0.7)   {Захиалга үүсгэх};
+\node[usecase] (mybook)   at (7.5, -1.3)   {Захиалгаа харах / \\ Засах};
+\node[usecase] (cancel)   at (7.5, -3.3)   {Захиалгаа цуцлах};
+\node[usecase] (payment)  at (7.5, -5.3)   {Урьдчилгаа төлбөр \\ төлөх};
+
+\draw[arr] (0.7, -0.85) -- (register.west);
+\draw[arr] (0.7, -0.85) -- (viewroom.west);
+\draw[arr] (0.7, -0.85) -- (book.west);
+\draw[arr] (0.7, -0.85) -- (mybook.west);
+\draw[arr] (0.7, -0.85) -- (cancel.west);
+\draw[arr] (0.7, -0.85) -- (payment.west);
+
+\draw[ext] (viewroom.south) -- (book.north);
+\draw[ext] (payment.north east) to[bend right=30] (book.south east);
+
+\end{tikzpicture}
+\caption{Үйлчлүүлэгчийн юзкейс диаграмм}
+\label{fig:usecase-customer}
 \end{figure}
 
 \subsection{Ажилтан болон Админы юзкейс диаграмм}
@@ -226,10 +266,67 @@
 Ажилтан өөрийн сувиллд ирсэн захиалгуудыг хянаж баталгаажуулах, шаардлагатай тохиолдолд цуцлах, ирэх хугацааны үйлчлүүлэгчдийн жагсаалт гаргах боломжтой бөгөөд өрөөний хүртээмжийн хяналтыг удирддаг. Админ системийн хамгийн өндөр эрхийн хэрэглэгч бөгөөд бүх сувиллын захиалга, өрөөний мэдээлэл, хэрэглэгчийн бүртгэлийг удирдах, ажилтан нэмэх, тайлан статистик харах зэрэг бүх үйлдлийг гүйцэтгэх боломжтой.
 
 \begin{figure}[H]
-  \centering
-  \includegraphics[width=0.85\textwidth]{usecase2.drawio.png}
-  \caption{Ажилтан болон Админы юзкейс диаграмм}
-  \label{fig:usecase-staff-admin}
+\centering
+\begin{tikzpicture}[
+    font=\normalsize,
+    shared/.style={
+        ellipse,
+        draw=green!50!black,
+        line width=0.9pt,
+        fill=green!20,
+        minimum width=4.2cm,
+        minimum height=1.5cm,
+        align=center,
+        inner sep=3pt
+    },
+    adminuc/.style={
+        ellipse,
+        draw=orange!70!black,
+        line width=0.9pt,
+        fill=orange!25,
+        minimum width=4.2cm,
+        minimum height=1.5cm,
+        align=center,
+        inner sep=3pt
+    },
+    arr/.style={-{Latex[length=3mm, width=2mm]}, line width=0.9pt}
+]
+
+\draw[line width=0.9pt] (0,  4.5) circle (0.35cm);
+\draw[line width=0.9pt] (0,  4.15) -- (0,  3.0);
+\draw[line width=0.9pt] (-0.7, 3.65) -- (0.7, 3.65);
+\draw[line width=0.9pt] (0,  3.0) -- (-0.5, 2.2);
+\draw[line width=0.9pt] (0,  3.0) -- ( 0.5, 2.2);
+\node[below=0.1cm, align=center] at (0, 2.1) {Хүлээн авах \\ ажилтан};
+
+\draw[line width=0.9pt] (0, -1.5) circle (0.35cm);
+\draw[line width=0.9pt] (0, -1.85) -- (0, -3.0);
+\draw[line width=0.9pt] (-0.7, -2.35) -- (0.7, -2.35);
+\draw[line width=0.9pt] (0, -3.0) -- (-0.5, -3.8);
+\draw[line width=0.9pt] (0, -3.0) -- ( 0.5, -3.8);
+\node[below=0.1cm] at (0, -3.9) {Админ};
+
+\node[shared]  (confirm)  at (8,  5.2)   {Захиалга баталгаажуулах};
+\node[shared]  (viewlist) at (8,  3.0)   {Захиалгын жагсаалт \\ харах};
+\node[shared]  (status)   at (8,  0.8)   {Захиалгын төлөв \\ өөрчлөх};
+
+\node[adminuc] (rooms)    at (8, -1.4)   {Өрөө / Үйлчилгээ \\ нэмэх, засах};
+\node[adminuc] (staff)    at (8, -3.3)   {Ажилтан удирдах};
+\node[adminuc] (report)   at (8, -5.2)   {Тайлан, статистик \\ гаргах};
+
+\draw[arr] (0.7,  3.65) -- (confirm.west);
+\draw[arr] (0.7,  3.65) -- (viewlist.west);
+\draw[arr] (0.7,  3.65) -- (status.west);
+
+\draw[arr] (0.7, -2.35) -- (status.west);
+\draw[arr] (0.7, -2.35) -- (viewlist.west);
+\draw[arr] (0.7, -2.35) -- (rooms.west);
+\draw[arr] (0.7, -2.35) -- (staff.west);
+\draw[arr] (0.7, -2.35) -- (report.west);
+
+\end{tikzpicture}
+\caption{Ажилтан болон Админы юзкейс диаграмм}
+\label{fig:usecase-staff-admin}
 \end{figure}
 
 % ======= 3.7 =======
