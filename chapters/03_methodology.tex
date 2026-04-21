@@ -214,7 +214,7 @@
 
 Үйлчлүүлэгч бүртгүүлсний дараа захиалга үүсгэх, өөрийн захиалгын түүх болон статусыг харах, профайлын мэдээлэл засах, хугацааны нөхцөлийг хангасан захиалгаа цуцлах боломжтой.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     font=\normalsize,
@@ -337,10 +337,73 @@
 Хэрэглэгч имэйл болон нууц үгээ оруулахад NextAuth.js хүсэлтийг хүлээн авч Prisma ORM-р дамжуулан PostgreSQL өгөгдлийн санд хадгалагдсан хэрэглэгчийн мэдээлэлтэй шалгана, амжилттай баталгаажсан тохиолдолд JWT session токен үүсгэн хэрэглэгчийн хөтөч дээр хадгалагдана.
 
 \begin{figure}[H]
-  \centering
-  \figplaceholder{seq_auth}
-  \caption{Бүртгэл ба нэвтрэлтийн дараалал диаграмм}
-  \label{fig:seq-auth}
+\centering
+\resizebox{0.95\textwidth}{!}{
+\begin{tikzpicture}[
+    font=\small,
+    actor/.style={
+        rectangle,
+        draw=blue!40!black,
+        fill=blue!8,
+        rounded corners=4pt,
+        minimum width=2.6cm,
+        minimum height=0.7cm,
+        align=center
+    },
+    line/.style={dashed, gray!80, line width=0.6pt},
+    msg/.style={-Latex, line width=0.8pt},
+    ret/.style={-Latex, dashed, line width=0.8pt}
+]
+
+\def\xa{0}
+\def\xb{4.3}
+\def\xc{8.6}
+\def\xd{12.9}
+
+% Actors
+\node[actor] (u)  at (\xa, 0) {Хэрэглэгч \\ (веб)};
+\node[actor] (na) at (\xb, 0) {NextAuth.js};
+\node[actor] (pr) at (\xc, 0) {Prisma ORM};
+\node[actor] (db) at (\xd, 0) {PostgreSQL};
+
+% Lifelines
+\draw[line] (\xa, -0.6) -- (\xa, -13.2);
+\draw[line] (\xb, -0.6) -- (\xb, -13.2);
+\draw[line] (\xc, -0.6) -- (\xc, -13.2);
+\draw[line] (\xd, -0.6) -- (\xd, -13.2);
+
+% [БҮРТГЭЛ]
+\node[anchor=west, font=\bfseries\small, text=gray!80!black] at (-0.5, -1.0) {Бүртгэл};
+
+\draw[msg] (\xa, -1.8) -- node[above, font=\scriptsize] {1. Бүртгэлийн мэдээлэл (нэр, имэйл, нууц үг)} (\xb, -1.8);
+\draw[msg] (\xb, -2.6) -- node[above, font=\scriptsize] {2. Шинэ хэрэглэгч үүсгэх хүсэлт} (\xc, -2.6);
+\draw[msg] (\xc, -3.4) -- node[above, font=\scriptsize] {3. INSERT INTO users} (\xd, -3.4);
+
+\draw[ret] (\xd, -4.2) -- node[above, font=\scriptsize] {4. Хэрэглэгч амжилттай үүссэн} (\xc, -4.2);
+\draw[ret] (\xc, -5.0) -- node[above, font=\scriptsize] {5. User объект буцаах} (\xb, -5.0);
+\draw[ret] (\xb, -5.8) -- node[above, font=\scriptsize] {6. Бүртгэл амжилттай (нэвтрэх хуудас руу)} (\xa, -5.8);
+
+% Separator
+\draw[loosely dashed, gray!50] (-0.8, -6.6) -- (\xd+0.8, -6.6);
+
+% [НЭВТРЭЛТ]
+\node[anchor=west, font=\bfseries\small, text=gray!80!black] at (-0.5, -7.2) {Нэвтрэлт};
+
+\draw[msg] (\xa, -8.0) -- node[above, font=\scriptsize] {7. Имэйл, нууц үг оруулах} (\xb, -8.0);
+\draw[msg] (\xb, -8.8) -- node[above, font=\scriptsize] {8. Имэйлээр хэрэглэгч хайх} (\xc, -8.8);
+\draw[msg] (\xc, -9.6) -- node[above, font=\scriptsize] {9. SELECT * FROM users WHERE email=?} (\xd, -9.6);
+
+\draw[ret] (\xd, -10.4) -- node[above, font=\scriptsize] {10. Хэрэглэгчийн мэдээлэл} (\xc, -10.4);
+\draw[ret] (\xc, -11.2) -- node[above, font=\scriptsize] {11. User + hashed нууц үг} (\xb, -11.2);
+
+\node[draw=gray!50, fill=yellow!15, text=black, align=center, font=\scriptsize, rounded corners=3pt, inner sep=4pt] at (\xb, -12.0) {bcrypt.compare() \\ нууц үг шалгах};
+
+\draw[ret] (\xb, -12.8) -- node[above, font=\scriptsize] {12. JWT session токен (cookie-д хадгалах)} (\xa, -12.8);
+
+\end{tikzpicture}
+}
+\caption{Бүртгэл ба нэвтрэлтийн дараалал диаграмм}
+\label{fig:seq-auth}
 \end{figure}
 
 \subsection{Захиалга үүсгэх дараалал}
@@ -348,10 +411,58 @@
 Үйлчлүүлэгч огноо, өрөө, хүний тоо сонгон захиалга илгээхэд tRPC mutation дуудагдаж серверийн хэсэгт хүсэлт очно, Prisma ашиглан өгөгдлийн санд шинэ захиалгын бичлэг үүсч, захиалгын статус ``хүлээгдэж байна'' (pending) болж тохируулагдана.
 
 \begin{figure}[H]
-  \centering
-  \figplaceholder{seq_booking}
-  \caption{Захиалга үүсгэх дараалал диаграмм}
-  \label{fig:seq-booking}
+\centering
+\resizebox{0.95\textwidth}{!}{
+\begin{tikzpicture}[
+    font=\small,
+    actor/.style={
+        rectangle,
+        draw=blue!40!black,
+        fill=blue!8,
+        rounded corners=4pt,
+        minimum width=2.6cm,
+        minimum height=0.7cm,
+        align=center
+    },
+    line/.style={dashed, gray!80, line width=0.6pt},
+    msg/.style={-Latex, line width=0.8pt},
+    ret/.style={-Latex, dashed, line width=0.8pt}
+]
+
+\def\xa{0}
+\def\xb{4.8}
+\def\xc{9.6}
+\def\xd{14.4}
+
+% Actors
+\node[actor] (u)  at (\xa, 0) {Үйлчлүүлэгч \\ (веб)};
+\node[actor] (na) at (\xb, 0) {tRPC \\ (API Router)};
+\node[actor] (pr) at (\xc, 0) {Prisma ORM};
+\node[actor] (db) at (\xd, 0) {PostgreSQL};
+
+% Lifelines
+\draw[line] (\xa, -0.6) -- (\xa, -8.5);
+\draw[line] (\xb, -0.6) -- (\xb, -8.5);
+\draw[line] (\xc, -0.6) -- (\xc, -8.5);
+\draw[line] (\xd, -0.6) -- (\xd, -8.5);
+
+\draw[msg] (\xa, -1.3) -- node[above, font=\scriptsize] {1. Огноо, өрөө, хүний тоо сонгон захиалга илгээх} (\xb, -1.3);
+
+\draw[msg] (\xb, -2.9) -- node[above, font=\scriptsize] {2. booking.create mutation дуудах} (\xc, -2.9);
+\draw[msg] (\xc, -3.7) -- node[above, font=\scriptsize] {3. Өрөөний хүртээмж шалгах (SELECT)} (\xd, -3.7);
+
+\draw[ret] (\xd, -4.5) -- node[above, font=\scriptsize] {4. Өрөө хоосон байна} (\xc, -4.5);
+
+\draw[msg] (\xc, -5.3) -- node[above, font=\scriptsize] {5. INSERT INTO bookings (status=pending)} (\xd, -5.3);
+
+\draw[ret] (\xd, -6.1) -- node[above, font=\scriptsize] {6. Захиалга амжилттай үүссэн} (\xc, -6.1);
+\draw[ret] (\xc, -6.9) -- node[above, font=\scriptsize] {7. Booking объект буцаах} (\xb, -6.9);
+\draw[ret] (\xb, -7.7) -- node[above, font=\scriptsize] {8. Захиалга үүссэн (status: pending)} (\xa, -7.7);
+
+\end{tikzpicture}
+}
+\caption{Захиалга үүсгэх дараалал диаграмм}
+\label{fig:seq-booking}
 \end{figure}
 
 \subsection{Захиалга баталгаажуулах дараалал}
@@ -359,10 +470,56 @@
 Ажилтан хүлээгдэж буй захиалгуудын жагсаалтаас захиалга сонгон баталгаажуулахад tRPC mutation дуудагдаж өгөгдлийн санд захиалгын статус ``баталгаажсан'' (confirmed) болж шинэчлэгдэх бөгөөд систем автоматаар үйлчлүүлэгчид мэдэгдэл илгээнэ.
 
 \begin{figure}[H]
-  \centering
-  \figplaceholder{seq_confirm}
-  \caption{Захиалга баталгаажуулах дараалал диаграмм}
-  \label{fig:seq-confirm}
+\centering
+\resizebox{0.95\textwidth}{!}{
+\begin{tikzpicture}[
+    font=\small,
+    actor/.style={
+        rectangle,
+        draw=blue!40!black,
+        fill=blue!8,
+        rounded corners=4pt,
+        minimum width=2.6cm,
+        minimum height=0.7cm,
+        align=center
+    },
+    line/.style={dashed, gray!80, line width=0.6pt},
+    msg/.style={-Latex, line width=0.8pt},
+    ret/.style={-Latex, dashed, line width=0.8pt}
+]
+
+\def\xa{0}
+\def\xb{4.8}
+\def\xc{9.6}
+\def\xd{14.4}
+
+% Actors
+\node[actor] (st)  at (\xa, 0) {Ажилтан \\ (Дэлгэц)};
+\node[actor] (na) at (\xb, 0) {tRPC \\ (API Router)};
+\node[actor] (pr) at (\xc, 0) {Prisma ORM};
+\node[actor] (db) at (\xd, 0) {PostgreSQL};
+
+% Lifelines
+\draw[line] (\xa, -0.6) -- (\xa, -8.3);
+\draw[line] (\xb, -0.6) -- (\xb, -8.3);
+\draw[line] (\xc, -0.6) -- (\xc, -8.3);
+\draw[line] (\xd, -0.6) -- (\xd, -8.3);
+
+\draw[msg] (\xa, -1.3) -- node[above, font=\scriptsize] {1. Захиалга баталгаажуулах хүсэлт илгээх} (\xb, -1.3);
+\draw[msg] (\xb, -2.3) -- node[above, font=\scriptsize] {2. update.booking(status='confirmed')} (\xc, -2.3);
+\draw[msg] (\xc, -3.3) -- node[above, font=\scriptsize] {3. UPDATE bookings SET status='confirmed'} (\xd, -3.3);
+
+\draw[ret] (\xd, -4.3) -- node[above, font=\scriptsize] {4. Бичлэг амжилттай шинэчлэгдсэн} (\xc, -4.3);
+\draw[ret] (\xc, -5.3) -- node[above, font=\scriptsize] {5. Захиалгын объект буцаах} (\xb, -5.3);
+
+\node[draw=gray!50, fill=yellow!15, text=black, align=center, font=\scriptsize, rounded corners=3pt, inner sep=4pt] at (\xb, -6.3) {Үйлчлүүлэгч рүү баталгаажсан \\ тухай автомат имэйл илгээх};
+
+\draw[ret] (\xb, -7.3) -- node[above, font=\scriptsize] {6. Дэлгэцэд "Амжилттай" төлөв харуулах} (\xa, -7.3);
+
+\end{tikzpicture}
+}
+\caption{Захиалга баталгаажуулах дараалал диаграмм}
+\label{fig:seq-confirm}
 \end{figure}
 
 % ======= 3.8 =======
@@ -373,10 +530,152 @@
 Өгөгдлийн сангийн бүтэц нь Prisma schema дээр суурилсан таван үндсэн хүснэгтээс бүрдэх бөгөөд тэдгээрийн хоорондын харилцаа нь гадаад түлхүүр (foreign key) ашиглан нэг-олон (one-to-many) хамаарлаар холбогдоно. Хүснэгтүүд нь хэрэглэгч, сувилл, өрөө, захиалга, эмчилгээний бүртгэлийн мэдээллийг тусад нь хадгалж системийн мэдээллийн бүрэн бүтэн байдлыг хангана.
 
 \begin{figure}[H]
-  \centering
-  \figplaceholder[1.0]{er_diagram}
-  \caption{Өгөгдлийн сангийн харилцааны диаграмм}
-  \label{fig:er-diagram}
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+    font=\small,
+    % ---- Entity (хүснэгт) хэв маяг ----
+    entity/.style={
+        rectangle split,
+        rectangle split parts=2,
+        rectangle split part fill={violet!25, white},
+        draw=violet!40,
+        line width=0.8pt,
+        rounded corners=3pt,
+        align=left,
+        text width=4.8cm,
+        inner sep=6pt
+    },
+    % ---- Харилцааны шугам ----
+    rel/.style={line width=0.7pt, black!70},
+    % ---- Multiplicity label ----
+    mult/.style={
+        font=\small,
+        inner sep=3pt,
+        fill=white,
+        draw=none
+    }
+]
+
+% ---- Талбар харуулах макронууд ----
+\newcommand{\pk}[2]{\underline{#1} : \textit{#2} \ \textsc{\footnotesize(PK)} \\}
+\newcommand{\fk}[2]{#1 : \textit{#2} \ \textsc{\footnotesize(FK)} \\}
+\newcommand{\attr}[2]{#1 : \textit{#2} \\}
+
+% ---------- ROW 1: users, sanatoriums, rooms ----------
+\node[entity] (User) at (0, 10) {
+    \textbf{users} \nodepart{second}
+    \pk{id}{String}
+    \attr{name}{String}
+    \attr{email}{String (unique)}
+    \attr{password}{String}
+    \attr{role}{Role}
+    \attr{phone}{String?}
+    \attr{createdAt}{DateTime}
+};
+
+\node[entity] (Sana) at (6.5, 10) {
+    \textbf{sanatoriums} \nodepart{second}
+    \pk{id}{String}
+    \attr{name}{String}
+    \attr{location}{String}
+    \attr{description}{String?}
+    \attr{phone}{String?}
+    \attr{createdAt}{DateTime}
+};
+
+\node[entity] (Room) at (13, 10) {
+    \textbf{rooms} \nodepart{second}
+    \pk{id}{String}
+    \fk{sanatoriumId}{String}
+    \attr{name}{String}
+    \attr{type}{RoomType}
+    \attr{capacity}{Int}
+    \attr{pricePerNight}{Float}
+    \attr{imageUrl}{String?}
+};
+
+% ---------- ROW 2: bookings, booking_rooms ----------
+\node[entity] (Booking) at (0, 2) {
+    \textbf{bookings} \nodepart{second}
+    \pk{id}{String}
+    \fk{userId}{String}
+    \attr{checkIn}{DateTime}
+    \attr{checkOut}{DateTime}
+    \attr{guests}{Int}
+    \attr{totalPrice}{Float}
+    \attr{status}{Status}
+    \attr{createdAt}{DateTime}
+};
+
+\node[entity] (BR) at (13, 2) {
+    \textbf{booking\_rooms} \nodepart{second}
+    \pk{id}{String}
+    \fk{bookingId}{String}
+    \fk{roomId}{String}
+    \attr{pricePerNight}{Float}
+    \attr{nights}{Int}
+};
+
+% ---------- ROW 3: booking_treatments, payments ----------
+\node[entity] (BT) at (0, -5) {
+    \textbf{booking\_treatments} \nodepart{second}
+    \pk{id}{String}
+    \fk{bookingId}{String}
+    \attr{name}{String}
+    \attr{quantity}{Int}
+    \attr{unitPrice}{Float}
+    \attr{totalPrice}{Float}
+};
+
+\node[entity] (Pay) at (6.5, -5) {
+    \textbf{payments} \nodepart{second}
+    \pk{id}{String}
+    \fk{bookingId}{String}
+    \attr{amount}{Float}
+    \attr{method}{PaymentMethod}
+    \attr{status}{PaymentStatus}
+    \attr{paidAt}{DateTime?}
+    \attr{createdAt}{DateTime}
+};
+
+% ============================================================
+%  ХАРИЛЦААНУУД
+% ============================================================
+
+% users ── bookings
+\draw[rel] (User.south) -- (Booking.north)
+    node[mult, midway]{1 : N};
+
+% sanatoriums ── rooms
+\draw[rel] (Sana.east) -- (Room.west)
+    node[mult, midway]{1 : N};
+
+% bookings ── booking_rooms
+\draw[rel] (Booking.east) -- (BR.west)
+    node[mult, midway]{1 : N};
+
+% rooms ── booking_rooms
+\draw[rel] (Room.south) -- (BR.north)
+    node[mult, midway]{1 : N};
+
+% bookings ── booking_treatments
+\draw[rel] (Booking.south) -- (BT.north)
+    node[mult, midway]{1 : N};
+
+% bookings ── payments
+\draw[rel] ($(Booking.south) + (1.5,0)$) -- ++(0,-2) -| (Pay.north)
+    node[mult, pos=0.5]{1 : N};
+
+% N:N тэмдэглэл
+\node[font=\footnotesize\itshape, text=violet!70!black]
+    at (9.7, 5.8) {bookings $\longleftrightarrow$ rooms \ (N : N)};
+
+\end{tikzpicture}
+}
+
+\caption{Өгөгдлийн сангийн ER диаграмм}
+\label{fig:er-diagram}
 \end{figure}
 
 \subsection{Хүснэгтүүдийн тайлбар}

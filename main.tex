@@ -42,6 +42,9 @@
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{xcolor}
 \graphicspath{{figures/}}
 
 % --- Гарчиг, хуудасны дугаар ---
@@ -78,7 +81,7 @@
 
 % --- Графикийн багц ---
 \usepackage{tikz}
-\usetikzlibrary{positioning, arrows.meta, shapes.geometric}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, shapes.multipart, calc}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
 
@@ -237,17 +240,13 @@
 
 \noindent \textbf{Түлхүүр үг:} Сувиллын бүртгэл, Захиалгын систем, Вэб хөгжүүлэлт, Өгөгдлийн сан.
 
-% --- 4. Агуулга ---
+% --- 4. Гарчиг ---
 \newpage
 \phantomsection
-\addcontentsline{toc}{chapter}{Агуулга}
+\addcontentsline{toc}{chapter}{Гарчиг}
 
-\begin{center}
-    {\Large\bfseries Агуулга}
-\end{center}
-
-\vspace{1.2cm}
-
+\noindent\textbf{Гарчиг}
+\vspace{0.5cm}
 \newcommand{\tocchapter}[2]{%
   \noindent\textbf{#1}\dotfill\textbf{#2}\par\vspace{6pt}%
 }
@@ -265,10 +264,10 @@
 }
 
 \tocchapternd{Хураангуй}{i}
-\tocchapternd{Агуулга}{ii}
-\tocchapternd{Товчилсон үгсийн жагсаалт}{iii}
-\tocchapternd{Зураг болон Хүснэгтийн жагсаалт}{iv}
-\tocchapternd{Ажлын төлөвлөгөө}{v}
+\tocchapternd{Гарчиг}{ii}
+\tocchapternd{Товчилсон үгсийн жагсаалт}{iv}
+\tocchapternd{Хүснэгтийн жагсаалт}{v}
+\tocchapternd{Зургийн жагсаалт}{vi}
 
 \vspace{6pt}
 
@@ -324,29 +323,104 @@
 % --- 5. ТОВЧИЛСОН ҮГСИЙН ЖАГСААЛТ ---
 \input{chapters/00_acrolist}
 
-% --- 6. ЗУРАГ БОЛОН ХҮСНЭГТИЙН ЖАГСААЛТ ---
+% --- 6. ХҮСНЭГТИЙН ЖАГСААЛТ ---
 \newpage
-\chapter*{Зураг болон Хүснэгтийн жагсаалт}
-\addcontentsline{toc}{chapter}{Зураг болон Хүснэгтийн жагсаалт}
-
+\chapter*{Хүснэгтийн жагсаалт}
+\addcontentsline{toc}{chapter}{Хүснэгтийн жагсаалт}
 \begingroup
-% Автомат гарчиг болон шинэ хуудас нээхийг түр зогсоох
 \renewcommand{\clearpage}{} 
 \renewcommand{\chapter}[2]{} 
-
-\listoffigures
-\vspace{1cm} % Зураг ба Хүснэгтийн жагсаалт хоорондын зай
 \listoftables
+\endgroup
+
+% --- 7. ЗУРГИЙН ЖАГСААЛТ ---
+\newpage
+\chapter*{Зургийн жагсаалт}
+\addcontentsline{toc}{chapter}{Зургийн жагсаалт}
+\begingroup
+\renewcommand{\clearpage}{} 
+\renewcommand{\chapter}[2]{} 
+\listoffigures
 \endgroup
 
 % --- 7. АЖЛЫН ТӨЛӨВЛӨГӨӨ ---
 \newpage
-\chapter*{Ажлын төлөвлөгөө}
 \addcontentsline{toc}{chapter}{Ажлын төлөвлөгөө}
-\begin{longtable}{|c|p{7cm}|p{3cm}|p{3cm}|}
-  \hline
-  \textbf{№} & \textbf{Ажлын агуулга} & \textbf{Хугацаа} & \textbf{Гүйцэтгэл} \\ \hline
+
+\vspace*{0.5cm}
+\noindent\textbf{\large Ажлын төлөвлөгөө}
+
+\vspace{15pt}
+\noindent\textbf{Оюутны нэр:} Б.Зөнсод \hfill \textbf{Удирдагч багшийн нэр:} Б.Батчулуун\\[10pt]
+\noindent\textbf{Судалгааны ажлын сэдэв:} Сувиллын бүртгэл мэдээллийн систем
+
+\vspace{10pt}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|c|c|p{10.5cm}|c|}
+\hline
+\textbf{Сар} & \textbf{Долоо хоног} & \textbf{Төлөвлөгөө} & \textbf{Гүйцэтгэл} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Сар} & \textbf{Долоо хоног} & \textbf{Төлөвлөгөө} & \textbf{Гүйцэтгэл} \\
+\hline
+\endhead
+\multirow{4}{*}{10 сар} & 1 & & $\checkmark$ \\ \cline{2-4}
+& 2 & Веб системийн онол, технологийн судалгаа (Next.js, Prisma, PostgreSQL гэх мэт) & $\checkmark$ \\ \cline{2-4}
+& 3 & Сувиллын захиалга авах урсгалыг ойлгох, тулгамдаж буй гол асуудлыг тодорхойлох & $\checkmark$ \\ \cline{2-4}
+& 4 & Системийн шаардлагын шинжилгээ гаргах & $\checkmark$ \\
+\hline
+\multirow{4}{*}{11 сар} & 1 & Системийн архитектур ба өгөгдлийн сангийн загвар боловсруулах & $\checkmark$ \\ \cline{2-4}
+& 2 & Front-end хэсгийн бүтцийг боловсруулах (Next.js, TailwindCSS) & $\checkmark$ \\ \cline{2-4}
+& 3 & Back-end API ботыг tRPC ба Prisma ашиглан хөгжүүлж эхлэх & $\checkmark$ \\ \cline{2-4}
+& 4 & PostgreSQL өгөгдлийн сан үүсгэх, API холболт хийх & $\checkmark$ \\
+\hline
+\multirow{4}{*}{12 сар} & 1 & \textcolor{red}{ТСА Үзлэг 1} & $\checkmark$ \\ \cline{2-4}
+& 2 & Front-end болон Back-end интеграц, анхны туршилт хийх & $\checkmark$ \\ \cline{2-4}
+& 3 & Системийн анхны хувилбарыг турших, алдаа засварлах & $\checkmark$ \\ \cline{2-4}
+& 4 & Хэрэглэгчийн болон админ хэсгийн интерфейс сайжруулах & $\checkmark$ \\
+\hline
+\multirow{4}{*}{1 сар} & 1 & Функциональ туршилт хийх, өгөгдөл нэмэх & $\checkmark$ \\ \cline{2-4}
+& 2 & Туршилтын үр дүнг нэгтгэж, сайжруулалт хийх & $\checkmark$ \\ \cline{2-4}
+& 3 & Системийн гүйцэтгэл ба найдвартай байдлын шалгалт & $\checkmark$ \\ \cline{2-4}
+& 4 & Системийг үүлэн (Cloud) орчинд байршуулж турших & $\checkmark$ \\
+\hline
+\multirow{4}{*}{2 сар} & 1 & Тест хэрэглэгчээр туршилт хийх, алдаа илрүүлэх & $\checkmark$ \\ \cline{2-4}
+& 2 & Тайлан бичих, үр дүнгийн дүгнэлт боловсруулах & $\checkmark$ \\ \cline{2-4}
+& 3 & Тайланг сайжруулах, багшийн зөвлөмж тусгах & $\checkmark$ \\ \cline{2-4}
+& 4 & Туршилтын үр дүнг нэгтгэх, диаграмм, хүснэгт боловсруулах & $\checkmark$ \\
+\hline
+\multirow{4}{*}{3 сар} & 1 & \textcolor{red}{ТСА Үзлэг 2} & $\square$ \\ \cline{2-4}
+& 2 & Эцсийн системийн хувилбар гаргах & $\square$ \\ \cline{2-4}
+& 3 & Хамгаалалтын материал бэлтгэх & $\square$ \\ \cline{2-4}
+& 4 & Удирдагч багшийн зөвлөгөөний дагуу сайжруулалт & $\square$ \\
+\hline
+\multirow{4}{*}{4 сар} & 1 & Удирдагч багшийн зөвлөгөөний дагуу сайжруулалт & $\square$ \\ \cline{2-4}
+& 2 & Удирдагч багшийн зөвлөгөөний дагуу сайжруулалт & $\square$ \\ \cline{2-4}
+& 3 & Удирдагч багшийн зөвлөгөөний дагуу сайжруулалт & $\square$ \\ \cline{2-4}
+& 4 & \textcolor{red}{ТСА урьдчилсан хамгаалалт} & $\square$ \\
+\hline
+\multirow{4}{*}{5 сар} & 1 & & $\square$ \\ \cline{2-4}
+& 2 & & $\square$ \\ \cline{2-4}
+& 3 & & $\square$ \\ \cline{2-4}
+& 4 & \textcolor{red}{ТСА үндсэн хамгаалалт} & $\square$ \\
+\hline
 \end{longtable}
+\end{center}
+
+\vspace{0.8cm}
+\noindent
+\begin{minipage}{0.5\textwidth}
+Удирдагч багш \\
+Гүйцэтгэсэн оюутан 
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+\raggedleft
+/Б.Батчулуун, магистр/ \\
+/s21c118b, Б.Зөнсод/
+\end{minipage}
+
 
 % --- ҮНДСЭН ХЭСЭГ (ARABIC NUMERALS) ---
 \newpage
