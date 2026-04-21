@@ -42,7 +42,11 @@
       "Bash(git *)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex)"
+      "Bash(latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex)",
+      "Bash(latexmk -xelatex -pvc main.tex)",
+      "Bash(latexmk -C)",
+      "Bash(rm -f main.aux main.log main.toc main.lof main.lot main.out main.fls main.fdb_latexmk)",
+      "Bash(latexmk -xelatex main.tex)"
     ]
   },
   "enableAllProjectMcpServers": false
