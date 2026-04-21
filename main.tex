@@ -43,6 +43,7 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -230,11 +231,7 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{Гарчиг}
 
-\begin{center}
-    {\Large\bfseries Гарчиг}
-\end{center}
-
-\vspace{1.2cm}
+\noindent\textbf{Гарчиг}\par\vspace{6pt}
 
 \newcommand{\tocchapter}[2]{%
   \noindent\textbf{#1}\dotfill\textbf{#2}\par\vspace{6pt}%
@@ -311,15 +308,7 @@
 \tocchapter{Хавсралт}{x}
 
 % --- 5. ТОВЧИЛСОН ҮГСИЙН ЖАГСААЛТ ---
-\newpage
-\chapter*{Товчилсон үгсийн жагсаалт}
-\addcontentsline{toc}{chapter}{Товчилсон үгсийн жагсаалт}
-\begin{acronym}
-  \acro{СҮУЗС}{Сувиллын үйлчилгээний удирдлага, захиалгын систем}
-  \acro{UI/UX}{User Interface / User Experience}
-  \acro{API}{Application Programming Interface}
-  \acro{DB}{Database — өгөгдлийн сан}
-\end{acronym}
+\input{chapters/00_acrolist}
 
 % --- 6. ХҮСНЭГТИЙН ЖАГСААЛТ ---
 \newpage
@@ -354,5 +343,17 @@
 
 % Бүлэг 3
 \input{chapters/03_methodology}
+
+% Бүлэг 4
+\input{chapters/04_results}
+
+% Ном зүй
+\input{chapters/05_bibliography}
+
+% Товчлол
+\input{chapters/06_summary}
+
+% Хавсралт
+\input{chapters/07_appendix}
 
 \end{document}

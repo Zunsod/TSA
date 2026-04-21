@@ -46,7 +46,17 @@
       "Bash(latexmk -xelatex -pvc main.tex)",
       "Bash(latexmk -C)",
       "Bash(rm -f main.aux main.log main.toc main.lof main.lot main.out main.fls main.fdb_latexmk)",
-      "Bash(latexmk -xelatex main.tex)"
+      "Bash(latexmk -xelatex main.tex)",
+      "Bash(latexmk -xelatex -f main.tex)",
+      "Bash(biber main *)",
+      "Bash(latexmk main.tex)",
+      "Bash(rm -f main.bcf main.bcf-SAVE-ERROR main.bbl)",
+      "Bash(latexmk -v)",
+      "Bash(latexmk -f -xelatex main.tex)",
+      "Bash(xmllint --noout main.bcf)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(biber --debug main)",
+      "Bash(grep -v \"^--$\")"
     ]
   },
   "enableAllProjectMcpServers": false
