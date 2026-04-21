@@ -7,9 +7,54 @@
 % ======= 3.1 =======
 \section{Системийн үйл ажиллагааны тухай дэлгэрэнгүй}
 
-\subsection{Системийн ерөнхий бүтэц}
+\subsection{Системд ерөнхий бүтэц}
 
 Энэхүү систем нь T3 Stack дээр суурилсан бүрэн хэмжээний веб систем бөгөөд Next.js, Prisma ORM, NextAuth.js технологиудыг ашигласан. Хэрэглэгчийн хүсэлт нь Next.js App Router-аар дамжин Prisma ORM-р PostgreSQL өгөгдлийн санд хандах бүтэцтэй ба T3 технологийн стек нь TypeScript хэлийг ашиглан frontend, backend хооронд кодын давхардлыг багасгаж, системийн найдвартай байдлыг хангадаг.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    node distance=0.9cm,
+    font=\normalsize,
+    layer/.style={
+        rectangle,
+        rounded corners=6pt,
+        draw,
+        line width=1.2pt,
+        minimum width=11cm,
+        minimum height=1.6cm,
+        align=center,
+        inner sep=6pt
+    },
+    client/.style   ={layer, draw=violet!60,      fill=violet!12},
+    frontend/.style ={layer, draw=orange!70,      fill=orange!15},
+    backend/.style  ={layer, draw=red!55,         fill=red!12},
+    database/.style ={layer, draw=green!55!black, fill=green!15},
+    arr/.style={-{Latex[length=3mm, width=2mm]}, line width=1.2pt}
+]
+\node[client] (client)
+    {\textbf{Хэрэглэгчийн давхарга (client)} \\[2pt]
+     Зочин \ $\cdot$ \ Админ \ $\cdot$ \ Ресепшн};
+
+\node[frontend, below=of client] (frontend)
+    {\textbf{Харагдах хэсэг (frontend)} \\[2pt]
+     Next.js 14 \ $\cdot$ \ React \ $\cdot$ \ TailwindCSS};
+
+\node[backend, below=of frontend] (backend)
+    {\textbf{Серверийн хэсэг (backend)} \\[2pt]
+     Spring Boot REST API \ $\cdot$ \ JWT нэвтрэлт \ $\cdot$ \ Бизнес логик};
+
+\node[database, below=of backend] (database)
+    {\textbf{Өгөгдлийн давхарга (database)} \\[2pt]
+     PostgreSQL \ $\cdot$ \ AWS};
+
+\draw[arr, violet!60] (client)   -- (frontend);
+\draw[arr, orange!70] (frontend) -- (backend);
+\draw[arr, red!55]    (backend)  -- (database);
+\end{tikzpicture}
+\caption{Системийн дөрвөн давхаргат бүтэц}
+\label{fig:architecture}
+\end{figure}
 
 \subsection{Системийн үндсэн урсгал}
 
@@ -55,15 +100,46 @@
 \end{table}
 
 % ======= 3.3 =======
-\section{Функционал шаардлага}
+\section{Системийн шаардлага}
 
-Судалгааны явцад тодорхойлсон гол функционал шаардлагуудыг доорх хүснэгтэд нэгтгэн үзүүлэв.
-
+Судалгааны явцад системд шаардлагатай үндсэн функцуудыг сувиллын ажилтантай хийсэн асуулга, ярилцлагын аргаар тодорхойлсон.
+Мөн системийн найдвартай байдал, аюулгүй байдлын шаардлагуудыг тусгайлан авч үзсэн. Эдгээр шаардлагуудыг тодорхойлохдоо Эрүүл мэндийн яамны нийтийн эрүүл мэнд, нөхөн сэргээх үйлчилгээний статистик мэдээллийг \cite{mohstats2023} суурь мэдээлэл болгон ашигласан.
+Доорх зурагт Хужирт сумын нэгэн сувилалд 2016–2023 оны хооронд үйлчлүүлсэн үйлчлүүлэгчдийн тооны өөрчлөлтийг харуулав.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      ybar,
+      bar width=0.58cm,
+      width=0.85\textwidth,
+      height=6.5cm,
+      xtick={1,2,3,4,5,6,7,8},
+      xticklabels={2016,2017,2018,2019,2020,2021,2022,{2023/11}},
+      nodes near coords,
+      nodes near coords align={vertical},
+      every node near coord/.style={font=\scriptsize},
+      ymin=0,
+      ymax=6500,
+      ylabel={Үйлчлүүлэгчийн тоо (хүн)},
+      xlabel={Он},
+      enlarge x limits=0.08,
+      tick label style={font=\small},
+      label style={font=\small},
+    ]
+      \addplot[fill=blue!45, draw=blue!70] coordinates {
+        (1,1450)(2,2937)(3,3346)(4,4069)
+        (5,3863)(6,2521)(7,5146)(8,4247)
+      };
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Хужирт сумын нэг сувиллын үйлчлүүлэгчийн тооны өөрчлөлт (2016--2023)\\[2pt]}
+  \label{fig:customers-stats}
+\end{figure}
 \vspace{0.5cm}
 
 \begin{table}[H]
   \centering
-  \caption{Функционал шаардлагын жагсаалт}
+  \caption{Системийн шаардлагын жагсаалт}
   \label{tab:functional-req}
   \begin{tabular}{|l|l|p{6cm}|l|}
     \hline
@@ -93,29 +169,40 @@
 \end{table}
 
 % ======= 3.4 =======
-\section{Функционал бус шаардлага}
 
-Функционал бус шаардлага болох системийн чанар, найдвартай байдал, аюулгүй байдлын хүрэх түвшинг тодорхойлно. Эдгээр шаардлагууд нь системийн ашиглалтын орчин болон хэрэглэгчийн тоог урьдчилан тооцоолсны үндсэн дээр тогтоогдсон болно.
 
+Статистик мэдээллээс харахад 2022 онд үйлчлүүлэгчдийн тоо 5,146-д хүрч, судлагдсан хугацаанд хамгийн өндөр үзүүлэлтэд хүрсэн байна. Энэхүү өсөлтийн хандлага нь системд ирэх ачаалал нэмэгдэхийг илтгэж байгаа тул уг өгөгдөлд тулгуурлан функционал бус шаардлагуудыг тодорхойлсон.
+Нэгдүгээрт, жилийн дундаж болон оргил ачааллын үед нэгэн зэрэг нэвтрэх хэрэглэгчдийн тоо мэдэгдэхүйц өсөх хандлагатай тул \textbf{NFR-01 гүйцэтгэлийн шаардлага}-ын хүрээнд 100-аас дээш хэрэглэгчийг нэгэн зэрэг 200 ms-ээс бага хариу хугацаатайгаар дэмжих шаардлагыг тогтоосон.
+Хоёрдугаарт, олон хэрэглэгч нэгэн зэрэг ижил өрөөг захиалах нөхцөл үүсэх магадлалтай учир \textbf{NFR-03 захиалга түгжих} механизмыг хэрэгжүүлэх шаардлагатай гэж үзсэн.
+Гуравдугаарт, хэрэглэгчдийн тодорхой хувь нь гар утас болон таблет төхөөрөмжөөс системд хандах хэрэгцээтэй тул \textbf{NFR-04 responsive дизайн}-ыг зайлшгүй хангахаар тусгасан.
 \vspace{0.5cm}
-
 \begin{table}[H]
   \centering
-  \caption{Функционал бус шаардлагын жагсаалт}
+  \caption{Функционал бус шаардлагууд}
   \label{tab:nonfunctional-req}
-  \begin{tabular}{|l|l|p{5.5cm}|l|}
+  \begin{tabular}{|l|l|p{5.5cm}|p{3.5cm}|}
     \hline
-    \textbf{NFR-ID} & \textbf{Ангилал} & \textbf{Шаардлага} & \textbf{Хэмжих арга} \\
+    \textbf{NFR-ID} & \textbf{Ангилал} & \textbf{Шаардлага} & \textbf{Хэмжих үзүүлэлт} \\
     \hline
-    NFR-01 & Гүйцэтгэл      & API хариу дундаж 200ms-с бага, 100-аас дээш нэгэн зэрэг хэрэглэгчийг дэмжих    & Хариу хугацааны тест \\
+    NFR-01 & Гүйцэтгэл      
+    & API хариу хугацаа дунджаар 200 ms-ээс бага, 100+ хэрэглэгчийг нэгэн зэрэг дэмжих    
+    & Ачааллын тест (Load test) \\
     \hline
-    NFR-02 & Аюулгүй байдал & HTTPS, JWT токен, bcrypt нууц үг хэшлэх, SQL injection хамгаалалт                  & Нэвтрэлтийн тест \\
+    NFR-02 & Аюулгүй байдал 
+    & HTTPS протокол, JWT токен, bcrypt алгоритмаар нууц үг хэшлэх, SQL injection хамгаалалт                  
+    & Аюулгүй байдлын тест \\
     \hline
-    NFR-03 & Захиалга түгжих & Захиалгыг баталгаажуулах 10 минутын хугацаа өгч захиалгыг түгжих                             & Ачааллын тест \\
+    NFR-03 & Өгөгдлийн бүрэн бүтэн байдал 
+    & Захиалгыг баталгаажуулах хүртэл 10 минутын хугацаанд түгжих механизм хэрэгжүүлэх                            
+    & Зэрэг хандалтын тест \\
     \hline
-    NFR-04 & Хүртээмж       & Responsive дизайн (гар утас, таблет, компьютер)          & Дэлгэцийн тест \\
+    NFR-04 & Хүртээмж       
+    & Responsive дизайн (гар утас, таблет, компьютер дээр зохицох)          
+    & Дэлгэцийн тест \\
     \hline
-    NFR-05 & Засвар үйлчилгээ & Логийн систем, кодын баримтжуулалт, хялбар deploy                               & Код хянах \\
+    NFR-05 & Засвар үйлчилгээ 
+    & Лог бүртгэл, кодын баримтжуулалт, хялбар deploy хийх боломж                              
+    & Кодын хяналт \\
     \hline
   \end{tabular}
 \end{table}

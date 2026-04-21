@@ -27,8 +27,8 @@
 \setmainfont{Times New Roman}        % Times New Roman фонт
 \usepackage{geometry}
 \geometry{
-  left=2.5cm,   % зүүн талаас
-  right=2.0cm,  % баруун талаас
+  left=3.0cm,   % зүүн талаас
+  right=1.5cm,  % баруун талаас
   top=2.0cm,    % дээд талаас
   bottom=2.0cm  % доод талаас
 }

@@ -57,8 +57,30 @@
 \usepackage[backend=biber, style=numeric, sorting=none]{biblatex}
 \addbibresource{references/refs.bib}
 
+% URL хандсан огноо: "хандсан огноо: ЖЖЖЖ.СС.ӨӨ" формат
+\DefineBibliographyStrings{russian}{
+  urlseen = {хандсан огноо},
+}
+\renewbibmacro*{urldate}{%
+  \iffieldundef{urlyear}{}%
+  {%
+    \printtext[parens]{%
+      \bibstring{urlseen}\addcolon\addspace
+      \thefield{urlyear}%
+      \iffieldundef{urlmonth}{}{\adddot\mkdatezeros{\thefield{urlmonth}}}%
+      \iffieldundef{urlday}{}{\adddot\mkdatezeros{\thefield{urlday}}}%
+    }%
+  }%
+}
+
 % --- Товчилсон үгсийн жагсаалт ---
 \usepackage{acronym}
+
+% --- Графикийн багц ---
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 % --- Зураг, хүснэгтийн жагсаалт ---
 \usepackage[titles]{tocloft}
@@ -338,5 +360,17 @@
 
 % Бүлэг 3
 \input{chapters/03_methodology}
+
+% Бүлэг 4
+\input{chapters/04_results}
+
+% Ном зүй
+\input{chapters/05_bibliography}
+
+% Товчлол
+\input{chapters/06_summary}
+
+% Хавсралт
+\input{chapters/07_appendix}
 
 \end{document}
