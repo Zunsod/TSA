@@ -25,13 +25,21 @@
     \textbf{ID} & \textbf{Шаардлага} & \textbf{Туршилтын аргачлал} & \textbf{Төлөв} \\
     \midrule
     FR-01 & Нэвтрэх ба бүртгүүлэх & Playwright E2E + Unit test & \checkmark \\
+    \hline
     FR-02 & Өрөө, багц хайх ба шүүх & Manual UI test + Playwright E2E & \checkmark \\
+    \hline
     FR-03 & PENDING төлөвтэй захиалга үүсгэх & API Endpoint test + E2E & \checkmark \\
+    \hline
     FR-04 & Өрөөний хүртээмжийг цаг тухайд харах & Concurrency test (\S 3.9.3) + Load test (\S 3.9.4) & \checkmark \\
+    \hline
     FR-05 & Ажилтан захиалгыг баталгаажуулах & Manual Role-based Access Test & \checkmark \\
+    \hline
     FR-06 & Үйлчлүүлэгч захиалгыг цуцлах & Boundary value analysis & \checkmark \\
+    \hline
     FR-07 & Сувиллын удирдлагын дашбоард & End-to-end integration test & \checkmark \\
+    \hline
     FR-08 & Хэрэглэгчдийн болон эрхийн удирдлага & Session management test & \checkmark \\
+    \hline
     FR-09 & Имэйлээр захиалгын мэдээлэл илгээх & SMTP Mocking (NodeMailer) test & $\times$ \\
     \midrule
     \multicolumn{3}{c}{\textbf{Нийт амжилттай}} & \textbf{8/9 (88.9\%)} \\
@@ -308,12 +316,6 @@ ALTER TABLE bookings
   \caption{Хэрэглэгчдийн өгсөн SUS онооны давтамжийн тархалт}
   \label{fig:sus-histogram}
 \end{figure}
-
-\textbf{Хэрэглэгчдээс ирсэн чанарын санал хүсэлтүүд:}
-\begin{itemize}
-    \item \textit{``Өмнө нь утсаар залгаж оочер хүлээдэг байсан бол одоо шууд өрөөнийхөө зургийг хараад захиалчихдаг болсон нь маш их таалагдлаа.''} (43 настай, амрагч)
-    \item \textit{``Шинэ хүн сургахад бараг өдрөөр цаг зарцуулахааргүй хялбар дизайнтай байна. Тайлан харах үйлдэл цаг хэмнэж байна.''} (36 настай, хүлээн авагч)
-\end{itemize}
 
 % ─────────────────────────────────────────────────────────────
 \section{Судалгааны асуултуудын хариу}

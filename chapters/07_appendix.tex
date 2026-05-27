@@ -2,6 +2,156 @@
 % Хавсралт
 % ============================================================
 
+% --- өнгийн тодорхойлолт ---
+\definecolor{apphdr}{RGB}{30, 80, 160}      % цэнхэр гарчгийн мөр
+\definecolor{appalt}{RGB}{224, 234, 248}     % цайвар цэнхэр ээлжилсэн мөр
+\definecolor{appsub}{RGB}{52, 120, 210}      % дунд гарчгийн мөр
+\definecolor{appgreen}{RGB}{0, 120, 80}      % API GET
+\definecolor{apppost}{RGB}{180, 90, 0}       % API POST
+\definecolor{apppatch}{RGB}{120, 0, 140}     % API PATCH
+\definecolor{appdel}{RGB}{180, 0, 0}         % API DELETE
+
 \appendix
-\addcontentsline{toc}{chapter}{Хавсралт}
 \chapter*{Хавсралт}
+\addcontentsline{toc}{chapter}{Хавсралт}
+
+% ─────────────────────────────────────────────────────────────
+\section*{Хавсралт А. SUS ашиглах чадварын судалгааны асуулга}
+% ─────────────────────────────────────────────────────────────
+
+Дараах хүснэгтэд System Usability Scale (SUS) стандарт аргачлалын 10 асуултыг жагсаав.
+Оролцогчид 1 (бүрэн санал нийлэхгүй) --- 5 (бүрэн санал нийлэх) хэмжүүрт хариулна.
+
+\vspace{6pt}
+\begin{center}
+\small
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{|>{\columncolor{appalt}}c
+                |>{\raggedright\arraybackslash}p{8.2cm}
+                |c|c|c|c|c|}
+\hline
+\rowcolor{apphdr}\textcolor{white}{\textbf{\textnumero}}
+  & \textcolor{white}{\textbf{Асуулт}}
+  & \textcolor{white}{\textbf{1}}
+  & \textcolor{white}{\textbf{2}}
+  & \textcolor{white}{\textbf{3}}
+  & \textcolor{white}{\textbf{4}}
+  & \textcolor{white}{\textbf{5}} \\
+\hline
+1  & Энэ системийг цаашид тогтмол ашиглах сонирхолтой байна. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+\rowcolor{appalt}
+2  & Системийн бүтэц, үйлдлүүд ойлгомжтой санагдсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+3  & Захиалга хийх болон ашиглах үйл явц хялбар байсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+\rowcolor{appalt}
+4  & Системийг ашиглахад нэмэлт заавар, тусламж хэрэгтэй санагдсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+5  & Системийн үйлдлүүд хоорондоо уялдаа сайтай ажиллаж байсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+\rowcolor{appalt}
+6  & Системийн зарим хэсэг ойлгомжгүй эсвэл төвөгтэй санагдсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+7  & Ихэнх хэрэглэгч энэ системийг богино хугацаанд ашиглаж сурна гэж бодож байна. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+\rowcolor{appalt}
+8  & Системийг ашиглах явцад хүндрэлтэй, ойлгомжгүй санагдсан үе байсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+9  & Системийг ашиглах явц ойлгомжтой, итгэлтэй санагдсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+\rowcolor{appalt}
+10 & Системийг ашиглаж эхлэхэд нэмэлт тайлбар эсвэл заавар хэрэгтэй санагдсан. & $\square$ & $\square$ & $\square$ & $\square$ & $\square$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{8pt}
+\noindent\textit{Тайлбар: Тэгш дугаартай асуултууд сөрөг томьёололтой тул оноог урвуугаар тооцно.
+Нийт оноог 0--100 хэмжүүрт хөрвүүлж, 68-аас дээш бол ``Сайн'' гэж үнэлнэ.}
+
+% ─────────────────────────────────────────────────────────────
+\newpage
+\section*{Хавсралт Б. REST API endpoint-уудын лавлах}
+% ─────────────────────────────────────────────────────────────
+
+Дараах хүснэгтэд системийн бүх нийтийн REST API endpoint-уудыг аргын дагуу бүлэглэн харуулав.
+Эрх шаардах endpoint-уудад \texttt{Authorization: Bearer <token>} толгойг дамжуулна.
+
+\vspace{6pt}
+\begin{center}
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}
+                |>{\ttfamily\arraybackslash}m{4.5cm}
+                |>{\raggedright\arraybackslash}m{5.0cm}
+                |>{\centering\arraybackslash}m{1.5cm}|}
+\hline
+\rowcolor{apphdr}
+  \textcolor{white}{\textbf{Арга}}
+  & \textcolor{white}{\textbf{Зам}}
+  & \textcolor{white}{\textbf{Тайлбар}}
+  & \textcolor{white}{\textbf{Эрх}} \\
+\hline
+
+% --- Auth ---
+\rowcolor{appsub}\multicolumn{4}{|l|}{\textcolor{white}{\textbf{Нэвтрэлт (Auth)}}} \\
+\hline
+\cellcolor{apppost}\textcolor{white}{\textbf{POST}} & /api/auth/register    & Шинэ хэрэглэгч бүртгэх   & Нийтийн \\
+\hline
+\rowcolor{appalt}
+\cellcolor{apppost}\textcolor{white}{\textbf{POST}} & /api/auth/login       & Нэвтрэх, токен авах       & Нийтийн \\
+\hline
+\cellcolor{apppost}\textcolor{white}{\textbf{POST}} & /api/auth/logout      & Гарах, session цэвэрлэх   & Нэвтэрсэн \\
+\hline
+
+% --- Rooms ---
+\rowcolor{appsub}\multicolumn{4}{|l|}{\textcolor{white}{\textbf{Өрөө (Rooms)}}} \\
+\hline
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/rooms            & Боломжтой өрөөний жагсаалт & Нийтийн \\
+\hline
+\rowcolor{appalt}
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/rooms/[id]       & Тухайн өрөөний дэлгэрэнгүй & Нийтийн \\
+\hline
+\cellcolor{apppost}\textcolor{white}{\textbf{POST}} & /api/rooms            & Шинэ өрөө нэмэх            & Админ \\
+\hline
+\rowcolor{appalt}
+\cellcolor{apppatch}\textcolor{white}{\textbf{PATCH}} & /api/rooms/[id]     & Өрөөний мэдээлэл засах      & Админ \\
+\hline
+\cellcolor{appdel}\textcolor{white}{\textbf{DELETE}} & /api/rooms/[id]    & Өрөө устгах                 & Админ \\
+\hline
+
+% --- Bookings ---
+\rowcolor{appsub}\multicolumn{4}{|l|}{\textcolor{white}{\textbf{Захиалга (Bookings)}}} \\
+\hline
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/bookings         & Өөрийн захиалгын жагсаалт & Амрагч \\
+\hline
+\rowcolor{appalt}
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/bookings/all     & Нийт захиалгын жагсаалт   & Админ \\
+\hline
+\cellcolor{apppost}\textcolor{white}{\textbf{POST}} & /api/bookings         & Шинэ захиалга үүсгэх      & Амрагч \\
+\hline
+\rowcolor{appalt}
+\cellcolor{apppatch}\textcolor{white}{\textbf{PATCH}} & /api/bookings/[id]  & Захиалга баталгаажуулах   & Админ \\
+\hline
+\cellcolor{appdel}\textcolor{white}{\textbf{DELETE}} & /api/bookings/[id] & Захиалга цуцлах           & Амрагч/Админ \\
+\hline
+
+% --- Reports ---
+\rowcolor{appsub}\multicolumn{4}{|l|}{\textcolor{white}{\textbf{Тайлан (Reports)}}} \\
+\hline
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/reports/monthly  & Сарын дүүргэлтийн тайлан  & Админ \\
+\hline
+\rowcolor{appalt}
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/reports/revenue  & Орлогын тайлан             & Админ \\
+\hline
+\cellcolor{appgreen}\textcolor{white}{\textbf{GET}} & /api/reports/export   & Excel/PDF тайлан татах    & Админ \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{8pt}
+\noindent\textit{Тайлбар: Эрхийн багананд ``Нийтийн'' гэсэн нь нэвтрэлтгүйгээр хандах боломжтойг,
+``Амрагч'' болон ``Админ'' гэсэн нь тухайн дүрийн JWT токен шаардлагатайг илэрхийлнэ.}
