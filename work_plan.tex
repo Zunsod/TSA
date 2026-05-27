@@ -1,42 +1,50 @@
-% ============================================================
-% АЖЛЫН ТӨЛӨВЛӨГӨӨ
-% ============================================================
+\documentclass[11pt,a4paper]{article}
 
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Ажлын төлөвлөгөө}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
 
-{\noindent\large\bfseries Ажлын төлөвлөгөө\par}
-\vspace{0.45cm}
+\usepackage{geometry}
+\geometry{left=2.0cm, right=1.5cm, top=1.5cm, bottom=1.5cm}
 
-% Тухайн хуудсанд мөр хоорондын зайг, догол мөр хоорондын зайг
-% локалаар багасгаж нэг хуудсанд багтаана.
-\begingroup
-\setstretch{1.0}
-\setlength{\parskip}{3pt}
+\usepackage{polyglossia}
+\setmainlanguage{mongolian}
+\setotherlanguage{english}
+
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{setspace}
+
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\pagestyle{empty}
+
+\definecolor{milered}{RGB}{180,0,0}
+
+% ────────────────────────────────────────────────────────────────────
+\begin{document}
 
 % ── Толгой мэдээлэл ─────────────────────────────────────────────────
 \noindent
-\textbf{Оюутны нэр:} Б.Зөнсод
+\textbf{Оюутны нэр:} Б.Зэнсод
 \hfill
 \textbf{Удирдагч багшийн нэр:} Б.Батчулуун
 
-\smallskip
+\medskip
 \noindent
-\textbf{Судалгааны ажлын сэдэв:} Сувиллын бүртгэл мэдээллийн систем
+\textbf{Судалгааны ажлын сэдэв:} Сувиллын бүртгэл мэдааллийн систем
 
-\vspace{0.35cm}
+\bigskip
 
 % ── Төлөвлөгөөний хүснэгт ────────────────────────────────────────────
-{\setlength{\tabcolsep}{3pt}%
- \renewcommand{\arraystretch}{1.02}%
- \footnotesize
 \noindent
+{\small
 \begin{tabular}{%
-  |>{\centering\arraybackslash}p{1.5cm}%
-  |>{\centering\arraybackslash}p{1.7cm}%
-  |p{10.8cm}%
-  |>{\centering\arraybackslash}p{1.3cm}|%
+  |>{\centering\arraybackslash}p{1.6cm}%
+  |>{\centering\arraybackslash}p{1.8cm}%
+  |p{11.5cm}%
+  |>{\centering\arraybackslash}p{1.4cm}|%
 }
 \hline
 \textbf{Сар} &
@@ -53,14 +61,14 @@
       & \checkmark \\
 \cline{2-4}
   & 2 & Веб системийн онол, технологийн судалгаа
-        (Next.js, Prisma ORM, PostgreSQL гэх мэт)
+        (React, Spring Boot, PostgreSQL гэх мэт)
       & \checkmark \\
 \cline{2-4}
   & 3 & Сувиллын захиалга авах урсгалыг ойлгох,
         тулгамдаж буй гол асуудлыг тодорхойлох
       & \checkmark \\
 \cline{2-4}
-  & 4 & Системийн шаардлагын шинжилгээ гаргах
+  & 4 & Системийн шаардлагын шинжилгэлт гаргах
       & \checkmark \\
 \hline
 
@@ -71,13 +79,13 @@
   & 1 & Системийн архитектур ба өгөгдлийн сангийн загвар боловсруулах
       & \checkmark \\
 \cline{2-4}
-  & 2 & Харагдах хэсгийн бүтцийг боловсруулах (Next.js, React, TailwindCSS)
+  & 2 & Front-end хэсгийн бүтцийг боловсруулах (ReactJS, TailwindCSS)
       & \checkmark \\
 \cline{2-4}
-  & 3 & Серверийн хэсгийг Next.js API Routes болон Prisma ORM ашиглан хөгжүүлж эхлэх
+  & 3 & Back-end серверийг Spring Boot ашиглан хөгжүүлж эхлэх
       & \checkmark \\
 \cline{2-4}
-  & 4 & PostgreSQL/Supabase өгөгдлийн сан үүсгэх, Prisma схем тодорхойлох
+  & 4 & PostgreSQL өгөгдлийн сан үүсгэх, API холболт хийх
       & \checkmark \\
 \hline
 
@@ -88,7 +96,7 @@
   & 1 & \textcolor{milered}{\textbf{ТСА Үзлэг 1}}
       & \checkmark \\
 \cline{2-4}
-  & 2 & Харагдах болон серверийн хэсгийн интеграц, анхны туршилт хийх
+  & 2 & Front-end болон Back-end интеграц, анхны туршилт хийх
       & \checkmark \\
 \cline{2-4}
   & 3 & Системийн анхны хувилбарыг турших, алдаа засварлах
@@ -111,7 +119,7 @@
   & 3 & Системийн гүйцэтгэл ба найдвартай байдлын шалгалт
       & \checkmark \\
 \cline{2-4}
-  & 4 & Системийг Vercel болон Supabase орчинд байршуулж турших
+  & 4 & Системийг AWS орчинд байршуулж турших
       & \checkmark \\
 \hline
 
@@ -184,15 +192,15 @@
 \hline
 
 \end{tabular}
-}% end footnotesize + tabcolsep + arraystretch
+}% end \small
 
 % ── Гарын үсэг ───────────────────────────────────────────────────────
-\vspace{0.5cm}
+\vspace{1.2cm}
 
 \noindent
-\begin{tabular}{@{}p{0.45\textwidth}@{\hfill}p{0.45\textwidth}@{}}
-Удирдагч багш      & /Б.Батчулуун, багш/ \\[0.35cm]
+\begin{tabular}{@{}p{0.42\textwidth}@{\hfill}p{0.45\textwidth}@{}}
+Удирдагч багш      & /Б.Батчулуун, багш/ \\[0.6cm]
 Гүйцэтгэсэн оюутан & /Б.Зэнсод/          \\
 \end{tabular}
 
-\endgroup
+\end{document}

@@ -20,7 +20,7 @@
 
 % --- Мөрийн зай ---
 \usepackage{setspace}
-\singlespacing
+\setstretch{1.15}
 \setlength{\parskip}{6pt}
 \setlength{\parindent}{1.15cm}
 
@@ -44,6 +44,9 @@
 \usepackage{array}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{xcolor}
+\definecolor{milered}{RGB}{180,0,0}
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
@@ -68,6 +71,8 @@
 
 % --- Жагсаалтын формат ---
 \usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{caption}
 \setlist[enumerate]{topsep=4pt, itemsep=2pt, parsep=0pt}
 \setlist[itemize]{topsep=4pt, itemsep=2pt, parsep=0pt}
 
@@ -83,6 +88,8 @@
   numbers=left,
   numberstyle=\tiny,
   keywordstyle=\bfseries,
+  keepspaces=true,
+  columns=fullflexible,
 }
 
 % --- Байхгүй зургийн placeholder ---
@@ -314,22 +321,24 @@
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Хүснэгтийн жагсаалт}
-\listoftables
+{\noindent\Large\bfseries Хүснэгтийн жагсаалт\par}
+\vspace{0.5cm}
+\makeatletter
+{\setlength{\parskip}{0pt}\@starttoc{lot}}
+\makeatother
 
 % --- 7. ЗУРГИЙН ЖАГСААЛТ ---
 \newpage
 \phantomsection
 \addcontentsline{toc}{chapter}{Зургийн жагсаалт}
-\listoffigures
+{\noindent\Large\bfseries Зургийн жагсаалт\par}
+\vspace{0.5cm}
+\makeatletter
+{\setlength{\parskip}{0pt}\@starttoc{lof}}
+\makeatother
 
 % --- 7. АЖЛЫН ТӨЛӨВЛӨГӨӨ ---
-\newpage
-\chapter*{Ажлын төлөвлөгөө}
-\addcontentsline{toc}{chapter}{Ажлын төлөвлөгөө}
-\begin{longtable}{|c|p{7cm}|p{3cm}|p{3cm}|}
-  \hline
-  \textbf{№} & \textbf{Ажлын агуулга} & \textbf{Хугацаа} & \textbf{Гүйцэтгэл} \\ \hline
-\end{longtable}
+\input{chapters/00_plan}
 
 % --- ҮНДСЭН ХЭСЭГ (ARABIC NUMERALS) ---
 \newpage

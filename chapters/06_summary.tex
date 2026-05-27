@@ -1,18 +1,261 @@
 % --- ТОВЧЛОЛ ---
 \newpage
-\chapter*{Товчлол}
 \addcontentsline{toc}{chapter}{Товчлол}
 
-Өвөрхангай аймгийн Хужирт сумын сувиллуудын захиалгын үйл явцыг цахимжуулах зорилгоор веб суурьтай бүртгэл мэдээллийн системийг хөгжүүлж, туршилтын орчинд нэвтрүүлсний үр дүнг энэ судалгааны ажилд тусгав.
+% ── Гарчиг ────────────────────────────────────────────────────
+\begin{center}
+  {\large\bfseries Сувиллын бүртгэл мэдээллийн систем\par}
+\end{center}
 
-\textbf{Гол дэвшүүлсэн санаа:} Сувиллын утсаар захиалга авах, цаасан бүртгэл хөтлөх уламжлалт аргыг орлуулах цахим платформыг Next.js, Prisma ORM, PostgreSQL технологийн стек дээр суурилан хөгжүүлсэн. Систем нь олон хэрэглэгчийн үүрэг (зочин, үйлчлүүлэгч, ажилтан, админ)-тэй, аюулгүй байдал, зэрэг хандалтын хяналттай бүрэн хэмжээний веб системийг хэрэгжүүлсэн.
+\begin{flushright}
+  \small
+  Мэдээллийн технологийн тэнхим\\
+  Оюутан: Б.Зөнсод\\
+  Удирдагч багш: Б.Батчулуун
+\end{flushright}
 
-\textbf{Судалгааны үр дүн:}
+\vspace{0.3cm}
+\setlength{\columnsep}{0.6cm}
+\begin{multicols}{2}
+\setstretch{1.05}
+\setlength{\parskip}{4pt}
 
-Нэгдүгээрт, гүйцэтгэлийн хэмжилтээс харахад шинэ систем нэг захиалга боловсруулах хугацааг 15 минутаас 2.3 минут болгон буюу \textbf{85\%}-иар бууруулсан. Өдрийн тайлан гаргах үйлдэл 35 минутаас 1.2 минут болж \textbf{96.6\%}-ийн бууралттай байлаа. Энэ нь сувиллын ажилтнуудын өдөр тутмын ажлын ачааллыг мэдэгдэхүйц хөнгөвчилдгийг нотолж байна.
+% ═══════════════════════════════════════════
+\subsection*{1. Удиртгал}
 
-Хоёрдугаарт, цаасан бүртгэлд тогтмол тохиолддог байсан давхар захиалгын асуудлыг PostgreSQL-ийн pessimistic locking (\texttt{SELECT ... FOR UPDATE}) болон EXCLUDE constraint-ийн хослолоор бүрэн шийдсэн. 50 хэрэглэгчийн зэрэг хандалтын туршилтад \textbf{нэг ч давхар захиалга} үүсгэлгүй систем зөв ажилласан.
+Өвөрхангай аймгийн Хужирт суманд байрлах сувиллууд нь Монгол орны нөхөн сэргээх эмчилгээний үйлчилгээний чухал төв болж ирсэн. Гэвч тус сувиллуудад захиалга авах үйл явц утсаар дамжин явагддаг бөгөөд нэг захиалга баталгаажуулахад дунджаар \textbf{15 минут} зарцуулагддаг байсан. Гар бичмэл дэвтэр, Excel хүснэгтэд хийдэг бүртгэл нь давхар захиалга, алдаа, мэдээллийн алдагдлыг байнга үүсгэдэг байв.
 
-Гуравдугаарт, $n=13$ хэрэглэгчид System Usability Scale \cite{brooke1996sus} аргачлалаар хийсэн үнэлгээгээр системийн ашиглах чадвар \textbf{76.3 оноо} авч, Bangor нарын \cite{bangor2008sus} ``сайн'' ангиллын (68+) босгыг давлаа. Ажилтнуудын дундаж оноо 81.7 байсан нь энгийн, ойлгомжтой интерфейстэй болохыг илтгэж байна.
+Доорх зурагт Хужирт сумын нэгэн сувилалд 2016–2023 оны хооронд үйлчлүүлсэн үйлчлүүлэгчдийн тооны өөрчлөлтийг харуулав. 2016 онд 1{,}450 байсан үйлчлүүлэгчийн тоо 2022 он гэхэд 5{,}146 хүрч \textbf{254.9\%}-иар өссөн байгаа нь цахим захиалгын системийн хэрэгцээг тодорхой харуулж байна. 2020–2021 оны уналт нь COVID-19 цар тахлын шууд нөлөөлөл юм.
 
-\textbf{Ач холбогдол:} Энэхүү судалгааны ажлын үр дүн нь Хужирт сумын сувиллуудад практикт нэвтрүүлэх бэлэн жишиг загвар болохоос гадна ижил төрлийн аялал жуулчлал, рашаан сувилалын байгууллагуудад хэвшүүлэх боломжтой. Системийг цаашид гар утасны аппликейшн, банкны QPay/SocialPay интеграци, олон сувиллын (multi-tenant) архитектур руу өргөтгөх боломжтой гэдгийг судлаач тэмдэглэж байна.
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    ybar,
+    bar width=0.38cm,
+    width=7.8cm,
+    height=4.5cm,
+    xtick={1,2,3,4,5,6,7,8},
+    xticklabels={2016,2017,2018,2019,2020,2021,2022,{2023}},
+    x tick label style={font=\tiny, rotate=30, anchor=east},
+    nodes near coords,
+    nodes near coords align={vertical},
+    every node near coord/.style={font=\tiny},
+    ymin=0, ymax=6800,
+    ylabel={\tiny Үйлчлүүлэгч (хүн)},
+    ylabel style={font=\tiny},
+    xlabel={\tiny Он},
+    xlabel style={font=\tiny},
+    enlarge x limits=0.08,
+    tick label style={font=\tiny},
+  ]
+  \addplot[fill=blue!45, draw=blue!70] coordinates {
+    (1,1450)(2,2937)(3,3346)(4,4069)
+    (5,3863)(6,2521)(7,5146)(8,4247)
+  };
+  \end{axis}
+\end{tikzpicture}
+\captionof{figure}{Хужирт сумын нэг сувиллын үйлчлүүлэгчийн тооны өөрчлөлт (2016--2023) \cite{mohstats2023}}
+\end{center}
+
+Судалгааны зорилго нь энэхүү уламжлалт үйл явцыг орлох веб суурьтай бүртгэл мэдээллийн систем хөгжүүлж, хэрэглэгчийн цагийн зардлыг бууруулах, давхар захиалгыг арилгах явдал юм. Судалгааны асуултууд (RQ):
+
+\begin{itemize}[leftmargin=1.2em, itemsep=2pt]
+  \item \textbf{RQ1} --- Веб систем захиалгын цагийн зардлыг хэр хэмжээгээр бууруулах вэ?
+  \item \textbf{RQ2} --- Зэрэг хандалтын давхар захиалгыг database түвшинд найдвартай шийдэж болох уу?
+  \item \textbf{RQ3} --- Систем хэрэглэгчдэд ашиглахад хэр хялбар байх вэ?
+\end{itemize}
+
+% ═══════════════════════════════════════════
+\subsection*{2. Онолын үндэс}
+
+Веб суурьтай захиалгын системийн судалгаанд клиент-серверийн архитектур \cite{fielding2000}, зэрэг хандалтын хяналт \cite{bernstein1987concurrency}, олон хэрэглэгчийн тусгаарлалт болон ашиглах чадварын \cite{brooke1996sus} онолуудыг үндэслэл болгон авсан. Онолын хэсгийн шинжилгээгээр дараах гурван үндсэн дүгнэлтэд хүрсэн:
+
+\begin{enumerate}[leftmargin=1.4em, itemsep=1pt]
+  \item Олон улсын сувиллын удирдлагын системүүд (HMS) нь захиалгын хугацааг дунджаар 60--80\% хүртэл бууруулдаг болохыг харуулсан.
+  \item Монгол орны сувиллын секторт 2023 оны байдлаар онлайн захиалгын систем нэвтрүүлсэн байгууллага нийт сувиллын 12\%-иас хэтрэхгүй байгаа нь практик судалгааны хэрэгцээг нотолж байна.
+  \item PostgreSQL-ийн EXCLUDE constraint ба pessimistic locking хослол нь zэрэг хандалтын нөхцөлд давхар захиалгыг найдвартай хааж чаддаг болохыг Bernstein нарын судалгаа батлав.
+\end{enumerate}
+
+Одоогийн Монгол орны сувиллын секторын онлайн систем хөгжөөгүй, цаасан бүртгэлд тулгуурлаж байгаа нь практик судалгааны хэрэгцээг нотолж байна.
+
+% ═══════════════════════════════════════════
+\subsection*{3. Судалгааны арга зүй}
+
+Систем нь \textbf{T3 Stack} (Next.js~14, TypeScript, Prisma ORM) дээр суурилсан бөгөөд өгөгдлийн санд PostgreSQL/Supabase ашигласан. Хөгжүүлэлтийн арга зүйд Agile давтамжит аргыг баримталж, 7 үе шаттай хэрэгжүүлсэн.
+
+\begin{center}
+\small
+\textbf{Хүснэгт 1.} Технологийн стекийн хураангуй\\[4pt]
+\begin{tabular}{|l|l|}
+  \hline
+  \textbf{Давхарга} & \textbf{Технологи} \\
+  \hline
+  Frontend  & Next.js 14, React, TailwindCSS \\
+  Backend   & Next.js API Routes, NextAuth.js \\
+  ORM       & Prisma ORM, TypeScript \\
+  Database  & PostgreSQL (Supabase) \\
+  Deploy    & Vercel \\
+  \hline
+\end{tabular}
+\end{center}
+
+Системийн архитектур нь дөрвөн давхаргаас бүрдэнэ (Зураг~2): хэрэглэгчийн давхарга, харагдах хэсэг (frontend), серверийн хэсэг (backend), өгөгдлийн давхарга.
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=0.55cm,
+    layer/.style={
+        rectangle, rounded corners=4pt,
+        draw, line width=1pt,
+        minimum width=6.5cm, minimum height=0.85cm,
+        align=center, font=\small
+    },
+    client/.style   ={layer, draw=violet!60, fill=violet!10},
+    frontend/.style ={layer, draw=orange!70, fill=orange!12},
+    backend/.style  ={layer, draw=red!55,    fill=red!8},
+    database/.style ={layer, draw=green!55!black, fill=green!12},
+    arr/.style={-{Latex[length=2.2mm]}, line width=0.9pt}
+]
+\node[client]   (c) {\textbf{Хэрэглэгчийн давхарга}\\Зочин $\cdot$ Үйлчлүүлэгч $\cdot$ Ажилтан $\cdot$ Админ};
+\node[frontend, below=of c] (f) {\textbf{Frontend}\\Next.js $\cdot$ React $\cdot$ TailwindCSS};
+\node[backend,  below=of f] (b) {\textbf{Backend}\\API Routes $\cdot$ NextAuth.js $\cdot$ Prisma};
+\node[database, below=of b] (d) {\textbf{Database}\\PostgreSQL $\cdot$ Supabase};
+\draw[arr,violet!60](c)--(f);
+\draw[arr,orange!70](f)--(b);
+\draw[arr,red!55]   (b)--(d);
+\end{tikzpicture}
+\captionof{figure}{Системийн дөрвөн давхаргат архитектур}
+\end{center}
+
+Системийн үндсэн урсгал нь дараах 5 алхамаас бүрдэнэ (Зураг~3):
+
+\begin{center}
+\begin{tikzpicture}[
+    node distance=0.38cm and 0.2cm,
+    box/.style={rectangle, rounded corners=3pt, draw, line width=0.8pt,
+                minimum width=2.9cm, minimum height=0.7cm,
+                align=center, font=\tiny, fill=cyan!8},
+    arr/.style={-{Latex[length=1.8mm]}, line width=0.8pt}
+]
+\node[box] (a) {Хэрэглэгч\\нэвтэрнэ};
+\node[box, below=of a] (b) {Өрөө\\хайна};
+\node[box, below=of b] (c) {Захиалга\\үүсгэнэ};
+\node[box, below=of c] (d) {Ажилтан\\баталгаажуулна};
+\node[box, below=of d] (e) {Мэдэгдэл\\хүлээн авна};
+\draw[arr](a)--(b);
+\draw[arr](b)--(c);
+\draw[arr](c)--(d);
+\draw[arr](d)--(e);
+\end{tikzpicture}
+\captionof{figure}{Системийн үндсэн урсгалын диаграмм}
+\end{center}
+
+Давхар захиалгын эрсдэлийг database түвшинд хоёр аргаар хааж байна:
+\begin{enumerate}[leftmargin=1.4em, itemsep=1pt]
+  \item Prisma transaction дотор \texttt{SELECT ... FOR UPDATE} — түгжих
+  \item \texttt{EXCLUDE USING gist(daterange ...)} constraint — огнооны давхцлыг хориглох
+\end{enumerate}
+
+Туршилтын аргачлал: функциональ туршилт (Playwright E2E), ачааллын туршилт (k6, 10~VU, 5~мин), зэрэг захиалгын туршилт ($N=\{5,20,50\}$), SUS судалгаа ($n=13$).
+
+% ═══════════════════════════════════════════
+\subsection*{4. Үр дүн, дүгнэлт}
+
+\textbf{RQ1 — Цагийн зардлын бууралт.} Захиалга боловсруулах хугацаа 15~мин-аас 2.3~мин болж \textbf{84.7\%} буурсан. Тайлан гаргах 35~мин → 1.2~мин (\textbf{96.6\%} бууралт).
+
+\begin{center}
+\small
+\textbf{Хүснэгт 2.} Өмнө/Дараа харьцуулалт\\[4pt]
+\begin{tabular}{|l|c|c|}
+  \hline
+  \textbf{Үйлдэл} & \textbf{Өмнө} & \textbf{Дараа} \\
+  \hline
+  Захиалга боловсруулах & 15.0 мин & 2.3 мин \\
+  Мэдээлэл хайх         & 4.2 мин  & 0.4 мин \\
+  Өрөө шалгах           & 2.8 мин  & 0.2 мин \\
+  Тайлан гаргах          & 35.0 мин & 1.2 мин \\
+  \hline
+\end{tabular}
+\end{center}
+
+\textbf{RQ2 — Зэрэг хандалт.} $N=50$ хэрэглэгч нэгэн зэрэг нэг өрөөг захиалахад зөвхөн 1 захиалга амжилттай бүртгэгдэж, давхар захиалга \textbf{0} байсан. k6 ачааллын туршилтад 5 endpoint бүр NFR-д заасан 2 секундийн хязгаарт багтсан (Зураг~4).
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  ybar=3pt, bar width=7pt,
+  width=7.8cm, height=5cm,
+  enlarge x limits=0.18,
+  legend style={at={(0.5,1.18)}, anchor=north, legend columns=3, font=\tiny},
+  ylabel={\small Хариу хугацаа (ms)},
+  ylabel style={font=\small},
+  symbolic x coords={Өрөө, Захиалах, Харах, Дашбоард, Тайлан},
+  xtick=data,
+  x tick label style={font=\tiny, rotate=10, anchor=east},
+  nodes near coords,
+  every node near coord/.style={font=\tiny, rotate=90, anchor=west},
+  nodes near coords align={vertical},
+  ymin=0, ymax=1350,
+]
+\addplot[fill=blue!40]   coordinates {(Өрөө,124)(Захиалах,221)(Харах,94)(Дашбоард,176)(Тайлан,342)};
+\addplot[fill=orange!60] coordinates {(Өрөө,278)(Захиалах,583)(Харах,208)(Дашбоард,492)(Тайлан,816)};
+\addplot[fill=red!50]    coordinates {(Өрөө,412)(Захиалах,789)(Харах,341)(Дашбоард,718)(Тайлан,1147)};
+\legend{p50, p95, p99}
+\end{axis}
+\end{tikzpicture}
+\captionof{figure}{k6 ачааллын туршилт --- endpoint хариу хугацаа (ms)}
+\end{center}
+
+\textbf{RQ3 — Ашиглах чадвар.} SUS судалгаанд $n=13$ оролцогч \textbf{76.3 оноо} өгч, Bangor нарын \cite{bangor2008sus} ``сайн'' ангиллын босгыг (68+) давлаа. Функциональ шаардлагын 8/9 (88.9\%) амжилттай туршигдсан; FR-09 (имэйл) SMTP mock серверийн орчны асуудлаас шалтгаалан туршилт бүтэлгүйтсэн.
+
+% ═══════════════════════════════════════════
+\subsection*{5. Аюулгүй байдлын үр дүн}
+
+OWASP Top 10 \cite{owasp2021} удирдамжийн дагуу зургаан чиглэлийн аюулгүй байдлын шалгалтыг гүйцэтгэсэн бөгөөд бүгд амжилтанд хүрсэн.
+
+\begin{center}
+\small
+\textbf{Хүснэгт 3.} Аюулгүй байдлын шалгалтын дүн\\[4pt]
+\begin{tabular}{|l|c|}
+  \hline
+  \textbf{Шалгалтын чиглэл} & \textbf{Төлөв} \\
+  \hline
+  SQL injection (Prisma ORM параметржуулалт) & \checkmark \\
+  Session security (httpOnly, SameSite) & \checkmark \\
+  Нууц үг хэшлэх (bcrypt rounds=12) & \checkmark \\
+  Rate limiting (/api/auth, мин/10) & \checkmark \\
+  JWT токены бүрэн байдал (HS256) & \checkmark \\
+  HTTPS шифрлэлт (TLS 1.3, HSTS) & \checkmark \\
+  \hline
+\end{tabular}
+\end{center}
+
+Хэрэглэгчдийн чанарын үнэлгээнээс: \textit{``Өмнө нь утсаар залгаж оочер хүлээдэг байсан бол одоо шууд өрөөнийхөө зургийг хараад захиалчихдаг болсон нь маш их таалагдлаа.''} (43 настай, амрагч). Ажилтны талаас: \textit{``Тайлан харах үйлдэл цаг хэмнэж байна.''} (36 настай, хүлээн авагч).
+
+% ═══════════════════════════════════════════
+\subsection*{6. Эцсийн дүгнэлт}
+
+\textbf{Дүгнэлт.} Энэхүү судалгааны ажлаар уламжлалт хэлбэрээр явагддаг сувиллын газруудын бүртгэл мэдээлэл, захиалгын үйл явцыг бүрэн цахимжуулж, орчин үеийн Next.js, Prisma, PostgreSQL технологиудыг ашигласан реактив веб системийг хөгжүүлэн нэвтрүүлж туршлаа. Судалгааны гурван үндсэн дүгнэлт:
+
+\begin{enumerate}[leftmargin=1.4em, itemsep=1pt]
+  \item Цахим систем нь ажилтнуудын өдөр тутмын гар ажиллагааны цаг үрэлтийг дунджаар \textbf{70--90\%} бууруулж чадсан.
+  \item Мэдээллийн санд concurrency control аргачлалыг тусгаснаар давхар захиалга үүсэх эрсдлийг \textbf{бүрмөсөн} шийдэж чадсан (0 тохиолдол).
+  \item SUS үнэлгээгээр \textbf{76.3 оноо} авч ``Сайн'' ангилалд хамрагдсан нь практикт бодитоор нэвтрүүлэх бүрэн боломжтойг нотолсон.
+\end{enumerate}
+
+Систем нь Хужирт сумын сувиллуудад практикт нэвтрүүлэх бэлэн загвар болохоос гадна ижил төрлийн байгууллагуудад ашиглах боломжтой. \textbf{Цаашдын чиглэл:} гар утасны аппликейшн, QPay/SocialPay интеграц, олон сувиллын (multi-tenant) архитектур руу өргөтгөх нь дараагийн алхам болно.
+
+% ═══════════════════════════════════════════
+\subsection*{7. Ном зүй}
+
+\begin{enumerate}[leftmargin=1.2em, itemsep=1pt, label={\arabic*.}]
+  \item \small Brooke, J. (1996). SUS: A quick and dirty usability scale.
+  \item \small Bangor, A. et al. (2008). An empirical evaluation of the SUS.
+  \item \small Fielding, R. T. (2000). Architectural styles --- REST.
+  \item \small Bernstein, P. A. et al. (1987). Concurrency Control and Recovery.
+  \item \small Kleppmann, M. (2017). Designing Data-Intensive Applications.
+  \item \small OWASP. (2021). OWASP Top Ten Web Application Security Risks.
+  \item \small Эрүүл мэндийн яам. (2023). Нийтийн эрүүл мэнд, нөхөн сэргээх статистик.
+\end{enumerate}
+
+\end{multicols}

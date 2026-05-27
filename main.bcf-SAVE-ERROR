@@ -2387,8 +2387,10 @@
     <bcf:citekey order="13" intorder="1">owasp2021</bcf:citekey>
     <bcf:citekey order="14" intorder="1">provos1999bcrypt</bcf:citekey>
     <bcf:citekey order="15" intorder="1">bangor2008sus</bcf:citekey>
-    <bcf:citekey order="16" intorder="1">brooke1996sus</bcf:citekey>
-    <bcf:citekey order="17" intorder="1">bangor2008sus</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">fielding2000</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">bernstein1987concurrency</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">brooke1996sus</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">bangor2008sus</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

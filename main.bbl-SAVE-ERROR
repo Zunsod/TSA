@@ -452,6 +452,47 @@
       \field{pages}{81\bibrangedash 91}
       \range{pages}{11}
     \endentry
+    \entry{bernstein1987concurrency}{book}{}{}
+      \name{author}{3}{}{%
+        {{hash=1f65631b3e9a886e5bb27b5f18828316}{%
+           family={Bernstein},
+           familyi={B\bibinitperiod},
+           given={Philip\bibnamedelima A.},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=808a457a96222ecfe77029a1500cce9f}{%
+           family={Hadzilacos},
+           familyi={H\bibinitperiod},
+           given={Vassos},
+           giveni={V\bibinitperiod}}}%
+        {{hash=89c73c6f0e4d71ccf6f16f7607bac96d}{%
+           family={Goodman},
+           familyi={G\bibinitperiod},
+           given={Nathan},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Reading, MA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Addison-Wesley}%
+      }
+      \strng{namehash}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{fullhash}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{fullhashraw}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{bibnamehash}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{authorbibnamehash}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{authornamehash}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{authorfullhash}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \strng{authorfullhashraw}{fa3331ef0a3df8698b1f33bc3cfc2b8d}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Concurrency Control and Recovery in Database Systems}
+      \field{year}{1987}
+      \field{pages}{370}
+      \range{pages}{1}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
