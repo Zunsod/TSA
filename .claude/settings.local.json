@@ -88,7 +88,22 @@
       "Bash(curl *)",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('Login:', d.get\\('login'\\)\\); print\\('Name:', d.get\\('name'\\)\\)\")",
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('message','OK'\\), d.get\\('html_url',''\\)\\)\")",
-      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2, ensure_ascii=False\\)\\)\")"
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2, ensure_ascii=False\\)\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('permissions:', d.get\\('permissions','none'\\)\\)\")",
+      "Bash(latexmk -pvc -view=pdf main.tex)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(Read \"/private/tmp/claude-501/-Users-mac-Desktop---------------/fdf4d90c-dbb8-49eb-8bfd-1791e154561e/tasks/bph7ofsvt.output\")",
+      "Bash(pkill -f \"latexmk\")",
+      "Bash(biber --tool --help)",
+      "Bash(brew search *)",
+      "Bash(brew install *)",
+      "Bash(rm -f main.toc main.aux main.out main.bbl main.bcf main.blg)",
+      "Bash(/opt/homebrew/bin/biber --version)",
+      "Bash(latexmk -pdf -xelatex -interaction=nonstopmode main.tex)",
+      "Bash(xxd)",
+      "Bash(/opt/homebrew/bin/biber main *)",
+      "Bash(pkill -f latexmk)",
+      "Bash(latexmk -xelatex -interaction=nonstopmode main.tex)"
     ]
   },
   "enableAllProjectMcpServers": false

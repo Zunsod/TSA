@@ -16,7 +16,7 @@
     \textbf{Шинж} & \textbf{Утга} \\
     \midrule
     Судалгааны төрөл    & Практик судалгаа \\
-    Хөгжүүлэлтийн арга & Давтамжтай хөгжүүлэлт (Agile) \\
+    Хөгжүүлэлтийн арга & Давтамжтай хөгжүүлэлт \\
     Давталтын хугацаа   & 2 долоо хоног \\
     Үе шатын тоо        & 7 \\
     Судалгааны объект   & Хужирт сумын сувиллын захиалгын үйл явц \\
@@ -93,19 +93,19 @@
     arr/.style={-{Latex[length=3mm, width=2mm]}, line width=1.2pt}
 ]
 \node[client] (client)
-    {\textbf{Хэрэглэгчийн давхарга (client)} \\[2pt]
+    {\textbf{Хэрэглэгчийн давхарга} \\[2pt]
      Зочин \ $\cdot$ \ Админ \ $\cdot$ \ Ресепшн};
 
 \node[frontend, below=of client] (frontend)
-    {\textbf{Харагдах хэсэг (frontend)} \\[2pt]
+    {\textbf{Харагдах хэсэг} \\[2pt]
      Next.js 14 \ $\cdot$ \ React \ $\cdot$ \ TailwindCSS};
 
 \node[backend, below=of frontend] (backend)
-    {\textbf{Серверийн хэсэг (backend)} \\[2pt]
+    {\textbf{Серверийн хэсэг} \\[2pt]
      Next.js API Routes \ $\cdot$ \ NextAuth.js \ $\cdot$ \ Prisma ORM};
 
 \node[database, below=of backend] (database)
-    {\textbf{Өгөгдлийн давхарга (database)} \\[2pt]
+    {\textbf{Өгөгдлийн давхарга} \\[2pt]
      PostgreSQL \ $\cdot$ \ Supabase};
 
 \draw[arr, violet!60] (client)   -- (frontend);
@@ -130,9 +130,9 @@
 % ======= 3.4 =======
 \section{Хэрэглэгчид}
 
-Системд дөрвөн үүргийн (role) хэрэглэгч байх бөгөөд үүрэг бүр нь тодорхой эрх, боломжоор хязгаарлагдана. Зочин (Guest) хэрэглэгч бүртгэлгүй байдлаар сувиллын ерөнхий мэдээлэл, өрөөний жагсаалт, үнийн мэдээллийг харж болох боловч захиалга хийхийн тулд бүртгүүлэх шаардлагатай болно. Энэхүү нээлттэй танилцах боломж нь боломжит үйлчлүүлэгчдийг татах маркетингийн чиг үүрэгтэй.
+Системд дөрвөн үүргийн хэрэглэгч байх бөгөөд үүрэг бүр нь тодорхой эрх, боломжоор хязгаарлагдана. Зочин хэрэглэгч бүртгэлгүй байдлаар сувиллын ерөнхий мэдээлэл, өрөөний жагсаалт, үнийн мэдээллийг харж болох боловч захиалга хийхийн тулд бүртгүүлэх шаардлагатай болно. Энэхүү нээлттэй танилцах боломж нь боломжит үйлчлүүлэгчдийг татах маркетингийн чиг үүрэгтэй.
 
-Үйлчлүүлэгч гэдэг нь бүртгүүлсний дараа идэвхждэг үүрэг бөгөөд захиалга үүсгэх, өөрийн захиалгын түүх харах, профайлын мэдээлэл засах, баталгаажсан захиалгаас хугацаанаас өмнө цуцлах боломжтой. Ажилтан нь өөрийн сувиллын орж ирсэн захиалгуудыг хянаж баталгаажуулах эсвэл цуцлах, ирэх үйлчлүүлэгчдийн нэрсийн жагсаалт гаргах үүрэгтэй. Захиалгын цаг хугацаа, нийт орны хүчин чадлыг ажилтан хянаснаар давхардсан захиалга болон алдааг урьдчилан сэргийлнэ. Админ нь системийн хамгийн өндөр эрхтэй үүрэг бөгөөд бүх сувиллын захиалга, хэрэглэгч, өрөөний мэдээлэл удирдах, тайлан статистик харах, ажилтан бүртгэх боломжтой.
+Үйлчлүүлэгч гэдэг нь бүртгүүлсний дараа идэвхждэг үүрэг бөгөөд захиалга үүсгэх, өөрийн захиалгын түүх харах, профайлын мэдээлэл засах, баталгаажсан захиалгаас хугацаанаас өмнө цуцлах боломжтой. Ажилтан нь сувиллын орж ирсэн захиалгуудыг хянаж баталгаажуулах эсвэл цуцлах, ирэх үйлчлүүлэгчдийн нэрсийн жагсаалт гаргах үүрэгтэй. Захиалгын цаг хугацаа, нийт орны хүчин чадлыг ажилтан хянаснаар давхардсан захиалга болон алдааг урьдчилан сэргийлнэ. Админ нь системийн хамгийн өндөр эрхтэй үүрэг бөгөөд сувиллын захиалга, хэрэглэгч, өрөөний мэдээллийг удирдах, тайлан статистик харах, ажилтан бүртгэх боломжтой.
 
 \vspace{0.5cm}
 
@@ -231,9 +231,9 @@
 % ======= 3.6 =======
 
 Статистик мэдээллээс харахад 2022 онд үйлчлүүлэгчдийн тоо 5,146-д хүрч, судлагдсан хугацаанд хамгийн өндөр үзүүлэлтэд хүрсэн байна. Энэхүү өсөлтийн хандлага нь системд ирэх ачаалал нэмэгдэхийг илтгэж байгаа тул уг өгөгдөлд тулгуурлан функционал бус шаардлагуудыг тодорхойлсон.
-Нэгдүгээрт, жилийн дундаж болон оргил ачааллын үед нэгэн зэрэг нэвтрэх хэрэглэгчдийн тоо мэдэгдэхүйц өсөх хандлагатай тул \textbf{NFR-01 гүйцэтгэлийн шаардлага}-ын хүрээнд 100-аас дээш хэрэглэгчийг нэгэн зэрэг 200 ms-ээс бага хариу хугацаатайгаар дэмжих шаардлагыг тогтоосон.
-Хоёрдугаарт, олон хэрэглэгч нэгэн зэрэг ижил өрөөг захиалах нөхцөл үүсэх магадлалтай учир \textbf{NFR-03 захиалга түгжих} механизмыг хэрэгжүүлэх шаардлагатай гэж үзсэн.
-Гуравдугаарт, хэрэглэгчдийн тодорхой хувь нь гар утас болон таблет төхөөрөмжөөс системд хандах хэрэгцээтэй тул \textbf{NFR-04 responsive дизайн}-ыг зайлшгүй хангахаар тусгасан.
+Нэгдүгээрт, жилийн дундаж болон оргил ачааллын үед нэгэн зэрэг нэвтрэх хэрэглэгчдийн тоо мэдэгдэхүйц өсөх хандлагатай тул NFR-01 гүйцэтгэлийн шаардлагын хүрээнд 100-аас дээш хэрэглэгчийг нэгэн зэрэг 200 ms-ээс бага хариу хугацаатайгаар дэмжих шаардлагыг тогтоосон.
+Хоёрдугаарт, олон хэрэглэгч нэгэн зэрэг ижил өрөөг захиалах нөхцөл үүсэх магадлалтай учир NFR-03 захиалга түгжих механизмыг хэрэгжүүлэх шаардлагатай гэж үзсэн.
+Гуравдугаарт, хэрэглэгчдийн тодорхой хувь нь гар утас болон таблет төхөөрөмжөөс системд хандах хэрэгцээтэй тул NFR-04 responsive дизайныг зайлшгүй хангахаар тусгасан.
 \vspace{0.5cm}
 \begin{table}[H]
   \centering
@@ -322,7 +322,7 @@
 
 \subsection{Ажилтан болон Админы юзкейс диаграмм}
 
-Ажилтан өөрийн сувиллд ирсэн захиалгуудыг хянаж баталгаажуулах, шаардлагатай тохиолдолд цуцлах, ирэх хугацааны үйлчлүүлэгчдийн жагсаалт гаргах боломжтой бөгөөд өрөөний хүртээмжийн хяналтыг удирддаг. Админ системийн хамгийн өндөр эрхийн хэрэглэгч бөгөөд бүх сувиллын захиалга, өрөөний мэдээлэл, хэрэглэгчийн бүртгэлийг удирдах, ажилтан нэмэх, тайлан статистик харах зэрэг бүх үйлдлийг гүйцэтгэх боломжтой.
+Ажилтан сувиллд ирсэн захиалгуудыг хянаж баталгаажуулах, шаардлагатай тохиолдолд цуцлах, ирэх хугацааны үйлчлүүлэгчдийн жагсаалт гаргах боломжтой бөгөөд өрөөний хүртээмжийн хяналтыг удирддаг. Админ системийн хамгийн өндөр эрхийн хэрэглэгч бөгөөд сувиллын захиалга, өрөөний мэдээлэл, хэрэглэгчийн бүртгэлийг удирдах, ажилтан нэмэх, тайлан статистик харах зэрэг бүх үйлдлийг гүйцэтгэх боломжтой.
 
 \begin{figure}[H]
 \centering
@@ -467,7 +467,7 @@
 
 \subsection{Захиалга үүсгэх дараалал}
 
-Үйлчлүүлэгч огноо, өрөө, хүний тоо сонгон захиалга илгээхэд Next.js API Route дуудагдаж серверийн хэсэгт хүсэлт очно, Prisma ашиглан өгөгдлийн санд шинэ захиалгын бичлэг үүсч, захиалгын статус ``хүлээгдэж байна'' (pending) болж тохируулагдана.
+Үйлчлүүлэгч огноо, өрөө, хүний тоо сонгон захиалга илгээхэд Next.js API Route дуудагдаж серверийн хэсэгт хүсэлт очно, Prisma ашиглан өгөгдлийн санд шинэ захиалгын бичлэг үүсч, захиалгын статус \texttt{PENDING} болж тохируулагдана.
 
 \begin{figure}[H]
 \centering
@@ -526,7 +526,7 @@
 
 \subsection{Захиалга баталгаажуулах дараалал}
 
-Ажилтан хүлээгдэж буй захиалгуудын жагсаалтаас захиалга сонгон баталгаажуулахад Next.js API Route дуудагдаж өгөгдлийн санд захиалгын статус ``баталгаажсан'' (confirmed) болж шинэчлэгдэх бөгөөд систем автоматаар үйлчлүүлэгчид мэдэгдэл илгээнэ.
+Ажилтан хүлээгдэж буй захиалгуудын жагсаалтаас захиалга сонгон баталгаажуулахад Next.js API Route дуудагдаж өгөгдлийн санд захиалгын статус \texttt{CONFIRMED} болж шинэчлэгдэх бөгөөд систем автоматаар үйлчлүүлэгчид мэдэгдэл илгээнэ.
 
 \begin{figure}[H]
 \centering
@@ -586,18 +586,16 @@
 
 \subsection{Үндсэн хүснэгтүүд ба харилцаа холбоо}
 
-Өгөгдлийн сангийн бүтэц нь Prisma schema дээр суурилсан долоон үндсэн хүснэгтээс бүрдэх бөгөөд тэдгээрийн хоорондын харилцаа нь гадаад түлхүүр (foreign key) ашиглан one-to-many хамаарлаар холбогдоно. Хүснэгтүүд нь хэрэглэгч, сувилал, өрөө, захиалга, эмчилгээний бүртгэлийн мэдээллийг тусад нь хадгалж системийн мэдээллийн бүрэн бүтэн байдлыг хангана.
+Өгөгдлийн сангийн бүтэц нь Prisma schema дээр суурилсан есөн үндсэн хүснэгтээс бүрдэх бөгөөд тэдгээрийн хоорондын харилцаа холбоо нь гадаад түлхүүр (foreign key) ашиглан холбогдоно. Эдгээр хүснэгтүүд нь сувиллын захиалга, өрөөний хүртээмж, зэрэг хандалтын хяналт болон цуцлах хүсэлтийг найдвартай бүртгэж, системийн мэдээллийн бүрэн бүтэн байдлыг хангана.
 
 \begin{figure}[H]
 \centering
-% ---- Талбар харуулах макронууд ----
 \newcommand{\pk}[2]{\underline{#1} : \textit{#2} \ \textsc{\footnotesize(PK)} \\}
 \newcommand{\fk}[2]{#1 : \textit{#2} \ \textsc{\footnotesize(FK)} \\}
 \newcommand{\attr}[2]{#1 : \textit{#2} \\}
 \resizebox{\textwidth}{!}{
 \begin{tikzpicture}[
     font=\small,
-    % ---- Entity (хүснэгт) хэв маяг ----
     entity/.style={
         rectangle split,
         rectangle split parts=2,
@@ -609,9 +607,7 @@
         text width=4.8cm,
         inner sep=6pt
     },
-    % ---- Харилцааны шугам ----
     rel/.style={line width=0.7pt, black!70},
-    % ---- Multiplicity label ----
     mult/.style={
         font=\small,
         inner sep=3pt,
@@ -620,82 +616,94 @@
     }
 ]
 
-
-% ---------- ROW 1: users, sanatoriums, rooms ----------
-\node[entity] (User) at (0, 10) {
+% ---------- COL 1: users, bookings, cancellation_requests ----------
+\node[entity] (User) at (0, 8) {
     \textbf{users} \nodepart{second}
     \pk{id}{String}
-    \attr{name}{String}
-    \attr{email}{String (unique)}
-    \attr{password}{String}
+    \attr{phone}{String (unique)}
+    \attr{lastName}{String}
+    \attr{firstName}{String}
+    \attr{email}{String?}
     \attr{role}{Role}
-    \attr{phone}{String?}
     \attr{createdAt}{DateTime}
 };
 
-\node[entity] (Sana) at (6.5, 10) {
-    \textbf{sanatoriums} \nodepart{second}
-    \pk{id}{String}
-    \attr{name}{String}
-    \attr{location}{String}
-    \attr{description}{String?}
-    \attr{phone}{String?}
-    \attr{createdAt}{DateTime}
-};
-
-\node[entity] (Room) at (13, 10) {
-    \textbf{rooms} \nodepart{second}
-    \pk{id}{String}
-    \fk{sanatoriumId}{String}
-    \attr{name}{String}
-    \attr{type}{RoomType}
-    \attr{capacity}{Int}
-    \attr{pricePerNight}{Float}
-    \attr{imageUrl}{String?}
-};
-
-% ---------- ROW 2: bookings, booking_rooms ----------
-\node[entity] (Booking) at (0, 2) {
+\node[entity] (Booking) at (0, 0.5) {
     \textbf{bookings} \nodepart{second}
     \pk{id}{String}
-    \fk{userId}{String}
+    \fk{userId}{String?}
+    \attr{guestLastName}{String}
+    \attr{guestFirstName}{String}
+    \attr{guestPhone}{String}
+    \attr{guestEmail}{String?}
     \attr{checkIn}{DateTime}
     \attr{checkOut}{DateTime}
-    \attr{guests}{Int}
-    \attr{totalPrice}{Float}
-    \attr{status}{Status}
+    \attr{nights}{Int}
+    \attr{transport}{TransportType}
+    \attr{adultCount}{Int}
+    \attr{totalPrice}{Int}
+    \attr{status}{BookingStatus}
+    \attr{qpayInvoiceId}{String?}
+    \attr{qpayPaymentId}{String?}
+    \attr{paidAt}{DateTime?}
     \attr{createdAt}{DateTime}
 };
 
-\node[entity] (BR) at (13, 2) {
+\node[entity] (Cancellation) at (0, -7) {
+    \textbf{cancellation\_requests} \nodepart{second}
+    \pk{id}{String}
+    \fk{bookingId}{String (unique)}
+    \attr{reason}{String?}
+    \attr{status}{CancellationStatus}
+    \attr{reviewedBy}{String?}
+    \attr{reviewedAt}{DateTime?}
+    \attr{createdAt}{DateTime}
+};
+
+% ---------- COL 2: room_locks, booking_children ----------
+\node[entity] (RoomLock) at (6.5, 8) {
+    \textbf{room\_locks} \nodepart{second}
+    \pk{id}{String}
+    \fk{roomId}{String}
+    \attr{startDate}{DateTime}
+    \attr{endDate}{DateTime}
+    \attr{reason}{String?}
+    \attr{createdBy}{String}
+    \attr{createdAt}{DateTime}
+};
+
+\node[entity] (BookingChild) at (6.5, -3.5) {
+    \textbf{booking\_children} \nodepart{second}
+    \pk{id}{String}
+    \fk{bookingId}{String}
+    \attr{ageMin}{Int}
+    \attr{ageMax}{Int}
+    \attr{hasBed}{Boolean}
+    \attr{withTreatment}{Boolean}
+    \attr{pricePerNight}{Int}
+};
+
+% ---------- COL 3: rooms, booking_rooms ----------
+\node[entity] (Room) at (13, 8) {
+    \textbf{rooms} \nodepart{second}
+    \pk{id}{String}
+    \attr{name}{String}
+    \attr{type}{RoomType}
+    \attr{bedCount}{Int}
+    \attr{pricePerNight}{Int}
+    \attr{floor}{Int}
+    \attr{building}{String}
+    \attr{roomNumber}{String}
+    \attr{description}{String?}
+    \attr{images}{String[]}
+    \attr{isActive}{Boolean}
+};
+
+\node[entity] (BR) at (13, 0.5) {
     \textbf{booking\_rooms} \nodepart{second}
     \pk{id}{String}
     \fk{bookingId}{String}
     \fk{roomId}{String}
-    \attr{pricePerNight}{Float}
-    \attr{nights}{Int}
-};
-
-% ---------- ROW 3: booking_treatments, payments ----------
-\node[entity] (BT) at (0, -5) {
-    \textbf{booking\_treatments} \nodepart{second}
-    \pk{id}{String}
-    \fk{bookingId}{String}
-    \attr{name}{String}
-    \attr{quantity}{Int}
-    \attr{unitPrice}{Float}
-    \attr{totalPrice}{Float}
-};
-
-\node[entity] (Pay) at (6.5, -5) {
-    \textbf{payments} \nodepart{second}
-    \pk{id}{String}
-    \fk{bookingId}{String}
-    \attr{amount}{Float}
-    \attr{method}{PaymentMethod}
-    \attr{status}{PaymentStatus}
-    \attr{paidAt}{DateTime?}
-    \attr{createdAt}{DateTime}
 };
 
 % ============================================================
@@ -706,9 +714,9 @@
 \draw[rel] (User.south) -- (Booking.north)
     node[mult, midway]{1 : N};
 
-% sanatoriums ── rooms
-\draw[rel] (Sana.east) -- (Room.west)
-    node[mult, midway]{1 : N};
+% bookings ── cancellation_requests
+\draw[rel] (Booking.south) -- (Cancellation.north)
+    node[mult, midway]{1 : 1};
 
 % bookings ── booking_rooms
 \draw[rel] (Booking.east) -- (BR.west)
@@ -718,94 +726,125 @@
 \draw[rel] (Room.south) -- (BR.north)
     node[mult, midway]{1 : N};
 
-% bookings ── booking_treatments
-\draw[rel] (Booking.south) -- (BT.north)
+% rooms ── room_locks
+\draw[rel] (Room.west) -- (RoomLock.east)
     node[mult, midway]{1 : N};
 
-% bookings ── payments
-\draw[rel] ($(Booking.south) + (1.5,0)$) -- ++(0,-2) -| (Pay.north)
-    node[mult, pos=0.5]{1 : N};
+% bookings ── booking_children
+\draw[rel] ($(Booking.south) + (1.5,0)$) |- (BookingChild.west)
+    node[mult, pos=0.8]{1 : N};
 
 % N:N тэмдэглэл
 \node[font=\footnotesize\itshape, text=violet!70!black]
-    at (9.7, 5.8) {bookings $\longleftrightarrow$ rooms \ (N : N)};
+    at (6.5, 0.5) {bookings $\longleftrightarrow$ rooms \ (N : N)};
 
 \end{tikzpicture}
 }
-
 \caption{Өгөгдлийн сангийн ER диаграмм}
 \label{fig:er-diagram}
 \end{figure}
 
 \subsection{Хүснэгтүүдийн тайлбар}
 
-Өгөгдлийн сан нийт долоон хүснэгтээс бүрдэх бөгөөд тус бүрийн үүрэг, гол болон гадаад түлхүүрийг Хүснэгт~\ref{tab:db-tables}-д нэгтгэн үзүүллээ.
+Өгөгдлийн сангийн архитектур нь мэдээллийн бүрэн бүтэн байдал болон зэрэг хандалтын аюулгүй байдлыг хангах үүднээс хэвийнжүүлэлтийн гуравдугаар хэлбэрт нийцүүлэн зохион байгуулагдсан. Нийт есөн үндсэн хүснэгтийн гүйцэтгэх үүрэг, анхдагч түлхүүр болон гадаад түлхүүрийн хамаарлыг Хүснэгт~\ref{tab:db-tables}-д нэгтгэн харуулав.
 
 \begin{table}[H]
   \centering
-  \caption{Өгөгдлийн сангийн хүснэгтүүдийн товч тодорхойлолт}
+  \caption{Өгөгдлийн сангийн хүснэгтүүдийн тодорхойлолт}
   \label{tab:db-tables}
   \small
-  \begin{tabular}{lp{5.8cm}cc}
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{lp{6.2cm}cc}
     \toprule
-    \textbf{Хүснэгт} & \textbf{Үүрэг} & \textbf{Гол түлхүүр} & \textbf{Гадаад түлхүүр} \\
+    \textbf{Хүснэгт} & \textbf{Үүрэг, зориулалт} & \textbf{Анхдагч түлхүүр} & \textbf{Гадаад түлхүүр} \\
     \midrule
-    \texttt{users}               & Системийн бүх хэрэглэгч; \texttt{role} талбараар \textsc{guest}, \textsc{customer}, \textsc{staff}, \textsc{admin} үүргийг ялгана            & \texttt{id} & — \\[4pt]
-    \texttt{sanatoriums}         & Бүртгэлтэй сувиллуудын нэр, байршил, холбоо барих мэдээлэл; олон сувиллын архитектурын үндсэн нэгж                                      & \texttt{id} & — \\[4pt]
-    \texttt{rooms}               & Сувилл бүрийн өрөө; төрөл (\texttt{RoomType}), хүн багтаах чадвар, шөнийн үнэ, зургийн холбоос агуулна                                   & \texttt{id} & \texttt{sanatoriumId} \\[4pt]
-    \texttt{bookings}            & Захиалгын гол бүртгэл; нэвтрэх/гарах огноо, зочдын тоо, нийт үнийн дүн, төлөв (\texttt{PENDING / CONFIRMED / CANCELLED}) хадгална        & \texttt{id} & \texttt{userId} \\[4pt]
-    \texttt{booking\_rooms}      & \texttt{bookings} ба \texttt{rooms} хоорондын N:N холбоос; захиалга хийгдсэн үеийн шөнийн үнэ болон хонох хоногийг тусдаа хадгална       & \texttt{id} & \texttt{bookingId}, \texttt{roomId} \\[4pt]
-    \texttt{booking\_treatments} & Захиалга бүрт хамаарах эмчилгээний нэр, тоо, нэгжийн үнэ, нийт дүн; нэг захиалгад олон эмчилгээ орж болно                              & \texttt{id} & \texttt{bookingId} \\[4pt]
-    \texttt{payments}            & Захиалга бүрийн төлбөрийн бүртгэл; арга (\texttt{PaymentMethod}), төлөв (\texttt{PaymentStatus}), төлсөн огноо агуулна                    & \texttt{id} & \texttt{bookingId} \\
+    \texttt{users} & Системийн хэрэглэгчийн мэдээлэл (Нэвтрэх утас, овог, нэр, имэйл, \texttt{role}) & \texttt{id} & — \\
+    \hline
+    \texttt{rooms} & Сувиллын өрөөний мэдээлэл (Нэр, төрөл, орны тоо, үнэ, давхар, корпус, дугаар, идэвхтэй эсэх) & \texttt{id} & — \\
+    \hline
+    \texttt{bookings} & Захиалгын үндсэн бүртгэл (Ирэх/буцах огноо, хонох хоног, унаа, хүний тоо, нийт үнэ, статус, QPay мэдээлэл) & \texttt{id} & \texttt{userId} \\
+    \hline
+    \texttt{booking\_rooms} & Захиалга болон өрөөний холбоосыг зохицуулах завсрын хүснэгт & \texttt{id} & \texttt{bookingId, roomId} \\
+    \hline
+    \texttt{booking\_children} & Захиалгад хамаарах хүүхдийн мэдээлэл (Нас, ортой эсэх, эмчилгээтэй эсэх, үнэ) & \texttt{id} & \texttt{bookingId} \\
+    \hline
+    \texttt{room\_locks} & Зэрэг хандалтын үед өрөөг түр түгжих эсвэл засвартай үед хаах бүртгэл & \texttt{id} & \texttt{roomId} \\
+    \hline
+    \texttt{cancellation\_requests} & Захиалга цуцлах хүсэлтийн мэдээлэл (Шалтгаан, статус, шийдвэрлэсэн ажилтан, огноо) & \texttt{id} & \texttt{bookingId} \\
+    \hline
+    \texttt{booking\_sessions} & Захиалга үүсгэх явцад өрөөг 10 минутын хугацаатай түр түгжих сессийн бүртгэл & \texttt{id} & — \\
+    \hline
+    \texttt{bus\_schedules} & Сувиллын унаа буюу автобусны ирэх/буцах өдрүүдийн хуваарийн тохиргоо & \texttt{id} & — \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\paragraph{bookings $\leftrightarrow$ rooms: many-to-many харилцаа.}
-
-Нэг захиалга нь нэг буюу хэд хэдэн өрөөг хамрах боломжтой тул \texttt{bookings} болон \texttt{rooms} хүснэгтүүдийн хооронд many-to-many (N:N) харилцаа үүснэ. Ийм харилцааг шууд гадаад түлхүүрээр илэрхийлэх боломжгүй учир \texttt{booking\_rooms} нэртэй завсрын хүснэгтийг ашигласан.
-
-\texttt{booking\_rooms} хүснэгт нь дараах үндсэн талбаруудыг агуулна:
+Судалгааны ажлын хүрээнд системийн найдвартай байдлыг хангах үүднээс өгөгдлийн сангийн дараах гол онцлогуудыг тусгайлан төлөвлөсөн:
 \begin{itemize}
-    \item \texttt{bookingId} — захиалгатай холбох гадаад түлхүүр
-    \item \texttt{roomId} — өрөөтэй холбох гадаад түлхүүр
-    \item \texttt{pricePerNight} — захиалга хийгдэх үеийн нэг хоногийн үнэ
-    \item \texttt{nights} — захиалсан хоногийн тоо
+    \item \textbf{Хэрэглэгчийн үүргийн хуваарилалт:} \texttt{users} хүснэгтийн \texttt{role} талбар нь зөвхөн \texttt{USER} болон \texttt{ADMIN} утгыг авах бөгөөд системийн түвшинд хандалтын хяналтыг уг талбараар дамжуулан зохицуулна.
+    \item \textbf{Өрөөний удирдлага:} \texttt{rooms} хүснэгт нь давхар, корпус (main/extension) болон өрөөний дугаар зэрэг дэлгэрэнгүй мэдээллийг хадгалж, сувиллын өрөөний бүртгэлийг системтэй зохион байгуулна.
+    \item \textbf{Захиалга цуцлах хүсэлт:} Захиалга бүр нь \texttt{cancellation\_requests} хүснэгттэй холбогдож, үйлчлүүлэгч өөрийн захиалгыг цуцлах хүсэлт гаргах, админ түүнийг хянан шийдвэрлэх боломжийг олгоно.
 \end{itemize}
 
-Энэхүү загвар нь дараах давуу талуудтай:
-\begin{itemize}
-    \item Нэг захиалгаар хэд хэдэн өрөөг нэгэн зэрэг захиалах боломжийг бүрдүүлнэ.
-    \item Өрөөний үнэ (\texttt{rooms.pricePerNight}) хожим өөрчлөгдсөн тохиолдолд захиалгын үеийн анхны үнэ \texttt{booking\_rooms} хүснэгтэд хадгалагдан үлдэнэ.
-\end{itemize}
+\subsection{Many-to-Many харилцааны шийдэл}
 
-Иймээс \texttt{booking\_rooms} хүснэгт нь зөвхөн холбоос үүрэг гүйцэтгэхээс гадна захиалгын түүх, санхүүгийн мэдээллийг хадгалах чухал бүрэлдэхүүн хэсэг болдог.
+Сувиллын захиалгын бизнесийн логикт нэг захиалгаар олон өрөөг зэрэг захиалах, мөн нэг өрөө нь өөр өөр хугацаанд олон захиалгад бүртгэгдэх шаардлага тулгардаг. Энэ нь \texttt{bookings} болон \texttt{rooms} хүснэгтүүдийн хооронд many-many ($N:N$) харилцааг үүсгэдэг.
+
+Реляци өгөгдлийн санд Many-to-Many харилцааг шууд гадаад түлхүүрээр холбох нь өгөгдлийн давхардал, логик зөрчилдөөнд хүргэдэг тул үүнийг \texttt{booking\_rooms} хэмээх завсрын холбоос хүснэгтийн тусламжтайгаар хоёр ширхэг $1:N$ харилцаанд хуваан шийдвэрлэсэн. Уг шийдлийг Зураг~\ref{fig:nn-booking-rooms}-д харуулав.
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[
-      node distance=1.4cm,
-      box/.style={rectangle, draw=gray!70, fill=white, rounded corners=4pt,
-                  minimum width=3.2cm, minimum height=0.8cm, align=center,
-                  font=\small\ttfamily},
-      junc/.style={rectangle, draw=violet!60, fill=violet!8, rounded corners=4pt,
-                   minimum width=3.6cm, minimum height=1.6cm, align=center,
-                   font=\small\ttfamily},
-      arr/.style={->, thick, gray!60},
-      lbl/.style={font=\footnotesize\itshape, midway}
+      font=\small,
+      entity/.style={
+          rectangle split,
+          rectangle split parts=2,
+          draw=#1!50!black,
+          line width=1pt,
+          rounded corners=4pt,
+          align=left,
+          text width=3.8cm,
+          inner sep=6pt,
+          rectangle split part fill={#1!12, white}
+      },
+      arr/.style={-{Latex[length=3mm, width=2mm]}, line width=1pt, #1!60!black},
+      lbl/.style={font=\footnotesize\bfseries, midway, fill=white, inner sep=2pt}
   ]
-    \node[box]  (B)  {bookings};
-    \node[junc] (BR) [right=2.8cm of B] {booking\_rooms\\[4pt]\scriptsize bookingId (FK)\\roomId (FK)\\pricePerNight\\nights};
-    \node[box]  (R)  [right=2.8cm of BR] {rooms};
+    \node[entity=blue] (B) at (0,0) {
+        \textbf{bookings} \nodepart{second}
+        \underline{id} : \textit{String} \hfill \textbf{\scriptsize PK} \\
+        guests : \textit{Int} \\
+        totalPrice : \textit{Float}
+    };
 
-    \draw[arr] (B.east)  -- node[lbl, above]{1} node[lbl, below]{N} (BR.west);
-    \draw[arr] (R.west)  -- node[lbl, above]{1} node[lbl, below]{N} (BR.east);
+    \node[entity=violet] (BR) at (5.8,0) {
+        \textbf{booking\_rooms} \nodepart{second}
+        \underline{id} : \textit{String} \hfill \textbf{\scriptsize PK} \\
+        bookingId : \textit{String} \hfill \textbf{\scriptsize FK} \\
+        roomId : \textit{String} \hfill \textbf{\scriptsize FK}
+    };
 
-    \node[font=\footnotesize, text=violet!70!black] at ($(B)!0.5!(R) + (0,-1.4)$)
-      {bookings $\longleftrightarrow$ rooms харилцаа нь booking\_rooms завсрын хүснэгтээр N:N болж хэрэгждэг};
+    \node[entity=green!60!black] (R) at (11.6,0) {
+        \textbf{rooms} \nodepart{second}
+        \underline{id} : \textit{String} \hfill \textbf{\scriptsize PK} \\
+        name : \textit{String} \\
+        pricePerNight : \textit{Float}
+    };
+
+    % Connections
+    \draw[arr=blue] (B.east) -- node[lbl]{1 : N} (BR.west);
+    \draw[arr=green!60!black] (R.west) -- node[lbl]{1 : N} (BR.east);
+
   \end{tikzpicture}
   \caption{\texttt{bookings} ба \texttt{rooms} хоорондын N:N харилцааны загвар}
   \label{fig:nn-booking-rooms}
 \end{figure}
+
+Завсрын хүснэгтийг ашигласан энэхүү архитектур нь дараах хоёр чухал давуу талыг системд олгож байна:
+\begin{enumerate}
+    \item \textbf{Захиалгын уян хатан байдал:} Хэрэглэгч нэг гүйлгээгээр олон өөр төрлийн өрөөг зэрэг сагслан захиалах боломжтой болно.
+    \item \textbf{Үнийн түүхийг хамгаалах:} Өрөөний үнэ цаг хугацааны явцад (\texttt{rooms.pricePerNight}) өөрчлөгдөх боломжтой. Хэрэв үнэ өөрчлөгдөх үед хуучин захиалгын мэдээллийг шууд холбосон бол өнгөрсөн үеийн тайлан баланс зөрөх эрсдэлтэй. Захиалга үүсгэх үед үнийн дүн болон хоносон хоногийг \texttt{bookings} хүснэгтэд түүх болгон тусад нь хадгалснаар санхүүгийн өгөгдлийн бүрэн бүтэн байдал найдвартай хангагдана.
+\end{enumerate}
 
 % ======= 3.9 =======
 \section{Туршилтын арга зүй}
@@ -821,19 +860,19 @@
     \hline
     \textbf{\#} & \textbf{Чиглэл} & \textbf{Зорилго} & \textbf{Хэрэгсэл} & \textbf{Хэмжих үзүүлэлт} \\
     \hline
-    1 & Зэрэг захиалга (Concurrency)  & Давхар захиалгаас сэргийлэх   & \texttt{curl}, shell script  & Амжилт / татгалзсан хүсэлтийн тоо \\
+    1 & Зэрэг хандалт  & Давхар захиалгаас сэргийлэх   & \texttt{curl}, shell script  & Амжилт / татгалзсан хүсэлтийн тоо \\
     \hline
-    2 & Гүйцэтгэл (Load)              & API latency хэмжих            & k6                           & p50/p95/p99 (ms)                   \\
+    2 & Гүйцэтгэл              & API latency хэмжих            & k6                           & p50/p95/p99 (ms)                   \\
     \hline
-    3 & Өмнө/Дараа                    & Үйл ажиллагааны сайжрал       & Хронометр, ажиглалт          & Цаг зарцуулалт (мин)               \\
+    3 & Өмнө ба дараа                    & Үйл ажиллагааны сайжрал       & Хронометр, ажиглалт          & Цаг зарцуулалт (мин)               \\
     \hline
-    4 & SUS                           & Хэрэглэгчийн сэтгэл ханамж    & Google Form                  & SUS оноо (0–100)                   \\
+    4 & Ашиглах чадвар                           & Хэрэглэгчийн сэтгэл ханамж    & Google Form                  & SUS оноо (0–100)                   \\
     \hline
     5 & Функциональ                   & FR биелэлт                    & Playwright E2E               & Pass/Fail                          \\
     \hline
     6 & Аюулгүй байдал                & Довтолгооноос хамгаалалт      & sqlmap, Burp Suite           & OWASP Top 10 биелэлт               \\
     \hline
-    7 & End-to-End                    & Бодит захиалгын урсгал        & Playwright                   & 8 алхмын pass/fail                 \\
+    7 & E2E урсгал                    & Бодит захиалгын урсгал        & Playwright                   & 8 алхмын pass/fail                 \\
     \hline
   \end{tabular}
 \end{table}
@@ -843,10 +882,10 @@
 Системийн туршилтыг бодит орчинтой ижил (production-like staging) нөхцөлд явуулахаар Vercel платформын Preview орчин болон Supabase Pro түвшний PostgreSQL 15 өгөгдлийн санг ашигласан. 
 Системийг шалгахын тулд \texttt{@faker-js/faker} сангаар дамжуулан 50 өрөөний мэдээлэл, 30 төрлийн үйлчилгээний багц, 200 туршилтын хэрэглэгч болон 500 гаруй түүхэн захиалгын өгөгдлийг (dummy data) өгөгдлийн санд урьдчилан үүсгэсэн. Туршилтад ашиглах хэрэгслүүдийн хувьд:
 \begin{itemize}
-    \item Гүйцэтгэл болон ачааллын туршилтыг (load test) \textbf{k6} хэрэгслээр
-    \item End-to-End (E2E) функциональ туршилтыг \textbf{Playwright} хэрэгслээр
+    \item Гүйцэтгэл болон ачааллын туршилтыг k6 хэрэгслээр
+    \item E2E функциональ туршилтыг Playwright хэрэгслээр
     \item Зэрэг хандалтын туршилтыг \texttt{curl} болон \texttt{shell} скрипт ашигласан
-    \item Хэрэглэгчийн сэтгэл ханамжийн судалгааг \textbf{System Usability Scale (SUS)} аргаар Google Form ашиглан
+    \item Хэрэглэгчийн сэтгэл ханамжийн судалгааг SUS аргаар Google Form асуулгаар
     тус тус гүйцэтгэхээр төлөвлөсөн.
 \end{itemize}
 
@@ -925,13 +964,13 @@ API endpoint-уудын ачаалал даах чадварыг үнэлэхи�
 Мөн дээрх үзүүлэлтүүдийг суурь утгатай харьцуулж хувьчилж тооцоолсон.
 \subsection{SUS судалгааны арга}
 
-Системийн ашиглах чадварыг (usability) тоон үзүүлэлтээр хэмжихийн тулд олон улсад өргөн хэрэглэгддэг \textbf{System Usability Scale (SUS)} аргачлалыг \cite{brooke1996sus} ашиглахаар төлөвлөсөн. SUS нь хэрэглэгчийн сэтгэл ханамжийг 0--100 оноогоор илэрхийлдэг бөгөөд 68-аас дээш оноо нь ``хүлээн зөвшөөрөгдөхүйц'' гэсэн утгатай.
+Системийн ашиглах чадварыг тоон үзүүлэлтээр хэмжихийн тулд олон улсад өргөн хэрэглэгддэг System Usability Scale (SUS) аргачлалыг \cite{brooke1996sus} ашиглахаар төлөвлөсөн. SUS нь хэрэглэгчийн сэтгэл ханамжийн оноог 0--100 мужид илэрхийлдэг бөгөөд 68-аас дээш оноо нь ``хүлээн зөвшөөрөгдөхүйц'' гэсэн утгатай.
 
-\textbf{Асуулгын бүтэц.} SUS нь 10 асуулгаас бүрдэх бөгөөд тус бүр нь ``1 --- огт тохирохгүй'' аас ``5 --- бүрэн тохирно'' хүртэлх 5 шатлалт хэмжүүрээр (Likert scale) үнэлэгдэнэ. Асуулгын зохиогч Brooke (1996) тэгш ба сондгой дугаартай асуултуудыг ялгаж тооцдог: сондгой дугаартай асуулт дээр хэрэглэгчийн хариулт 1-ийг хасаж, тэгш дугаартай асуулт дээр хариултыг 5-аас хасна. Тохируулсан 10 хариултын нийлбэрийг 2.5-аар үржүүлж эцсийн 0--100 оноог гаргана.
+Асуулгын бүтэц. SUS нь 10 асуулгаас бүрдэх бөгөөд тус бүр нь ``1 --- огт тохирохгүй'' аас ``5 --- бүрэн тохирно'' хүртэлх 5 шатлалт хэмжүүрээр (Likert scale) үнэлэгдэнэ. Асуулгын зохиогч Brooke (1996) тэгш ба сондгой дугаартай асуултуудыг ялгаж тооцдог: сондгой дугаартай асуулт дээр хэрэглэгчийн хариулт 1-ийг хасаж, тэгш дугаартай асуулт дээр хариултыг 5-аас хасна. Тохируулсан 10 хариултын нийлбэрийг 2.5-аар үржүүлж эцсийн 0--100 оноог гаргана.
 
-\textbf{Оролцогчид.} Туршилтад $n = 13$ хэрэглэгч оролцохоор төлөвлөсөн: сувиллын 3 ажилтан (системийн өдөр тутмын хэрэглэгч) болон 10 амрагч (нэг удаа захиалга хийж үзсэн хүмүүс). Оролцогчид системийг ашигласны дараа Google Form хэлбэрээр асуулгыг бөглөнө.
+Оролцогчид. Туршилтад $n = 13$ хэрэглэгч оролцохоор төлөвлөсөн: сувиллын 3 ажилтан (системийн өдөр тутмын хэрэглэгч) болон 10 амрагч (нэг удаа захиалга хийж үзсэн хүмүүс). Оролцогчид системийг ашигласны дараа Google Form хэлбэрээр асуулгыг бөглөнө.
 
-\textbf{Үнэлгээний шалгуур.} Авсан оноог Зураг~\ref{fig:sus-scale}-д үзүүлсэн Bangor нарын (2008) \cite{bangor2008sus} стандарт хуваарьтай харьцуулна. Уг хуваарьт $< 51$ оноо нь ``хүлээн зөвшөөрөгдөхгүй'' (F зэрэг), $51$--$67$ нь ``хязгаарын'' (D зэрэг), $68$--$80$ нь ``хүлээн зөвшөөрөгдөхүйц'' (C--B зэрэг), $> 80$ нь ``сайн'' ба ``шилдэг'' (A зэрэг) гэж ангилагдана. Энэхүү судалгааны зорилтот үзүүлэлт нь $\geq 68$ оноо буюу ``хүлээн зөвшөөрөгдөхүйц'' түвшинд хүрэх явдал юм.
+Үнэлгээний шалгуур. Авсан оноог Зураг~\ref{fig:sus-scale}-д үзүүлсэн Bangor нарын (2008) \cite{bangor2008sus} стандарт хуваарьтай харьцуулна. Уг хуваарьт $< 51$ оноо нь ``хүлээн зөвшөөрөгдөхгүй'' (F зэрэг), $51$--$67$ нь ``хязгаарын'' (D зэрэг), $68$--$80$ нь ``хүлээн зөвшөөрөгдөхүйц'' (C--B зэрэг), $> 80$ нь ``сайн'' ба ``шилдэг'' (A зэрэг) гэж ангилагдана. Энэхүү судалгааны зорилтот үзүүлэлт нь $\geq 68$ оноо буюу ``хүлээн зөвшөөрөгдөхүйц'' түвшинд хүрэх явдал юм.
 
 \begin{figure}[H]
   \centering
@@ -963,7 +1002,7 @@ API endpoint-уудын ачаалал даах чадварыг үнэлэхи�
 Туршилтын амжилтын шалгуур нь FR системийн шаардлага бүр дор хаяж нэг автомат туршилтаар баталгаажсан байх, мөн гар туршилтаар хязгаарын нөхцлүүд шалгагдсан байх хамаарна.
 \subsection{Аюулгүй байдлын шалгалтын арга}
 
-Системийн аюулгүй байдлыг олон улсын \textbf{OWASP Top 10} \cite{owasp2021} удирдамжид суурилан зургаан чиглэлээр шалгахаар төлөвлөсөн. Шалгалт бүр нь тодорхой веб довтолгоог дуурайн системийн хамгаалалтын механизм зөв ажиллаж байгааг баталгаажуулна.
+Системийн аюулгүй байдлыг олон улсын OWASP Top 10 \cite{owasp2021} удирдамжид суурилан зургаан чиглэлээр шалгахаар төлөвлөсөн. Шалгалт бүр нь тодорхой веб довтолгоог дуурайн системийн хамгаалалтын механизм зөв ажиллаж байгааг баталгаажуулна.
 
 \begin{table}[H]
   \centering
@@ -990,7 +1029,7 @@ API endpoint-уудын ачаалал даах чадварыг үнэлэхи�
 
 \subsection{End-to-End захиалгын урсгалын туршилтын арга}
 
-Хэрэглэгчийн бодит туршлагыг эхнээс нь дуустал дуурайлгах зорилгоор \textbf{Playwright} хэрэгслээр 8 алхамтай E2E туршилтыг хэрэгжүүлсэн. Туршилт нь амрагчийн нүүр хуудсанд орохоос эхлэн захиалга баталгаажих хүртэлх бүх үйлдлийг дарааллан шалгана.
+Хэрэглэгчийн бодит туршлагыг эхнээс нь дуустал дуурайлгах зорилгоор Playwright хэрэгслээр 8 алхамтай E2E туршилтыг хэрэгжүүлсэн. Туршилт нь амрагчийн нүүр хуудсанд орохоос эхлэн захиалга баталгаажих хүртэлх бүх үйлдлийг дарааллан шалгана.
 
 \begin{figure}[H]
 \centering
@@ -1034,4 +1073,4 @@ API endpoint-уудын ачаалал даах чадварыг үнэлэхи�
 \label{fig:e2e-flow}
 \end{figure}
 
-\textbf{Амжилтын шалгуур:} нийт 8 алхам алдаагүй гүйцэтгэгдэх, нийт гүйцэтгэлийн хугацаа 10 секундээс хэтрэхгүй байх.
+Амжилтын шалгуур: нийт 8 алхам алдаагүй гүйцэтгэгдэх, нийт гүйцэтгэлийн хугацаа 10 секундээс хэтрэхгүй байх.

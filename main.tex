@@ -123,246 +123,28 @@
 % ============================================================
 \begin{document}
 
-\pagenumbering{roman}   
-\setcounter{page}{0}   
+\pagenumbering{roman}
+\setcounter{page}{0}
 
-% --- НҮҮР ХУУДАС ---
-\begin{titlepage}
-    \centering
-    
-    % 1. Толгой хэсэг (Лого + Сургуулийн нэр)
-    \begin{minipage}{0.15\textwidth}
-        \includegraphics[width=\textwidth]{figures/Logo.png}
-    \end{minipage}
-    \begin{minipage}{0.8\textwidth}
-        \centering
-        \textbf{\large ШИНЭ МОНГОЛ ТЕХНОЛОГИЙН КОЛЛЕЖ}\\[0.1cm]
-        \textbf{\large КОМПЬЮТЕРЫН УХААНЫ ТЭНХИМ}
-    \end{minipage}
+\input{chapters/00_coverpage}
+\input{chapters/00_titlepage}
 
-    \vspace{3cm}
-
-    % 2. Оюутны мэдээлэл 
-    \begin{flushright}
-        \begin{tabular}{r}
-            Оюутны код: s21c118b \\ [0.2cm]
-            Оюутны нэр: Бямбасүрэн Зөнсод
-        \end{tabular}
-    \end{flushright}
-
-    \vspace{4cm}
-
-    % 3. Төслийн гарчиг
-    {\Large \textbf{\MakeUppercase{Сувиллын бүртгэл мэдээллийн систем}}}\\[0.4cm]
-    {\normalsize /ДЭД БАКАЛАВРЫН ТӨГСӨЛТИЙН СУДАЛГААНЫ АЖИЛ/}
-
-    \vspace{2cm} % Доод талын удирдагчийн хэсгийг доош түлхэнэ
-
-    % 4. Удирдагч болон Гүйцэтгэгч (Зүүн болон баруун талд)
-    \begin{minipage}{0.95\textwidth}
-        \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r@{}}
-            Удирдсан багш: & /Магистр: Б.Батчулуун/ \\[0.4cm]
-            Гүйцэтгэсэн оюутан: & /Б.Зөнсод s21c118b/
-        \end{tabular*}
-    \end{minipage}
-
-    \vfill % Доод хот, он хүртэлх зай
-
-    % 5. Доод хэсэг
-    {\normalsize Улаанбаатар хот\\2026 он}
-\end{titlepage}
-\newpage % Шинэ хуудас эхлүүлэх
-
-% --- ХОЁР ДАХЬ НҮҮР ХУУДАС (INTERNAL TITLE PAGE) ---
-\begin{titlepage}
-    \centering
-    
-    % 1. Сургуулийн нэр
-    \textbf{\large \MakeUppercase{Шинэ Монгол Технологийн Коллеж}}\\[0.2cm]
-    \textbf{\large \MakeUppercase{Компьютерын ухааны тэнхим}}
-
-    \vfill % Зай авах
-
-    % 2. Ажлын төрөл болон Гарчиг
-    {\normalsize Дэд бакалаврын төгсөлтийн судалгааны ажил}\\[0.6cm]
-    {\Large \textbf{\MakeUppercase{Сувиллын бүртгэл мэдээллийн систем}}}\\[0.4cm]
-    \vspace{2cm} % Зай авах
-
-    % 3. Гүйцэтгэгч болон Удирдагч (Голлуулсан)
-    {\large \textbf{Гүйцэтгэгч:}} Б.Зөнсод\\[0.5cm]
-    {\large \textbf{Удирдагч:}} Б.Батчулуун, Магистр
-
-    \vfill % Зай авах
-
-    % 4. Доод хэсэг
-    {\normalsize Улаанбаатар хот\\2026 он}
-
-\end{titlepage}
-\newpage
-\setcounter{page}{1}    % ← Хураангуй = i
-% --- ХУРААНГУЙ ХУУДАС (ABSTRACT) ---
-\begin{center}
-    \textbf{\large \MakeUppercase{Сувиллын бүртгэл мэдээллийн систем}}\\[0.2cm]
-\end{center}
-
-\vspace{0.5cm}
-
-\begin{flushright}
-    \begin{spacing}{1.2}
-        {\normalsize Компьютерын ухааны тэнхим}\\
-        {\normalsize Оюутан: Б.Зөнсод s21c118b}\\
-        {\normalsize Удирдсан багш: Б.Батчулуун, Магистр}
-    \end{spacing}
-\end{flushright}
-
-\vspace{0.5cm}
-
-\begin{center}
-    \textbf{\MakeUppercase{Хураангуй}}
-\end{center}
-
-\vspace{0.3cm}
-
-% --- Хураангуйн эх бие ---
-Өнөөдрийн байдлаар Өвөрхангай аймгийн Хужирт сумын сувиллуудын ихэнх нь үйлчлүүлэгч бүртгэх, өрөө захиалах үйл явцыг утсаар ярьж захиалдаг уламжлалт аргаар хэрэгжүүлж байна. 
- Захиалга баталгаажуулах, ирц хянах, тайлан гаргах зэрэг ажлуудыг цаасан бүртгэл болон хүний гараар гүйцэтгэх нь мэдээллийн алдагдал, захиалгын давхардал, ажилтны ачаалал нэмэгдэх зэрэг үйл ажиллагааны хүндрэлийг үүсгэж байна.
-
-Иймд энэхүү судалгааны ажлын хүрээнд сувиллын захиалга үүсгэх, үйлчлүүлэгчийн бүртгэл хөтлөх, ажилтны хяналт болон захиргааны тайлан нэгтгэх боломж бүхий веб суурьтай нэгдсэн системийг хөгжүүлэхийг зорив. Тус систем нь сувиллын захиалгын үйл явцыг цахимжуулж, амрагч, ажилтан, администраторын хэрэгцээг нэг платформд нэгтгэсэн удирдлагын орчныг бий болгосноор үйлчилгээний чанар болон байгууллагын үйл ажиллагааны үр ашгийг дээшлүүлэхэд чиглэнэ.
-
-\vspace{1cm}
-
-\noindent \textbf{Түлхүүр үг:} Сувиллын бүртгэл, Захиалгын систем, Вэб хөгжүүлэлт, Өгөгдлийн сан.
-
-% --- 4. Агуулга ---
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Гарчиг}
-
-\noindent\textbf{Гарчиг}\par\vspace{6pt}
-
-\newcommand{\tocchapter}[2]{%
-  \noindent\textbf{#1}\dotfill\textbf{#2}\par\vspace{6pt}%
-}
-\newcommand{\tocchapternd}[2]{%
-  \noindent\textbf{#1}\hfill\textbf{#2}\par\vspace{6pt}%
-}
-\newcommand{\tocnumchapter}[3]{%
-  \noindent\textbf{#1\quad #2}\dotfill\textbf{#3}\par\vspace{6pt}%
-}
-\newcommand{\tocsection}[3]{%
-  \noindent\hspace{1em}#1\quad #2\dotfill #3\par\vspace{3pt}%
-}
-\newcommand{\tocsubsection}[3]{%
-  \noindent\hspace{2.5em}#1\quad #2\dotfill #3\par\vspace{2pt}%
-}
-
-\tocchapternd{Хураангуй}{i}
-\tocchapternd{Гарчиг}{ii}
-\tocchapternd{Товчилсон үгсийн жагсаалт}{iv}
-\tocchapternd{Хүснэгтийн жагсаалт}{v}
-\tocchapternd{Зургийн жагсаалт}{vi}
-\tocchapternd{Ажлын төлөвлөгөө}{vii}
-
-\vspace{6pt}
-
-% --- Бүлэг 1 ---
-\tocnumchapter{1}{Удиртгал}{1}
-\tocsection{1.1}{Үндэслэл, ач холбогдол}{x}
-\tocsection{1.2}{Судалгааны ажлын зорилго}{x}
-\tocsection{1.3}{Судалгааны ажлын зорилтууд}{x}
-
-% --- Бүлэг 2 ---
-\tocnumchapter{2}{Онолын хэсэг}{x}
-\tocsection{2.1}{Өнөөгийн байдлын судалгаа}{x}
-\tocsubsection{2.1.1}{Client-Server загвар}{x}
-\tocsubsection{2.1.2}{REST API зарчим}{x}
-\tocsection{2.2}{Технологийн Stack сонголт}{x}
-\tocsubsection{2.2.1}{Next.js}{x}
-\tocsubsection{2.2.2}{Prisma ORM}{x}
-\tocsubsection{2.2.3}{PostgreSQL}{x}
-\tocsubsection{2.2.4}{Supabase}{x}
-\tocsection{2.3}{Өгөгдлийн сан ба Аюулгүй байдал}{x}
-\tocsubsection{2.3.1}{Relational model}{x}
-\tocsubsection{2.3.2}{JWT - JSON Web Token}{x}
-\tocsubsection{2.3.3}{NextAuth.js}{x}
-
-% --- Бүлэг 3 ---
-\tocnumchapter{3}{Судалгааны арга зүй}{x}
-\tocsection{3.1}{Системийн үйл ажиллагааны тухай дэлгэрэнгүй}{x}
-\tocsubsection{3.1.1}{Системийн ерөнхий бүтэц}{x}
-\tocsubsection{3.1.2}{Системийн үндсэн урсгал}{x}
-\tocsection{3.2}{Системийн хэрэглэгчид}{x}
-\tocsection{3.3}{Функционал шаардлага}{x}
-\tocsection{3.4}{Функционал бус шаардлага}{x}
-\tocsection{3.5}{Юзкейс диаграммууд}{x}
-\tocsubsection{3.5.1}{Үйлчлүүлэгчийн юзкейс диаграмм}{x}
-\tocsubsection{3.5.2}{Ажилтан болон Админы юзкейс диаграмм}{x}
-\tocsection{3.6}{Дарааллын диаграммууд}{x}
-\tocsubsection{3.6.1}{Бүртгэл ба нэвтрэлтийн дараалал}{x}
-\tocsubsection{3.6.2}{Захиалга үүсгэх дараалал}{x}
-\tocsubsection{3.6.3}{Захиалга баталгаажуулах дараалал}{x}
-\tocsection{3.7}{Өгөгдлийн сангийн ерөнхий загвар}{x}
-\tocsubsection{3.7.1}{Үндсэн хүснэгтүүд ба харилцаа холбоо}{x}
-\tocsubsection{3.7.2}{Хүснэгтүүдийн тайлбар}{x}
-
-% --- Бүлэг 4 ---
-\tocnumchapter{4}{Судалгааны үр дүн, дүгнэлт}{x}
-
-\vspace{6pt}
-
-\tocchapter{Ном зүй}{x}
-\tocchapter{Товчлол}{x}
-\tocchapter{Хавсралт}{x}
-
-% --- 5. ТОВЧИЛСОН ҮГСИЙН ЖАГСААЛТ ---
+\setcounter{page}{1}   % Хураангуй = i
+\input{chapters/00_abstract}
+\input{chapters/00_toc}
 \input{chapters/00_acrolist}
-
-% --- 6. ХҮСНЭГТИЙН ЖАГСААЛТ ---
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Хүснэгтийн жагсаалт}
-{\noindent\Large\bfseries Хүснэгтийн жагсаалт\par}
-\vspace{0.5cm}
-\makeatletter
-{\setlength{\parskip}{0pt}\@starttoc{lot}}
-\makeatother
-
-% --- 7. ЗУРГИЙН ЖАГСААЛТ ---
-\newpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Зургийн жагсаалт}
-{\noindent\Large\bfseries Зургийн жагсаалт\par}
-\vspace{0.5cm}
-\makeatletter
-{\setlength{\parskip}{0pt}\@starttoc{lof}}
-\makeatother
-
-% --- 7. АЖЛЫН ТӨЛӨВЛӨГӨӨ ---
+\input{chapters/00_listoffigtab}
 \input{chapters/00_plan}
 
-% --- ҮНДСЭН ХЭСЭГ (ARABIC NUMERALS) ---
 \newpage
 \pagenumbering{arabic}
 
-% Бүлэг 1
 \input{chapters/01_introduction}
-
-% Бүлэг 2
 \input{chapters/02_theory}
-
-% Бүлэг 3
 \input{chapters/03_methodology}
-
-% Бүлэг 4
 \input{chapters/04_results}
-
-% Ном зүй
 \input{chapters/05_bibliography}
-
-% Товчлол
 \input{chapters/06_summary}
-
-% Хавсралт
 \input{chapters/07_appendix}
 
 \end{document}
