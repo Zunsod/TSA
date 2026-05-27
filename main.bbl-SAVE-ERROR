@@ -1,0 +1,458 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{shargaljuut2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=96416d4323fd9d9a3804e494b5ca8089}{%
+           family={{Шаргалжуут рашаан сувилал}},
+           familyi={Ш\bibinitperiod}}}%
+      }
+      \strng{namehash}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{fullhash}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{fullhashraw}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{bibnamehash}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{authorbibnamehash}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{authornamehash}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{authorfullhash}{96416d4323fd9d9a3804e494b5ca8089}
+      \strng{authorfullhashraw}{96416d4323fd9d9a3804e494b5ca8089}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Шаргалжуут рашаан сувиллын албан ёсны вэб сайт}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://shargaljuut.mn/
+      \endverb
+      \verb{url}
+      \verb http://shargaljuut.mn/
+      \endverb
+    \endentry
+    \entry{zugaalga2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=fb1c5330ae20424b942e2fb63a23d726}{%
+           family={{Zugaalga.mn}},
+           familyi={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{fullhash}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{fullhashraw}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{bibnamehash}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{authorbibnamehash}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{authornamehash}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{authorfullhash}{fb1c5330ae20424b942e2fb63a23d726}
+      \strng{authorfullhashraw}{fb1c5330ae20424b942e2fb63a23d726}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Амралтын газруудын нэгдсэн мэдээллийн сан}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://zugaalga.mn/
+      \endverb
+      \verb{url}
+      \verb https://zugaalga.mn/
+      \endverb
+    \endentry
+    \entry{eclinic2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=3e16c236402899eb76e1af53cdaee0f5}{%
+           family={{E-Clinic LLC}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{fullhash}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{fullhashraw}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{bibnamehash}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{authorbibnamehash}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{authornamehash}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{authorfullhash}{3e16c236402899eb76e1af53cdaee0f5}
+      \strng{authorfullhashraw}{3e16c236402899eb76e1af53cdaee0f5}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Эмнэлгийн цаг захиалгын систем}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://e-clinic.mn/
+      \endverb
+      \verb{url}
+      \verb https://e-clinic.mn/
+      \endverb
+    \endentry
+    \entry{ihotel2026}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=480846189fe04a4f4482f59c0a1f474e}{%
+           family={{iHotel LLC}},
+           familyi={i\bibinitperiod}}}%
+      }
+      \strng{namehash}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{fullhash}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{fullhashraw}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{bibnamehash}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{authorbibnamehash}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{authornamehash}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{authorfullhash}{480846189fe04a4f4482f59c0a1f474e}
+      \strng{authorfullhashraw}{480846189fe04a4f4482f59c0a1f474e}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Зочид буудал, амралтын газрын захиалгын платформ}
+      \field{urlday}{1}
+      \field{urlmonth}{3}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://ihotel.mn/
+      \endverb
+      \verb{url}
+      \verb https://ihotel.mn/
+      \endverb
+    \endentry
+    \entry{fielding2000}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{hash=87dbbd44b3977c28b71d826a931add3e}{%
+           family={Fielding},
+           familyi={F\bibinitperiod},
+           given={Roy\bibnamedelima Thomas},
+           giveni={R\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of California, Irvine}%
+      }
+      \strng{namehash}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{fullhash}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{fullhashraw}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{bibnamehash}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{authorbibnamehash}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{authornamehash}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{authorfullhash}{87dbbd44b3977c28b71d826a931add3e}
+      \strng{authorfullhashraw}{87dbbd44b3977c28b71d826a931add3e}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Architectural Styles and the Design of Network-based Software Architectures}
+      \field{type}{phdthesis}
+      \field{year}{2000}
+      \verb{urlraw}
+      \verb https://ics.uci.edu/~fielding/pubs/dissertation/top.htm
+      \endverb
+      \verb{url}
+      \verb https://ics.uci.edu/~fielding/pubs/dissertation/top.htm
+      \endverb
+    \endentry
+    \entry{elmasri2015}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=c7e2fe1a0e649bf469f3feb7c5aa840d}{%
+           family={Elmasri},
+           familyi={E\bibinitperiod},
+           given={Ramez},
+           giveni={R\bibinitperiod}}}%
+        {{hash=4ae94109c6efa1688beb655559324ba2}{%
+           family={Navathe},
+           familyi={N\bibinitperiod},
+           given={Shamkant\bibnamedelima B.},
+           giveni={S\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Hoboken, NJ, USA}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{2e8829be23557c692dac07b198a7df6e}
+      \strng{fullhash}{2e8829be23557c692dac07b198a7df6e}
+      \strng{fullhashraw}{2e8829be23557c692dac07b198a7df6e}
+      \strng{bibnamehash}{2e8829be23557c692dac07b198a7df6e}
+      \strng{authorbibnamehash}{2e8829be23557c692dac07b198a7df6e}
+      \strng{authornamehash}{2e8829be23557c692dac07b198a7df6e}
+      \strng{authorfullhash}{2e8829be23557c692dac07b198a7df6e}
+      \strng{authorfullhashraw}{2e8829be23557c692dac07b198a7df6e}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{7}
+      \field{title}{Fundamentals of Database Systems}
+      \field{year}{2015}
+      \field{pages}{1280}
+      \range{pages}{1}
+    \endentry
+    \entry{jones2015jwt}{report}{}{}
+      \name{author}{3}{}{%
+        {{hash=bfa19f15a98d15831cd377b8813e6672}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Michael\bibnamedelima B.},
+           giveni={M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=81e40ae87af997090fa9a9696e364c65}{%
+           family={Bradley},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=34e6848475fd66697bfcb80787f2aef0}{%
+           family={Sakimura},
+           familyi={S\bibinitperiod},
+           given={Nat},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Internet Engineering Task Force}%
+      }
+      \strng{namehash}{8456e57585316c5ad570515143f00129}
+      \strng{fullhash}{8456e57585316c5ad570515143f00129}
+      \strng{fullhashraw}{8456e57585316c5ad570515143f00129}
+      \strng{bibnamehash}{8456e57585316c5ad570515143f00129}
+      \strng{authorbibnamehash}{8456e57585316c5ad570515143f00129}
+      \strng{authornamehash}{8456e57585316c5ad570515143f00129}
+      \strng{authorfullhash}{8456e57585316c5ad570515143f00129}
+      \strng{authorfullhashraw}{8456e57585316c5ad570515143f00129}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{number}{7519}
+      \field{title}{{JSON Web Token (JWT)}}
+      \field{type}{RFC}
+      \field{year}{2015}
+      \verb{urlraw}
+      \verb https://www.rfc-editor.org/rfc/rfc7519
+      \endverb
+      \verb{url}
+      \verb https://www.rfc-editor.org/rfc/rfc7519
+      \endverb
+    \endentry
+    \entry{mohstats2023}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=797cc11f5fefe1b8328cb053b09cf97b}{%
+           family={{Монгол Улсын Эрүүл Мэндийн Яам}},
+           familyi={М\bibinitperiod}}}%
+      }
+      \strng{namehash}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{fullhash}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{fullhashraw}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{bibnamehash}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{authorbibnamehash}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{authornamehash}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{authorfullhash}{797cc11f5fefe1b8328cb053b09cf97b}
+      \strng{authorfullhashraw}{797cc11f5fefe1b8328cb053b09cf97b}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Нийтийн эрүүл мэнд, нөхөн сэргээх үйлчилгээний статистик мэдээлэл}
+      \field{urlday}{1}
+      \field{urlmonth}{1}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://moh.gov.mn/p/147
+      \endverb
+      \verb{url}
+      \verb https://moh.gov.mn/p/147
+      \endverb
+    \endentry
+    \entry{brooke1996sus}{incollection}{}{}
+      \name{author}{1}{}{%
+        {{hash=813064283275c281401d7a7483420c67}{%
+           family={Brooke},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=452809b686e37be035877e8ddc20d470}{%
+           family={Jordan},
+           familyi={J\bibinitperiod},
+           given={P.\bibnamedelimi W.},
+           giveni={P\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+        {{hash=ac86fe4c53a0b662f004a5b8ffb38bdb}{%
+           family={Thomas},
+           familyi={T\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=f2223f64b37dd140488e741fb265a185}{%
+           family={Weerdmeester},
+           familyi={W\bibinitperiod},
+           given={B.\bibnamedelimi A.},
+           giveni={B\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=cf3840ba5ef95736de9b6f0da0e65c32}{%
+           family={McClelland},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi L.},
+           giveni={I\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{813064283275c281401d7a7483420c67}
+      \strng{fullhash}{813064283275c281401d7a7483420c67}
+      \strng{fullhashraw}{813064283275c281401d7a7483420c67}
+      \strng{bibnamehash}{813064283275c281401d7a7483420c67}
+      \strng{authorbibnamehash}{813064283275c281401d7a7483420c67}
+      \strng{authornamehash}{813064283275c281401d7a7483420c67}
+      \strng{authorfullhash}{813064283275c281401d7a7483420c67}
+      \strng{authorfullhashraw}{813064283275c281401d7a7483420c67}
+      \strng{editorbibnamehash}{305814c267030b47870a3020917344e9}
+      \strng{editornamehash}{305814c267030b47870a3020917344e9}
+      \strng{editorfullhash}{f9a6cd00748d9e7779606685fd8952ff}
+      \strng{editorfullhashraw}{f9a6cd00748d9e7779606685fd8952ff}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Usability Evaluation in Industry}
+      \field{title}{{SUS}: A ``Quick and Dirty'' Usability Scale}
+      \field{year}{1996}
+      \field{pages}{189\bibrangedash 194}
+      \range{pages}{6}
+    \endentry
+    \entry{bangor2008sus}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=05ed7926f59ed51998e7d806c8a2ca30}{%
+           family={Bangor},
+           familyi={B\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d94606260166acdc7254a0c869dad3cb}{%
+           family={Kortum},
+           familyi={K\bibinitperiod},
+           given={Philip\bibnamedelima T.},
+           giveni={P\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=6fe57e0a1f81b28a398e283890bf7239}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={James\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{fullhash}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{fullhashraw}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{bibnamehash}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{authorbibnamehash}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{authornamehash}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{authorfullhash}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \strng{authorfullhashraw}{9b3b856c49af6cb05ea7a3368f5b9118}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Human-Computer Interaction}
+      \field{number}{6}
+      \field{title}{An Empirical Evaluation of the {System Usability Scale}}
+      \field{volume}{24}
+      \field{year}{2008}
+      \field{pages}{574\bibrangedash 594}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1080/10447310802205776
+      \endverb
+    \endentry
+    \entry{owasp2021}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=b0d7a4bf1a0878d4e92cdd7461e48710}{%
+           family={{OWASP Foundation}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{fullhash}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{fullhashraw}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{bibnamehash}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{authorbibnamehash}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{authornamehash}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{authorfullhash}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \strng{authorfullhashraw}{b0d7a4bf1a0878d4e92cdd7461e48710}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{OWASP} Top 10 -- 2021}
+      \field{urlday}{15}
+      \field{urlmonth}{2}
+      \field{urlyear}{2026}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://owasp.org/Top10/
+      \endverb
+      \verb{url}
+      \verb https://owasp.org/Top10/
+      \endverb
+    \endentry
+    \entry{provos1999bcrypt}{inproceedings}{}{}
+      \name{author}{2}{}{%
+        {{hash=60b1af3e10b3553c9b4eb4055120912c}{%
+           family={Provos},
+           familyi={P\bibinitperiod},
+           given={Niels},
+           giveni={N\bibinitperiod}}}%
+        {{hash=d95f845d2bc39e6d692ea4242278e0ef}{%
+           family={Mazières},
+           familyi={M\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Monterey, CA, USA}%
+      }
+      \strng{namehash}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{fullhash}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{fullhashraw}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{bibnamehash}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{authorbibnamehash}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{authornamehash}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{authorfullhash}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \strng{authorfullhashraw}{c1deba8a4c55c6c3cec247c8b5d55471}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the USENIX Annual Technical Conference}
+      \field{title}{A Future-Adaptable Password Scheme}
+      \field{year}{1999}
+      \field{pages}{81\bibrangedash 91}
+      \range{pages}{11}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
