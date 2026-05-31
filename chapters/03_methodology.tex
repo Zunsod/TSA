@@ -320,72 +320,59 @@
 \label{fig:usecase-customer}
 \end{figure}
 
-\subsection{Ажилтан болон Админы юзкейс диаграмм}
+\subsection{Админы юзкейс диаграмм}
 
-Ажилтан сувиллд ирсэн захиалгуудыг хянаж баталгаажуулах, шаардлагатай тохиолдолд цуцлах, ирэх хугацааны үйлчлүүлэгчдийн жагсаалт гаргах боломжтой бөгөөд өрөөний хүртээмжийн хяналтыг удирддаг. Админ системийн хамгийн өндөр эрхийн хэрэглэгч бөгөөд сувиллын захиалга, өрөөний мэдээлэл, хэрэглэгчийн бүртгэлийг удирдах, ажилтан нэмэх, тайлан статистик харах зэрэг бүх үйлдлийг гүйцэтгэх боломжтой.
+Админ нь системийн бүх мэдээлэл, тохиргоо, хэрэглэгчийн удирдлагад бүрэн хандах эрх бүхий хэрэглэгч юм. Админы зүгээс систем дээр дараах захиргааны (administrative) үйлдлүүдийг (usecase) гүйцэтгэнэ:
+\begin{itemize}
+  \item \textbf{Захиалгын жагсаалт харах:} Системд орж ирсэн нийт захиалгуудыг шүүж харах, үйлчлүүлэгчдийн мэдээлэлтэй танилцах.
+  \item \textbf{Захиалгын төлөв өөрчлөх / Цуцлах:} Захиалгын төлөвийг шинэчлэх, цуцлах хүсэлтийг хянаж шийдвэрлэх.
+  \item \textbf{Өрөө / Үйлчилгээ нэмэх, засах:} Сувиллын өрөөний мэдээлэл, үнийн тариф болон нэмэлт үйлчилгээнүүдийг шинээр үүсгэх, засварлах.
+  \item \textbf{Вебийн мэдээлэл засварлах:} Вэб сайт дээрх сувиллын ерөнхий танилцуулга, зураг, холбоо барих мэдээллийг шинэчлэх.
+  \item \textbf{Тайлан, статистик харах:} Сар, жилийн нийт орлого, дүүргэлт болон захиалгын статистикийг нэгдсэн хяналтын самбараас харах.
+\end{itemize}
 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     font=\normalsize,
-    shared/.style={
-        ellipse,
-        draw=green!50!black,
-        line width=0.9pt,
-        fill=green!20,
-        minimum width=4.2cm,
-        minimum height=1.5cm,
-        align=center,
-        inner sep=3pt
-    },
     adminuc/.style={
         ellipse,
-        draw=orange!70!black,
+        draw=blue!40!black,
         line width=0.9pt,
-        fill=orange!25,
-        minimum width=4.2cm,
-        minimum height=1.5cm,
+        fill=green!15,
+        minimum width=4.8cm,
+        minimum height=1.4cm,
         align=center,
         inner sep=3pt
     },
-    arr/.style={-{Latex[length=3mm, width=2mm]}, line width=0.9pt}
+    arr/.style={{Latex[length=3mm, width=2mm]}-, line width=0.9pt, draw=blue!40!black}
 ]
 
-\draw[line width=0.9pt] (0,  4.5) circle (0.35cm);
-\draw[line width=0.9pt] (0,  4.15) -- (0,  3.0);
-\draw[line width=0.9pt] (-0.7, 3.65) -- (0.7, 3.65);
-\draw[line width=0.9pt] (0,  3.0) -- (-0.5, 2.2);
-\draw[line width=0.9pt] (0,  3.0) -- ( 0.5, 2.2);
-\node[below=0.1cm, align=center] at (0, 2.1) {Хүлээн авах \\ ажилтан};
+% Admin Actor on the Right
+\draw[line width=0.9pt] (8, 0) circle (0.35cm);
+\draw[line width=0.9pt] (8, -0.35) -- (8, -1.5);
+\draw[line width=0.9pt] (7.3, -0.85) -- (8.7, -0.85);
+\draw[line width=0.9pt] (8, -1.5) -- (7.5, -2.3);
+\draw[line width=0.9pt] (8, -1.5) -- (8.5, -2.3);
+\node[below=0.1cm, align=center] at (8, -2.4) {\textbf{Админ}};
 
-\draw[line width=0.9pt] (0, -1.5) circle (0.35cm);
-\draw[line width=0.9pt] (0, -1.85) -- (0, -3.0);
-\draw[line width=0.9pt] (-0.7, -2.35) -- (0.7, -2.35);
-\draw[line width=0.9pt] (0, -3.0) -- (-0.5, -3.8);
-\draw[line width=0.9pt] (0, -3.0) -- ( 0.5, -3.8);
-\node[below=0.1cm] at (0, -3.9) {Админ};
+% Use cases on the Left
+\node[adminuc] (viewlist) at (0,  4.0)   {Захиалгын жагсаалт харах};
+\node[adminuc] (status)   at (0,  2.0)   {Захиалгын төлөв \\ өөрчлөх / Цуцлах};
+\node[adminuc] (rooms)    at (0,  0.0)   {Өрөө / Үйлчилгээ \\ нэмэх, засах};
+\node[adminuc] (web)      at (0, -2.0)   {Вебийн мэдээлэл засварлах};
+\node[adminuc] (report)   at (0, -4.0)   {Тайлан, статистик харах};
 
-\node[shared]  (confirm)  at (8,  5.2)   {Захиалга баталгаажуулах};
-\node[shared]  (viewlist) at (8,  3.0)   {Захиалгын жагсаалт \\ харах};
-\node[shared]  (status)   at (8,  0.8)   {Захиалгын төлөв \\ өөрчлөх};
-
-\node[adminuc] (rooms)    at (8, -1.4)   {Өрөө / Үйлчилгээ \\ нэмэх, засах};
-\node[adminuc] (staff)    at (8, -3.3)   {Ажилтан удирдах};
-\node[adminuc] (report)   at (8, -5.2)   {Тайлан, статистик \\ гаргах};
-
-\draw[arr] (0.7,  3.65) -- (confirm.west);
-\draw[arr] (0.7,  3.65) -- (viewlist.west);
-\draw[arr] (0.7,  3.65) -- (status.west);
-
-\draw[arr] (0.7, -2.35) -- (status.west);
-\draw[arr] (0.7, -2.35) -- (viewlist.west);
-\draw[arr] (0.7, -2.35) -- (rooms.west);
-\draw[arr] (0.7, -2.35) -- (staff.west);
-\draw[arr] (0.7, -2.35) -- (report.west);
+% Connections (arrowheads point at the ellipses)
+\draw[arr] (viewlist.east) -- (7.3, -0.85);
+\draw[arr] (status.east)   -- (7.3, -0.85);
+\draw[arr] (rooms.east)    -- (7.3, -0.85);
+\draw[arr] (web.east)      -- (7.3, -0.85);
+\draw[arr] (report.east)   -- (7.3, -0.85);
 
 \end{tikzpicture}
-\caption{Ажилтан болон Админы юзкейс диаграмм}
-\label{fig:usecase-staff-admin}
+\caption{Админы юзкейс диаграмм}
+\label{fig:usecase-admin}
 \end{figure}
 
 % ======= 3.8 =======

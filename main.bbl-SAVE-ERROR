@@ -33,8 +33,8 @@
       \strng{authornamehash}{96416d4323fd9d9a3804e494b5ca8089}
       \strng{authorfullhash}{96416d4323fd9d9a3804e494b5ca8089}
       \strng{authorfullhashraw}{96416d4323fd9d9a3804e494b5ca8089}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Шаргалжуут рашаан сувиллын албан ёсны вэб сайт}
@@ -64,8 +64,8 @@
       \strng{authornamehash}{fb1c5330ae20424b942e2fb63a23d726}
       \strng{authorfullhash}{fb1c5330ae20424b942e2fb63a23d726}
       \strng{authorfullhashraw}{fb1c5330ae20424b942e2fb63a23d726}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Амралтын газруудын нэгдсэн мэдээллийн сан}
@@ -95,8 +95,8 @@
       \strng{authornamehash}{3e16c236402899eb76e1af53cdaee0f5}
       \strng{authorfullhash}{3e16c236402899eb76e1af53cdaee0f5}
       \strng{authorfullhashraw}{3e16c236402899eb76e1af53cdaee0f5}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Эмнэлгийн цаг захиалгын систем}
@@ -126,8 +126,8 @@
       \strng{authornamehash}{480846189fe04a4f4482f59c0a1f474e}
       \strng{authorfullhash}{480846189fe04a4f4482f59c0a1f474e}
       \strng{authorfullhashraw}{480846189fe04a4f4482f59c0a1f474e}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Зочид буудал, амралтын газрын захиалгын платформ}
@@ -162,8 +162,8 @@
       \strng{authornamehash}{87dbbd44b3977c28b71d826a931add3e}
       \strng{authorfullhash}{87dbbd44b3977c28b71d826a931add3e}
       \strng{authorfullhashraw}{87dbbd44b3977c28b71d826a931add3e}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Architectural Styles and the Design of Network-based Software Architectures}
@@ -203,8 +203,8 @@
       \strng{authornamehash}{2e8829be23557c692dac07b198a7df6e}
       \strng{authorfullhash}{2e8829be23557c692dac07b198a7df6e}
       \strng{authorfullhashraw}{2e8829be23557c692dac07b198a7df6e}
-      \field{sortinit}{7}
-      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{edition}{7}
@@ -242,8 +242,8 @@
       \strng{authornamehash}{8456e57585316c5ad570515143f00129}
       \strng{authorfullhash}{8456e57585316c5ad570515143f00129}
       \strng{authorfullhashraw}{8456e57585316c5ad570515143f00129}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{number}{7519}
@@ -271,8 +271,8 @@
       \strng{authornamehash}{797cc11f5fefe1b8328cb053b09cf97b}
       \strng{authorfullhash}{797cc11f5fefe1b8328cb053b09cf97b}
       \strng{authorfullhashraw}{797cc11f5fefe1b8328cb053b09cf97b}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Нийтийн эрүүл мэнд, нөхөн сэргээх үйлчилгээний статистик мэдээлэл}
@@ -336,8 +336,8 @@
       \strng{editornamehash}{305814c267030b47870a3020917344e9}
       \strng{editorfullhash}{f9a6cd00748d9e7779606685fd8952ff}
       \strng{editorfullhashraw}{f9a6cd00748d9e7779606685fd8952ff}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Usability Evaluation in Industry}
