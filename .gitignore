@@ -19,5 +19,7 @@ build/
 # macOS
 .DS_Store
 
+Claude.md
+.claude
 # PDF (optional - remove this line if you want to track the PDF)
 # main.pdf
