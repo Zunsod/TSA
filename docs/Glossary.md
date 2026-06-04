@@ -21,3 +21,5 @@
 | relation database | Харилцаат өгөгдлийн сан |
 
 |applied research | хэрэглээний судалгаа |
+
+|sequence diagram | дарааллын диаграмм |

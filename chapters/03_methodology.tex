@@ -15,6 +15,8 @@
 % ======= 3.3 (Суурь судалгаа) =======
 \section{Суурь судалгаа}
 
+\subsection{Одоогийн захиалгын үйл явц}
+
 Шинэ системийн үр нөлөөг объектив үнэлэхийн тулд Өвөрхангай аймгийн Хужирт суманд үйл ажиллагаа явуулдаг Ананд Хужирт сувиллын одоогийн үйл явцад ажиглалтын судалгаа хийсэн. Судалгааг 2 долоо хоногийн хугацаанд хийж, 2 ажилтанд нийт 20 захиалгын боловсруулалтыг хянан, зарцуулагдсан хугацааг тэмдэглэв.
 
 Ажиглалтын дүнгээс дүгнэхэд нэг захиалга баталгаажуулахын тулд ажилтан хэрэглэгчтэй дор хаяж 3 удаа утсаар ярилцдаг бөгөөд нийт ярианы хугацаа дунджаар 12--18 минут байна. Харилцаа нь дараах гурван үе шатад хуваагдана.
@@ -38,14 +40,51 @@
 
 Дундаж утгыг 15 минут гэж тогтоосон бөгөөд энэ үзүүлэлтийг системийн хэрэгжилтийн өмнөх суурь түвшин болгон авч үзсэн.
 
+\subsection{Ананд Хужиртын амрагчдын статистик}
+
+Зураг~\ref{fig:customers-stats}-т Ананд Хужирт сувиллын 2016–2023 оны хооронд үйлчлүүлсэн амрагчдын тооны өөрчлөлтийг харуулав. Статистик мэдээллээс харахад амрагчдын тоо ерөнхийдөө өсөх хандлагатай байгаа бөгөөд 2020–2021 онд буурсан нь COVID-19 цар тахалтай холбоотой юм. Харин 2022 оноос эхлэн амрагчдын тоо дахин өсөж, 2023 онд өмнөх жилүүдийн түвшинд хүрсэн байна.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      ybar,
+      bar width=0.58cm,
+      width=0.85\textwidth,
+      height=6.5cm,
+      xtick={1,2,3,4,5,6,7,8},
+      xticklabels={2016,2017,2018,2019,2020,2021,2022,{2023/11}},
+      nodes near coords,
+      nodes near coords align={vertical},
+      every node near coord/.style={font=\scriptsize},
+      ymin=0,
+      ymax=6500,
+      ylabel={Амрагчийн тоо (хүн)},
+      xlabel={Он},
+      enlarge x limits=0.08,
+      tick label style={font=\small},
+      label style={font=\small},
+    ]
+      \addplot[fill=blue!45, draw=blue!70] coordinates {
+        (1,1450)(2,2937)(3,3346)(4,4069)
+        (5,3863)(6,2521)(7,5146)(8,4247)
+      };
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Ананд Хужирт сувиллын амрагчдийн тооны өөрчлөлт (2016--2023)}
+  \label{fig:customers-stats}
+\end{figure}
+
+Энэхүү статистик мэдээлэл нь сувиллын үйлчилгээний эрэлт хэрэгцээ тогтвортой байгааг харуулж байгаа бөгөөд цаашид захиалгын мэдээллийг үр ашигтай удирдах шаардлага хэвээр байхыг илтгэнэ. Иймээс захиалга бүртгэх, баталгаажуулах, хянах үйл ажиллагааг цахим системээр дэмжих шаардлагатай гэж үзсэн.
+
+Мөн уг статистик мэдээллийг системийн цар хүрээ, боловсруулах өгөгдлийн хэмжээ болон хэрэглэгчийн үндсэн шаардлагуудыг тодорхойлох суурь мэдээлэл болгон ашигласан.
 % ======= 3.3 (Системийн үйл ажиллагааны тухай) =======
 \section{Системийн үйл ажиллагааны тухай дэлгэрэнгүй}
 
 \subsection{Системийн ерөнхий бүтэц}
 
 Энэхүү систем нь T3 Stack дээр суурилан хөгжүүлсэн веб систем бөгөөд Next.js, Prisma ORM, NextAuth.js болон PostgreSQL технологиудыг ашигласан. Системийн архитектур нь хэрэглэгчийн хүсэлтийг frontend болон backend давхаргаар боловсруулж, өгөгдлийн сантай харилцах бүтэцтэй.
-
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     node distance=0.9cm,
@@ -142,239 +181,88 @@
 
 % ======= 3.4 =======
 
-\subsection{Үндсэн урсгал}
-
-Системийн үндсэн үйл ажиллагааны урсгал нь дараах дарааллаар явагдана: зочин буюу үйлчлүүлэгч вэб хуудсанд орж сувиллын мэдээлэл болон өрөөний жагсаалттай танилцана, захиалга хийхийн тулд ирэх унаа, огноо болон хүний тоо сонгон боломжтой өрөөг хайлт хийж, захиалга үүсгэнэ. Үүсгэсэн захиалга дээр амжилттай төлбөр төлөгдсөн тохиолдолд систем хэрэглэгчид мэдэгдэл илгээж захиалга бүртгэгдсэн гэдгийг баталгаажуулна. Энэхүү урсгал нь одоогийн утсаар захиалга авах, цаасан бүртгэл хөтлөх уламжлалт аргыг цахим орчинд шилжүүлж байгаа юм.
-
-\begin{figure}[H]
-  \centering
-  \figplaceholder[0.55]{system_flow}
-  \caption{Системийн үндсэн урсгалын диаграмм}
-  \label{fig:system-flow}
-\end{figure}
-
 % ======= 3.5 =======
 \section{Системийн шаардлага}
 
-Судалгааны явцад системд шаардлагатай үндсэн функцуудыг сувиллын ажилтантай хийсэн асуулга, ярилцлагын аргаар тодорхойлсон.
-Мөн системийн найдвартай байдал, аюулгүй байдлын шаардлагуудыг тусгайлан авч үзсэн. Эдгээр шаардлагуудыг тодорхойлохдоо Эрүүл мэндийн яамны нийтийн эрүүл мэнд, нөхөн сэргээх үйлчилгээний статистик мэдээллийг \cite{mohstats2023} суурь мэдээлэл болгон ашигласан.
-Доорх зурагт Хужирт сумын нэгэн сувилалд 2016–2023 оны хооронд үйлчлүүлсэн үйлчлүүлэгчдийн тооны өөрчлөлтийг харуулав.
-\begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    \begin{axis}[
-      ybar,
-      bar width=0.58cm,
-      width=0.85\textwidth,
-      height=6.5cm,
-      xtick={1,2,3,4,5,6,7,8},
-      xticklabels={2016,2017,2018,2019,2020,2021,2022,{2023/11}},
-      nodes near coords,
-      nodes near coords align={vertical},
-      every node near coord/.style={font=\scriptsize},
-      ymin=0,
-      ymax=6500,
-      ylabel={Үйлчлүүлэгчийн тоо (хүн)},
-      xlabel={Он},
-      enlarge x limits=0.08,
-      tick label style={font=\small},
-      label style={font=\small},
-    ]
-      \addplot[fill=blue!45, draw=blue!70] coordinates {
-        (1,1450)(2,2937)(3,3346)(4,4069)
-        (5,3863)(6,2521)(7,5146)(8,4247)
-      };
-    \end{axis}
-  \end{tikzpicture}
-  \caption{Хужирт сумын нэг сувиллын үйлчлүүлэгчийн тооны өөрчлөлт (2016--2023)\\[2pt]}
-  \label{fig:customers-stats}
-\end{figure}
-\vspace{0.5cm}
+Системийн шаардлагыг тодорхойлохдоо сувиллын ажилтантай хийсэн ярилцлага, одоогийн захиалгын үйл ажиллагаанд хийсэн ажиглалт болон суурь судалгааны үр дүнг ашигласан. Судалгааны явцад сувиллын амрагчдын ихэнх нь 40-өөс дээш насны хэрэглэгчид байгааг ажигласан тул системийг хэрэглэхэд ойлгомжтой, цөөн алхамтай байхаар төлөвлөсөн. Иймээс бүртгэл, нэвтрэлт болон захиалга үүсгэх үйл ажиллагааг аль болох энгийн байдлаар зохион байгуулсан.
 
 \begin{table}[H]
   \centering
-  \caption{Системийн шаардлагын жагсаалт}
+  \caption{Системийн үндсэн шаардлагууд}
   \label{tab:functional-req}
-  \begin{tabular}{|l|l|p{6cm}|l|}
-    \hline
-    \textbf{FR-ID} & \textbf{Шаардлагын нэр} & \textbf{Тодорхойлолт} & \textbf{Хамаарах үүрэг} \\
-    \hline
-    FR-01 & Нэвтрэх               & Имэйл/нууц үгээр нэвтрэх                          & Бүгд \\
-    \hline
-    FR-02 & Бүртгүүлэх            & Шинэ хэрэглэгч үүсгэх, имэйл баталгаажуулалт                  & Зочин \\
-    \hline
-    FR-03 & Захиалга үүсгэх       & Өрөө, огноо, хүний тоо сонгон захиалга өгөх                   & Үйлчлүүлэгч \\
-    \hline
-    FR-04 & Захиалга баталгаажуулах & Ажилтан захиалгыг хянаж батлах                               & Ажилтан \\
-    \hline
-    FR-05 & Захиалга цуцлах       & Үйлчлүүлэгч эсвэл ажилтан захиалга цуцлах                    & Үйлчлүүлэгч, Ажилтан \\
-    \hline
-    FR-06 & Өрөөний хүртээмж      & Сонгосон огноонд хоосон өрөө шүүх                             & Зочин, Үйлчлүүлэгч \\
-    \hline
-    FR-07 & Тайлан гаргах         & Сарын захиалга, орлого, дүүргэлтийн хувь                      & Админ \\
-    \hline
-    FR-08 & Хэрэглэгч удирдах     & Хэрэглэгч, ажилтан бүртгэх, засах                             & Админ \\
-    \hline
-    FR-09 & Мэдэгдэл илгээх       & Захиалга баталгаажсан, ирэх өдрийг сануулах                   & Систем \\
-    \hline
-    FR-10 & Профайл засах         & Нэр, утас, нууц үг шинэчлэх                                   & Үйлчлүүлэгч \\
-    \hline
+  \begin{tabular}{p{0.6cm} p{5.5cm} p{8.5cm}}
+    \toprule
+    \textbf{№} & \textbf{Шаардлага} & \textbf{Тайлбар} \\
+    \midrule
+    1 & Гар утасны дугаараар бүртгүүлэх, нэвтрэх & Ахимаг насны хэрэглэгчдэд ашиглахад хялбар байх \\
+    \midrule
+    2 & Захиалга үүсгэх       & Өрөө, огноо, хүний тоо сонгон захиалга илгээх \\
+    \midrule
+    3 & Өрөөний хүртээмж шалгах & Сонгосон хугацаанд сул өрөө байгаа эсэхийг шалгах \\
+    \midrule
+    4 & Захиалга баталгаажуулах & Админ захиалгыг батлах боломжтой байх \\
+    \midrule
+    5 & Захиалга цуцлах       & Амрагч болон админ захиалга цуцлах боломжтой байх \\
+    \midrule
+    6 & Профайл удирдах       & Хэрэглэгч хувийн мэдээллээ шинэчлэх боломжтой байх \\
+    \midrule
+    7 & Мэдэгдэл илгээх       & Захиалга баталгаажсан үед хэрэглэгчид мэдэгдэх \\
+    \bottomrule
   \end{tabular}
 \end{table}
 
-% ======= 3.6 =======
-
-Статистик мэдээллээс харахад 2022 онд үйлчлүүлэгчдийн тоо 5,146-д хүрч, судлагдсан хугацаанд хамгийн өндөр үзүүлэлтэд хүрсэн байна. Энэхүү өсөлтийн хандлага нь системд ирэх ачаалал нэмэгдэхийг илтгэж байгаа тул уг өгөгдөлд тулгуурлан функционал бус шаардлагуудыг тодорхойлсон.
-Нэгдүгээрт, жилийн дундаж болон оргил ачааллын үед нэгэн зэрэг нэвтрэх хэрэглэгчдийн тоо мэдэгдэхүйц өсөх хандлагатай тул NFR-01 гүйцэтгэлийн шаардлагын хүрээнд 100-аас дээш хэрэглэгчийг нэгэн зэрэг 200 ms-ээс бага хариу хугацаатайгаар дэмжих шаардлагыг тогтоосон.
-Хоёрдугаарт, олон хэрэглэгч нэгэн зэрэг ижил өрөөг захиалах нөхцөл үүсэх магадлалтай учир NFR-03 захиалга түгжих механизмыг хэрэгжүүлэх шаардлагатай гэж үзсэн.
-Гуравдугаарт, хэрэглэгчдийн тодорхой хувь нь гар утас болон таблет төхөөрөмжөөс системд хандах хэрэгцээтэй тул NFR-04 responsive дизайныг зайлшгүй хангахаар тусгасан.
-\vspace{0.5cm}
 \begin{table}[H]
   \centering
-  \caption{Функционал бус шаардлагууд}
+  \caption{Системийн ажиллагааны шаардлагууд}
   \label{tab:nonfunctional-req}
-  \begin{tabular}{|l|l|p{5.5cm}|p{3.5cm}|}
-    \hline
-    \textbf{NFR-ID} & \textbf{Ангилал} & \textbf{Шаардлага} & \textbf{Хэмжих үзүүлэлт} \\
-    \hline
-    NFR-01 & Гүйцэтгэл      
-    & API хариу хугацаа дунджаар 200 ms-ээс бага, 100+ хэрэглэгчийг нэгэн зэрэг дэмжих    
-    & Ачааллын тест (Load test) \\
-    \hline
-    NFR-02 & Аюулгүй байдал 
-    & HTTPS протокол, JWT токен, bcrypt алгоритмаар нууц үг хэшлэх, SQL injection хамгаалалт                  
-    & Аюулгүй байдлын тест \\
-    \hline
-    NFR-03 & Өгөгдлийн бүрэн бүтэн байдал 
-    & Захиалгыг баталгаажуулах хүртэл 10 минутын хугацаанд түгжих механизм хэрэгжүүлэх                            
-    & Зэрэг хандалтын тест \\
-    \hline
-    NFR-04 & Хүртээмж       
-    & Responsive дизайн (гар утас, таблет, компьютер дээр зохицох)          
-    & Дэлгэцийн тест \\
-    \hline
-    NFR-05 & Засвар үйлчилгээ 
-    & Лог бүртгэл, кодын баримтжуулалт, хялбар deploy хийх боломж                              
-    & Кодын хяналт \\
-    \hline
+  \begin{tabular}{p{0.6cm} p{5.5cm} p{8.5cm}}
+    \toprule
+    \textbf{№} & \textbf{Шаардлага} & \textbf{Тайлбар} \\
+    \midrule
+    1 & Захиалга түр түгжих механизм & Захиалга үүсгэхэд сонгосон өрөөг 10 минутын хугацаанд түр түгжих \\
+    \midrule
+    2 & Responsive дизайн - Mobile first     & Гар утаснаас ашиглахад тохиромжтой UI-тай байх \\
+    \midrule
+    3 & Аюулгүй нэвтрэлт     & Хэрэглэгчийн мэдээллийг хамгаалах, баталгаажуулалт хийх \\
+    \midrule
+    4 & Ачаалал даах чадвар   & Нэгэн зэрэг 100 хүртэл хэрэглэгчийн хандалтыг дэмжих \\
+    \bottomrule
   \end{tabular}
 \end{table}
 
 % ======= 3.7 =======
-\section{Юзкейс диаграммууд}
+\section{Системийн загварчлал}
+\subsection{Юзкейс диаграмм}
 
-\subsection{Үйлчлүүлэгчийн юзкейс диаграмм}
+Системийн юзкейс диаграммыг Зураг~\ref{fig:usecase-v2}-д үзүүлэв. Энэхүү диаграмм нь системийн үндсэн хэрэглэгчид болох амрагч болон админ хэрэглэгчдийн гүйцэтгэх үйлдлүүдийг харуулна.
 
-Үйлчлүүлэгч бүртгүүлсний дараа захиалга үүсгэх, өөрийн захиалгын түүх болон статусыг харах, профайлын мэдээлэл засах, хугацааны нөхцөлийг хангасан захиалгаа цуцлах боломжтой.
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-    font=\normalsize,
-    usecase/.style={
-        ellipse,
-        draw=blue!55!black,
-        line width=0.9pt,
-        fill=blue!18,
-        minimum width=4.2cm,
-        minimum height=1.6cm,
-        align=center,
-        inner sep=3pt
-    },
-    arr/.style={-{Latex[length=3mm, width=2mm]}, line width=0.9pt},
-    ext/.style={-{Latex[length=2.5mm, width=1.8mm]}, line width=0.7pt, dashed}
-]
-
-\draw[line width=0.9pt] (0, 0) circle (0.35cm);
-\draw[line width=0.9pt] (0, -0.35) -- (0, -1.5);
-\draw[line width=0.9pt] (-0.7, -0.85) -- (0.7, -0.85);
-\draw[line width=0.9pt] (0, -1.5) -- (-0.5, -2.3);
-\draw[line width=0.9pt] (0, -1.5) -- (0.5, -2.3);
-\node[below=0.1cm] at (0, -2.4) {\textbf{Үйлчлүүлэгч}};
-
-\node[usecase] (register) at (7.5,  4.8)   {Бүртгэл үүсгэх / \\ Нэвтрэх};
-\node[usecase] (viewroom) at (7.5,  2.7)   {Өрөө харах / \\ Хайх};
-\node[usecase] (book)     at (7.5,  0.7)   {Захиалга үүсгэх};
-\node[usecase] (mybook)   at (7.5, -1.3)   {Захиалгаа харах / \\ Засах};
-\node[usecase] (cancel)   at (7.5, -3.3)   {Захиалгаа цуцлах};
-\node[usecase] (payment)  at (7.5, -5.3)   {Урьдчилгаа төлбөр \\ төлөх};
-
-\draw[arr] (0.7, -0.85) -- (register.west);
-\draw[arr] (0.7, -0.85) -- (viewroom.west);
-\draw[arr] (0.7, -0.85) -- (book.west);
-\draw[arr] (0.7, -0.85) -- (mybook.west);
-\draw[arr] (0.7, -0.85) -- (cancel.west);
-\draw[arr] (0.7, -0.85) -- (payment.west);
-
-\draw[ext] (viewroom.south) -- (book.north);
-\draw[ext] (payment.north east) to[bend right=30] (book.south east);
-
-\end{tikzpicture}
-\caption{Үйлчлүүлэгчийн юзкейс диаграмм}
-\label{fig:usecase-customer}
-\end{figure}
-
-\subsection{Админы юзкейс диаграмм}
-
-Админ нь системийн бүх мэдээлэл, тохиргоо, хэрэглэгчийн удирдлагад бүрэн хандах эрх бүхий хэрэглэгч юм. Админы зүгээс систем дээр дараах захиргааны (administrative) үйлдлүүдийг (usecase) гүйцэтгэнэ:
 \begin{itemize}
-  \item \textbf{Захиалгын жагсаалт харах:} Системд орж ирсэн нийт захиалгуудыг шүүж харах, үйлчлүүлэгчдийн мэдээлэлтэй танилцах.
-  \item \textbf{Захиалгын төлөв өөрчлөх / Цуцлах:} Захиалгын төлөвийг шинэчлэх, цуцлах хүсэлтийг хянаж шийдвэрлэх.
-  \item \textbf{Өрөө / Үйлчилгээ нэмэх, засах:} Сувиллын өрөөний мэдээлэл, үнийн тариф болон нэмэлт үйлчилгээнүүдийг шинээр үүсгэх, засварлах.
-  \item \textbf{Вебийн мэдээлэл засварлах:} Вэб сайт дээрх сувиллын ерөнхий танилцуулга, зураг, холбоо барих мэдээллийг шинэчлэх.
-  \item \textbf{Тайлан, статистик харах:} Сар, жилийн нийт орлого, дүүргэлт болон захиалгын статистикийг нэгдсэн хяналтын самбараас харах.
+\item \textbf{Амрагч} нь системд бүртгүүлэх, нэвтрэх, өрөө хайх, захиалга үүсгэх, өөрийн захиалгын мэдээллийг харах, засах болон цуцлах боломжтой. Мөн захиалга баталгаажуулах зорилгоор урьдчилгаа төлбөр төлөх үйл ажиллагааг гүйцэтгэнэ.
+
+\item \textbf{Админ} нь системд бүртгэгдсэн захиалгуудыг хянах, захиалгын төлөв өөрчлөх, өрөө болон үйлчилгээний мэдээллийг удирдах, веб сайтын мэдээллийг шинэчлэх, мөн тайлан статистикийн мэдээлэл харах эрхтэй. Эдгээр үйлдлүүд нь сувиллын өдөр тутмын үйл ажиллагааг цахим хэлбэрээр удирдах боломжийг бүрдүүлдэг.
 \end{itemize}
 
 \begin{figure}[H]
-\centering
-\begin{tikzpicture}[
-    font=\normalsize,
-    adminuc/.style={
-        ellipse,
-        draw=blue!40!black,
-        line width=0.9pt,
-        fill=green!15,
-        minimum width=4.8cm,
-        minimum height=1.4cm,
-        align=center,
-        inner sep=3pt
-    },
-    arr/.style={{Latex[length=3mm, width=2mm]}-, line width=0.9pt, draw=blue!40!black}
-]
-
-% Admin Actor on the Right
-\draw[line width=0.9pt] (8, 0) circle (0.35cm);
-\draw[line width=0.9pt] (8, -0.35) -- (8, -1.5);
-\draw[line width=0.9pt] (7.3, -0.85) -- (8.7, -0.85);
-\draw[line width=0.9pt] (8, -1.5) -- (7.5, -2.3);
-\draw[line width=0.9pt] (8, -1.5) -- (8.5, -2.3);
-\node[below=0.1cm, align=center] at (8, -2.4) {\textbf{Админ}};
-
-% Use cases on the Left
-\node[adminuc] (viewlist) at (0,  4.0)   {Захиалгын жагсаалт харах};
-\node[adminuc] (status)   at (0,  2.0)   {Захиалгын төлөв \\ өөрчлөх / Цуцлах};
-\node[adminuc] (rooms)    at (0,  0.0)   {Өрөө / Үйлчилгээ \\ нэмэх, засах};
-\node[adminuc] (web)      at (0, -2.0)   {Вебийн мэдээлэл засварлах};
-\node[adminuc] (report)   at (0, -4.0)   {Тайлан, статистик харах};
-
-% Connections (arrowheads point at the ellipses)
-\draw[arr] (viewlist.east) -- (7.3, -0.85);
-\draw[arr] (status.east)   -- (7.3, -0.85);
-\draw[arr] (rooms.east)    -- (7.3, -0.85);
-\draw[arr] (web.east)      -- (7.3, -0.85);
-\draw[arr] (report.east)   -- (7.3, -0.85);
-
-\end{tikzpicture}
-\caption{Админы юзкейс диаграмм}
-\label{fig:usecase-admin}
+  \centering
+  \includegraphics[width=\textwidth]{figures/usecase_v2.pdf}
+  \caption{Сувиллын захиалгын системийн юзкейс диаграмм}
+  \label{fig:usecase-v2}
 \end{figure}
 
 % ======= 3.8 =======
-\section{Дарааллын диаграммууд}
+\subsection{Захиалга үүсгэх үйл ажиллагааны урсгал}
+Захиалгыг үүсгэхдээ тухайн амрагч сувиллын мэдээлэлтэй танилцаж, ирэх хугацаа болон хүний тоонд тохирох өрөөг сонгон захиалга үүсгэнэ. Үүний дараа урьдчилгаа төлбөр төлөх бөгөөд төлбөр амжилттай баталгаажсан тохиолдолд захиалга бүртгэгдэнэ. Харин төлбөр амжилтгүй болсон тохиолдолд алдааны мэдээлэл харуулна. 
+    \begin{figure}[H]
+    \centering
+    \figplaceholder[0.55]{system_flow}
+    \caption{Захиалгын үндсэн урсгал}
+    \label{fig:system-flow}
+    \end{figure}
+\subsection{Дарааллын диаграммууд}
 
-\subsection{Бүртгэл ба нэвтрэлтийн дараалал}
+\textbf{Бүртгэл ба нэвтрэлт}
 
-Хэрэглэгч имэйл болон нууц үгээ оруулахад NextAuth.js хүсэлтийг хүлээн авч Prisma ORM-р дамжуулан PostgreSQL өгөгдлийн санд хадгалагдсан хэрэглэгчийн мэдээлэлтэй шалгана, амжилттай баталгаажсан тохиолдолд JWT session токен үүсгэн хэрэглэгчийн хөтөч дээр хадгалагдана.
+Бүртгэл ба нэвтрэлтийн дарааллыг Зураг~\ref{fig:seq-auth}-д үзүүлэв. Хэрэглэгч утасны дугаараа оруулахад систем SMS Gateway-р дамжуулан нэг удаагийн баталгаажуулах код илгээнэ. Хэрэглэгч кодоо оруулсны дараа систем утасны дугаарыг өгөгдлийн санд шалгаж, бүртгэлтэй бол шууд нэвтрүүлэх бөгөөд бүртгэлгүй бол нэр, овгийг нэмэлтээр оруулан шинэ бүртгэл үүсгэнэ.
 
 \begin{figure}[H]
 \centering
@@ -386,7 +274,7 @@
         draw=blue!40!black,
         fill=blue!8,
         rounded corners=4pt,
-        minimum width=2.6cm,
+        minimum width=2.8cm,
         minimum height=0.7cm,
         align=center
     },
@@ -401,55 +289,67 @@
 \def\xd{12.9}
 
 % Actors
-\node[actor] (u)  at (\xa, 0) {Хэрэглэгч \\ (веб)};
-\node[actor] (na) at (\xb, 0) {NextAuth.js};
-\node[actor] (pr) at (\xc, 0) {Prisma ORM};
-\node[actor] (db) at (\xd, 0) {PostgreSQL};
+\node[actor] at (\xa, 0) {Хэрэглэгч \\ (веб)};
+\node[actor] at (\xb, 0) {Next.js API};
+\node[actor] at (\xc, 0) {SMS Gateway};
+\node[actor] at (\xd, 0) {PostgreSQL \\ (Prisma)};
 
 % Lifelines
-\draw[line] (\xa, -0.6) -- (\xa, -13.2);
-\draw[line] (\xb, -0.6) -- (\xb, -13.2);
-\draw[line] (\xc, -0.6) -- (\xc, -13.2);
-\draw[line] (\xd, -0.6) -- (\xd, -13.2);
+\draw[line] (\xa, -0.6) -- (\xa, -17.0);
+\draw[line] (\xb, -0.6) -- (\xb, -17.0);
+\draw[line] (\xc, -0.6) -- (\xc, -17.0);
+\draw[line] (\xd, -0.6) -- (\xd, -17.0);
 
-% [БҮРТГЭЛ]
-\node[anchor=west, font=\bfseries\small, text=gray!80!black] at (-0.5, -1.0) {Бүртгэл};
+% --- Нэвтрэлт ---
+\node[
+    draw=cyan!60!black, line width=0.8pt,
+    fill=cyan!8,
+    rounded corners=3pt,
+    font=\bfseries\small,
+    inner sep=4pt,
+    anchor=west
+] at (-0.5, -1.0) {Нэвтрэлт};
 
-\draw[msg] (\xa, -1.8) -- node[above, font=\scriptsize] {1. Бүртгэлийн мэдээлэл (нэр, имэйл, нууц үг)} (\xb, -1.8);
-\draw[msg] (\xb, -2.6) -- node[above, font=\scriptsize] {2. Шинэ хэрэглэгч үүсгэх хүсэлт} (\xc, -2.6);
-\draw[msg] (\xc, -3.4) -- node[above, font=\scriptsize] {3. INSERT INTO users} (\xd, -3.4);
+% Common flow
+\draw[msg] (\xa, -2.0) -- node[above, font=\scriptsize] {1. Утасны дугаар оруулах} (\xb, -2.0);
+\draw[msg] (\xb, -3.0) -- node[above, font=\scriptsize] {2. Баталгаажуулах код илгээх хүсэлт} (\xc, -3.0);
+\draw[ret] (\xc, -4.0) -- node[above, font=\scriptsize] {3. Баталгаажуулах код} (\xa, -4.0);
+\draw[msg] (\xa, -5.0) -- node[above, font=\scriptsize] {4. Баталгаажуулах кодоо оруулах} (\xb, -5.0);
+\draw[msg] (\xb, -6.0) -- node[above, font=\scriptsize] {5. Хэрэглэгчийн бүртгэл шалгах} (\xd, -6.0);
 
-\draw[ret] (\xd, -4.2) -- node[above, font=\scriptsize] {4. Хэрэглэгч амжилттай үүссэн} (\xc, -4.2);
-\draw[ret] (\xc, -5.0) -- node[above, font=\scriptsize] {5. User объект буцаах} (\xb, -5.0);
-\draw[ret] (\xb, -5.8) -- node[above, font=\scriptsize] {6. Бүртгэл амжилттай (нэвтрэх хуудас руу)} (\xa, -5.8);
+\draw[ret] (\xd, -7.1)  -- node[above, font=\scriptsize] {6а. [Бүртгэлтэй] Хэрэглэгчийн мэдээлэл} (\xb, -7.1);
+\draw[ret] (\xb, -8.1)  -- node[above, font=\scriptsize] {7. Нэвтрэлт амжилттай} (\xa, -8.1);
 
-% Separator
-\draw[loosely dashed, gray!50] (-0.8, -6.6) -- (\xd+0.8, -6.6);
+% Section separator
+\draw[loosely dashed, gray!50] (-0.8, -8.9) -- (\xd+0.8, -8.9);
 
-% [НЭВТРЭЛТ]
-\node[anchor=west, font=\bfseries\small, text=gray!80!black] at (-0.5, -7.2) {Нэвтрэлт};
+% --- Шинэ хэрэглэгч ---
+\node[
+    draw=cyan!60!black, line width=0.8pt,
+    fill=cyan!8,
+    rounded corners=3pt,
+    font=\bfseries\small,
+    inner sep=4pt,
+    anchor=west
+] at (-0.5, -9.4) {Шинэ хэрэглэгч};
 
-\draw[msg] (\xa, -8.0) -- node[above, font=\scriptsize] {7. Имэйл, нууц үг оруулах} (\xb, -8.0);
-\draw[msg] (\xb, -8.8) -- node[above, font=\scriptsize] {8. Имэйлээр хэрэглэгч хайх} (\xc, -8.8);
-\draw[msg] (\xc, -9.6) -- node[above, font=\scriptsize] {9. SELECT * FROM users WHERE email=?} (\xd, -9.6);
-
-\draw[ret] (\xd, -10.4) -- node[above, font=\scriptsize] {10. Хэрэглэгчийн мэдээлэл} (\xc, -10.4);
-\draw[ret] (\xc, -11.2) -- node[above, font=\scriptsize] {11. User + hashed нууц үг} (\xb, -11.2);
-
-\node[draw=gray!50, fill=yellow!15, text=black, align=center, font=\scriptsize, rounded corners=3pt, inner sep=4pt] at (\xb, -12.0) {bcrypt.compare() \\ нууц үг шалгах};
-
-\draw[ret] (\xb, -12.8) -- node[above, font=\scriptsize] {12. JWT session токен (cookie-д хадгалах)} (\xa, -12.8);
+\draw[ret] (\xd, -10.2) -- node[above, font=\scriptsize] {6б. [Бүртгэлгүй] Хэрэглэгч олдсонгүй} (\xb, -10.2);
+\draw[ret] (\xb, -11.2) -- node[above, font=\scriptsize] {7. Нэр, овог оруулах хүсэлт} (\xa, -11.2);
+\draw[msg] (\xa, -12.2) -- node[above, font=\scriptsize] {8. Нэр, овог оруулах} (\xb, -12.2);
+\draw[msg] (\xb, -13.2) -- node[above, font=\scriptsize] {9. Хэрэглэгчийн бүртгэл үүсгэх} (\xd, -13.2);
+\draw[ret] (\xd, -14.2) -- node[above, font=\scriptsize] {10. Хэрэглэгч амжилттай үүссэн} (\xb, -14.2);
+\draw[ret] (\xb, -15.2) -- node[above, font=\scriptsize] {11. Бүртгэл амжилттай} (\xa, -15.2);
 
 \end{tikzpicture}
 }
-\caption{Бүртгэл ба нэвтрэлтийн дараалал диаграмм}
+\caption{Бүртгэл ба нэвтрэлтийн дарааллын диаграмм}
 \label{fig:seq-auth}
 \end{figure}
 
-\subsection{Захиалга үүсгэх дараалал}
+\vspace{6pt}
+\textbf{Захиалга үүсгэх}
 
-Үйлчлүүлэгч огноо, өрөө, хүний тоо сонгон захиалга илгээхэд Next.js API Route дуудагдаж серверийн хэсэгт хүсэлт очно, Prisma ашиглан өгөгдлийн санд шинэ захиалгын бичлэг үүсч, захиалгын статус \texttt{PENDING} болж тохируулагдана.
-
+Захиалга үүсгэхдээ амрагч огноо, өрөө болон хүний тоог сонгон захиалгын хүсэлт илгээнэ. Үүний дараа систем захиалгын мэдээллийг боловсруулж өгөгдлийн санд хадгална. Шинээр үүссэн захиалга нь баталгаажуулалт хүлээж буй төлөвт бүртгэгдэх бөгөөд төлбөр амжилттай хийгдсэний дараа баталгаажсан төлөвт шилжинэ.
 \begin{figure}[H]
 \centering
 \resizebox{0.95\textwidth}{!}{
@@ -486,7 +386,7 @@
 \draw[line] (\xc, -0.6) -- (\xc, -8.5);
 \draw[line] (\xd, -0.6) -- (\xd, -8.5);
 
-\draw[msg] (\xa, -1.3) -- node[above, font=\scriptsize] {1. Огноо, өрөө, хүний тоо сонгон захиалга илгээх} (\xb, -1.3);
+\draw[msg] (\xa, -1.3) -- node[above, font=\scriptsize] {1. Унаа, огноо, өрөө, хүний тоо сонгон захиалга илгээх} (\xb, -1.3);
 
 \draw[msg] (\xb, -2.9) -- node[above, font=\scriptsize] {2. POST /api/bookings дуудах} (\xc, -2.9);
 \draw[msg] (\xc, -3.7) -- node[above, font=\scriptsize] {3. Өрөөний хүртээмж шалгах (SELECT)} (\xd, -3.7);
@@ -501,13 +401,14 @@
 
 \end{tikzpicture}
 }
-\caption{Захиалга үүсгэх дараалал диаграмм}
+\caption{Захиалга үүсгэх дарааллын диаграмм}
 \label{fig:seq-booking}
 \end{figure}
 
-\subsection{Захиалга баталгаажуулах дараалал}
+\vspace{6pt}
+\textbf{Захиалга баталгаажуулах}
 
-Ажилтан хүлээгдэж буй захиалгуудын жагсаалтаас захиалга сонгон баталгаажуулахад Next.js API Route дуудагдаж өгөгдлийн санд захиалгын статус \texttt{CONFIRMED} болж шинэчлэгдэх бөгөөд систем автоматаар үйлчлүүлэгчид мэдэгдэл илгээнэ.
+Амрагч захиалгын мэдээллээ бөглөсний дараа QPay төлбөрийн системээр урьдчилгаа төлбөр төлнө. QPay төлбөр амжилттай баталгаажсаны дараа систем автоматаар захиалгын төлөвийг CONFIRMED болгон шинэчилж, амрагчид SMS мэдэгдэл илгээнэ.
 
 \begin{figure}[H]
 \centering
@@ -529,51 +430,57 @@
 ]
 
 \def\xa{0}
-\def\xb{4.8}
-\def\xc{9.6}
-\def\xd{14.4}
+\def\xb{3.5}
+\def\xc{7.0}
+\def\xd{10.5}
+\def\xe{14.0}
 
 % Actors
-\node[actor] (st)  at (\xa, 0) {Ажилтан \\ (Дэлгэц)};
-\node[actor] (na) at (\xb, 0) {Next.js API \\ Routes};
-\node[actor] (pr) at (\xc, 0) {Prisma ORM};
-\node[actor] (db) at (\xd, 0) {PostgreSQL};
+\node[actor] at (\xa, 0) {Амрагч};
+\node[actor] at (\xb, 0) {Next.js API \\ Routes};
+\node[actor] at (\xc, 0) {QPay};
+\node[actor] at (\xd, 0) {Prisma ORM};
+\node[actor] at (\xe, 0) {PostgreSQL};
 
 % Lifelines
-\draw[line] (\xa, -0.6) -- (\xa, -8.3);
-\draw[line] (\xb, -0.6) -- (\xb, -8.3);
-\draw[line] (\xc, -0.6) -- (\xc, -8.3);
-\draw[line] (\xd, -0.6) -- (\xd, -8.3);
+\draw[line] (\xa, -0.6) -- (\xa, -10.5);
+\draw[line] (\xb, -0.6) -- (\xb, -10.5);
+\draw[line] (\xc, -0.6) -- (\xc, -10.5);
+\draw[line] (\xd, -0.6) -- (\xd, -10.5);
+\draw[line] (\xe, -0.6) -- (\xe, -10.5);
 
-\draw[msg] (\xa, -1.3) -- node[above, font=\scriptsize] {1. Захиалга баталгаажуулах хүсэлт илгээх} (\xb, -1.3);
-\draw[msg] (\xb, -2.3) -- node[above, font=\scriptsize] {2. update.booking(status='confirmed')} (\xc, -2.3);
-\draw[msg] (\xc, -3.3) -- node[above, font=\scriptsize] {3. UPDATE bookings SET status='confirmed'} (\xd, -3.3);
-
-\draw[ret] (\xd, -4.3) -- node[above, font=\scriptsize] {4. Бичлэг амжилттай шинэчлэгдсэн} (\xc, -4.3);
-\draw[ret] (\xc, -5.3) -- node[above, font=\scriptsize] {5. Захиалгын объект буцаах} (\xb, -5.3);
-
-\node[draw=gray!50, fill=yellow!15, text=black, align=center, font=\scriptsize, rounded corners=3pt, inner sep=4pt] at (\xb, -6.3) {Үйлчлүүлэгч рүү баталгаажсан \\ тухай автомат имэйл илгээх};
-
-\draw[ret] (\xb, -7.3) -- node[above, font=\scriptsize] {6. Дэлгэцэд "Амжилттай" төлөв харуулах} (\xa, -7.3);
+\draw[msg] (\xa, -1.3) -- node[above, font=\scriptsize] {1. QPay төлбөр эхлүүлэх хүсэлт илгээх} (\xb, -1.3);
+\draw[msg] (\xb, -2.3) -- node[above, font=\scriptsize] {2. QPay invoice үүсгэх} (\xc, -2.3);
+\draw[ret] (\xc, -3.3) -- node[above, font=\scriptsize] {3. Төлбөрийн URL буцаах} (\xa, -3.3);
+\draw[msg] (\xa, -4.3) -- node[above, font=\scriptsize] {4. Төлбөр төлөх} (\xc, -4.3);
+\draw[msg] (\xc, -5.3) -- node[above, font=\scriptsize] {5. QPay webhook} (\xb, -5.3);
+\draw[msg] (\xb, -6.3) -- node[above, font=\scriptsize] {6. status=CONFIRMED шинэчлэх} (\xd, -6.3);
+\draw[msg] (\xd, -7.3) -- node[above, font=\scriptsize] {UPDATE bookings SET status='CONFIRMED'} (\xe, -7.3);
+\draw[ret] (\xe, -8.3) -- node[above, font=\scriptsize] {7. Амжилттай буцаах} (\xb, -8.3);
+\draw[ret] (\xb, -9.3) -- node[above, font=\scriptsize] {8. SMS мэдэгдэл илгээх} (\xa, -9.3);
 
 \end{tikzpicture}
 }
-\caption{Захиалга баталгаажуулах дараалал диаграмм}
+\caption{Төлбөр баталгаажуулах дарааллын диаграмм}
 \label{fig:seq-confirm}
 \end{figure}
 
 % ======= 3.9 =======
-\section{Өгөгдлийн сангийн ерөнхий загвар}
 
-\subsection{Үндсэн хүснэгтүүд ба харилцаа холбоо}
 
-Өгөгдлийн сангийн бүтэц нь Prisma schema дээр суурилсан есөн үндсэн хүснэгтээс бүрдэх бөгөөд тэдгээрийн хоорондын харилцаа холбоо нь гадаад түлхүүр (foreign key) ашиглан холбогдоно. Эдгээр хүснэгтүүд нь сувиллын захиалга, өрөөний хүртээмж, зэрэг хандалтын хяналт болон цуцлах хүсэлтийг найдвартай бүртгэж, системийн мэдээллийн бүрэн бүтэн байдлыг хангана.
+\section{Өгөгдлийн сангийн загвар}
+\subsection{Entity Relation Diagram}
 
+Өгөгдлийн сангийн бүтэц нь Prisma schema дээр тодорхойлогдсон долоон үндсэн хүснэгтээс бүрдэх бөгөөд хүснэгтүүдийн хоорондын хамаарлыг гадаад түлхүүрээр (foreign key) хэрэгжүүлсэн. Зураг 3.9-т үзүүлсэнчлэн хэрэглэгч нэгээс олон захиалга үүсгэх боломжтой бөгөөд захиалга нь хүүхдийн мэдээлэл болон цуцлалтын хүсэлттэй холбогдоно.
+
+\begin{sloppypar}
+Захиалга болон өрөөний хооронд many-to-many хамаарал үүсдэг тул энэхүү хамаарлыг \texttt{booking\_rooms} завсрын хүснэгтээр шийдсэн. Өөрөөр хэлбэл, нэг захиалгад хэд хэдэн өрөө харгалзаж болох бөгөөд нэг өрөө нь өөр өөр хугацаанд олон захиалгатай холбогдох боломжтой. Мөн хоёр амрагч тус тусдаа захиалга үүсгэсэн ч хоёр ортой өрөөнд хамт байрлуулах зохицуулалтыг хэрэгжүүлэх боломжтой. Иймээс өрөөний хуваарилалт болон захиалгын мэдээллийг уян хатан байдлаар удирдах боломж бүрдэж байна.
+\end{sloppypar}
 \begin{figure}[H]
 \centering
-\newcommand{\pk}[2]{\underline{#1} : \textit{#2} \ \textsc{\footnotesize(PK)} \\}
-\newcommand{\fk}[2]{#1 : \textit{#2} \ \textsc{\footnotesize(FK)} \\}
-\newcommand{\attr}[2]{#1 : \textit{#2} \\}
+\providecommand{\pk}[2]{\underline{#1} : \textit{#2} \ \textsc{\footnotesize(PK)} \\}
+\providecommand{\fk}[2]{#1 : \textit{#2} \ \textsc{\footnotesize(FK)} \\}
+\providecommand{\attr}[2]{#1 : \textit{#2} \\}
 \resizebox{\textwidth}{!}{
 \begin{tikzpicture}[
     font=\small,
@@ -588,147 +495,157 @@
         text width=4.8cm,
         inner sep=6pt
     },
+    note/.style={
+        draw=gray!55, fill=gray!6,
+        align=left, font=\scriptsize,
+        inner sep=5pt, text width=3.6cm,
+        rounded corners=2pt
+    },
     rel/.style={line width=0.7pt, black!70},
-    mult/.style={
-        font=\small,
-        inner sep=3pt,
-        fill=white,
-        draw=none
-    }
+    arr/.style={line width=0.7pt, black!70,
+                -{Latex[length=2mm, width=1.5mm]}},
+    mult/.style={font=\small, inner sep=3pt, fill=white, draw=none}
 ]
 
-% ---------- COL 1: users, bookings, cancellation_requests ----------
-\node[entity] (User) at (0, 8) {
+% ── COL 1 (x=0): users · bookings · cancellation_requests ────────
+\node[entity] (User) at (0, 9) {
     \textbf{users} \nodepart{second}
     \pk{id}{String}
-    \attr{phone}{String (unique)}
-    \attr{lastName}{String}
-    \attr{firstName}{String}
-    \attr{email}{String?}
-    \attr{role}{Role}
-    \attr{createdAt}{DateTime}
+    \attr{утас}{String (unique)}
+    \attr{овог}{String}
+    \attr{нэр}{String}
+    \attr{имэйл}{String?}
+    \attr{үүрэг}{Role}
+    \attr{үүсгэсэн огноо}{DateTime}
 };
 
-\node[entity] (Booking) at (0, 0.5) {
+\node[entity] (Booking) at (0, 0) {
     \textbf{bookings} \nodepart{second}
     \pk{id}{String}
     \fk{userId}{String?}
-    \attr{guestLastName}{String}
-    \attr{guestFirstName}{String}
-    \attr{guestPhone}{String}
-    \attr{guestEmail}{String?}
-    \attr{checkIn}{DateTime}
-    \attr{checkOut}{DateTime}
-    \attr{nights}{Int}
-    \attr{transport}{TransportType}
-    \attr{adultCount}{Int}
-    \attr{totalPrice}{Int}
-    \attr{status}{BookingStatus}
-    \attr{qpayInvoiceId}{String?}
-    \attr{qpayPaymentId}{String?}
-    \attr{paidAt}{DateTime?}
-    \attr{createdAt}{DateTime}
+    \attr{зочны овог}{String}
+    \attr{зочны нэр}{String}
+    \attr{зочны утас}{String}
+    \attr{зочны имэйл}{String?}
+    \attr{ирэх огноо}{DateTime}
+    \attr{явах огноо}{DateTime}
+    \attr{хоног}{Int}
+    \attr{тээвэр}{TransportType}
+    \attr{насанд хүрэгчдийн тоо}{Int}
+    \attr{нийт үнэ}{Int}
+    \attr{төлөв}{BookingStatus}
+    \attr{төлсөн огноо}{DateTime?}
+    \attr{үүсгэсэн огноо}{DateTime}
 };
 
-\node[entity] (Cancellation) at (0, -7) {
+\node[entity] (Cancellation) at (0, -9) {
     \textbf{cancellation\_requests} \nodepart{second}
     \pk{id}{String}
     \fk{bookingId}{String (unique)}
-    \attr{reason}{String?}
-    \attr{status}{CancellationStatus}
-    \attr{reviewedBy}{String?}
-    \attr{reviewedAt}{DateTime?}
-    \attr{createdAt}{DateTime}
+    \attr{шалтгаан}{String?}
+    \attr{төлөв}{CancellationStatus}
+    \attr{үүсгэсэн огноо}{DateTime}
 };
 
-% ---------- COL 2: room_locks, booking_children ----------
-\node[entity] (RoomLock) at (6.5, 8) {
-    \textbf{room\_locks} \nodepart{second}
-    \pk{id}{String}
-    \fk{roomId}{String}
-    \attr{startDate}{DateTime}
-    \attr{endDate}{DateTime}
-    \attr{reason}{String?}
-    \attr{createdBy}{String}
-    \attr{createdAt}{DateTime}
-};
-
-\node[entity] (BookingChild) at (6.5, -3.5) {
-    \textbf{booking\_children} \nodepart{second}
-    \pk{id}{String}
-    \fk{bookingId}{String}
-    \attr{ageMin}{Int}
-    \attr{ageMax}{Int}
-    \attr{hasBed}{Boolean}
-    \attr{withTreatment}{Boolean}
-    \attr{pricePerNight}{Int}
-};
-
-% ---------- COL 3: rooms, booking_rooms ----------
-\node[entity] (Room) at (13, 8) {
-    \textbf{rooms} \nodepart{second}
-    \pk{id}{String}
-    \attr{name}{String}
-    \attr{type}{RoomType}
-    \attr{bedCount}{Int}
-    \attr{pricePerNight}{Int}
-    \attr{floor}{Int}
-    \attr{building}{String}
-    \attr{roomNumber}{String}
-    \attr{description}{String?}
-    \attr{images}{String[]}
-    \attr{isActive}{Boolean}
-};
-
-\node[entity] (BR) at (13, 0.5) {
+% ── COL 2 (x=9): booking_rooms · note · booking_children ──────────
+\node[entity] (BR) at (9, 0) {
     \textbf{booking\_rooms} \nodepart{second}
     \pk{id}{String}
     \fk{bookingId}{String}
     \fk{roomId}{String}
 };
 
-% ============================================================
+\node[note] (NNNote) at (9, -3) {
+    bookings $\leftrightarrow$ rooms (N:N)\\[2pt]
+    Олон-олон харилцааг\\
+    booking\_rooms-ээр хэрэгжүүлсэн
+};
+\draw[dotted, gray!55, line width=0.6pt] (BR.south) -- (NNNote.north);
+
+\node[entity] (BookingChild) at (9, -7) {
+    \textbf{booking\_children} \nodepart{second}
+    \pk{id}{String}
+    \fk{bookingId}{String}
+    \attr{нас}{Int}
+    \attr{ортой эсэх}{Boolean}
+    \attr{эмчилгээтэй эсэх}{Boolean}
+    \attr{өдрийн үнэ}{Int}
+};
+
+% ── COL 3 (x=18): rooms · room_locks ──────────────────────────────
+\node[entity] (Room) at (18, 0) {
+    \textbf{rooms} \nodepart{second}
+    \pk{id}{String}
+    \attr{нэр}{String}
+    \attr{төрөл}{RoomType}
+    \attr{орны тоо}{Int}
+    \attr{өдрийн үнэ}{Int}
+    \attr{давхар}{Int}
+    \attr{байр}{String}
+    \attr{өрөөний дугаар}{String}
+    \attr{идэвхтэй эсэх}{Boolean}
+};
+
+\node[entity] (RoomLock) at (18, 8) {
+    \textbf{room\_locks} \nodepart{second}
+    \pk{id}{String}
+    \fk{roomId}{String}
+    \attr{эхлэх огноо}{DateTime}
+    \attr{дуусах огноо}{DateTime}
+    \attr{шалтгаан}{String?}
+    \attr{үүсгэсэн огноо}{DateTime}
+};
+
+% ══════════════════════════════════════════════════════════════════
 %  ХАРИЛЦААНУУД
-% ============================================================
+% ══════════════════════════════════════════════════════════════════
 
-% users ── bookings
-\draw[rel] (User.south) -- (Booking.north)
-    node[mult, midway]{1 : N};
+% users 1:N → bookings  (straight vertical, same column)
+\draw[arr] (User.south) --
+    node[mult, midway, right]{1 : N}
+    (Booking.north);
 
-% bookings ── cancellation_requests
-\draw[rel] (Booking.south) -- (Cancellation.north)
-    node[mult, midway]{1 : 1};
+% bookings 1:1 ── cancellation_requests  (straight vertical)
+\draw[rel] (Booking.south) --
+    node[mult, midway, right]{1 : 1}
+    (Cancellation.north);
 
-% bookings ── booking_rooms
-\draw[rel] (Booking.east) -- (BR.west)
-    node[mult, midway]{1 : N};
+% bookings 1:N → booking_rooms  (straight horizontal, same y)
+\draw[arr] (Booking.east) --
+    node[mult, midway, above]{1 : N}
+    (BR.west);
 
-% rooms ── booking_rooms
-\draw[rel] (Room.south) -- (BR.north)
-    node[mult, midway]{1 : N};
+% rooms 1:N → booking_rooms  (straight horizontal, same y)
+\draw[arr] (Room.west) --
+    node[mult, midway, above]{1 : N}
+    (BR.east);
 
-% rooms ── room_locks
-\draw[rel] (Room.west) -- (RoomLock.east)
-    node[mult, midway]{1 : N};
+% rooms 1:N → room_locks  (straight vertical, same column)
+\draw[arr] (Room.north) --
+    node[mult, midway, right]{1 : N}
+    (RoomLock.south);
 
-% bookings ── booking_children
-\draw[rel] ($(Booking.south) + (1.5,0)$) |- (BookingChild.west)
-    node[mult, pos=0.8]{1 : N};
-
-% N:N тэмдэглэл
-\node[font=\footnotesize\itshape, text=violet!70!black]
-    at (6.5, 0.5) {bookings $\longleftrightarrow$ rooms \ (N : N)};
+% bookings 1:N → booking_children  (L-shape: down then right)
+\draw[arr] ($(Booking.south)+(2,0)$) |-
+    node[mult, pos=0.7, above]{1 : N}
+    (BookingChild.west);
 
 \end{tikzpicture}
 }
-\caption{Өгөгдлийн сангийн ER диаграмм}
-\label{fig:er-diagram}
+\caption{Өгөгдлийн сангийн харилцааны диаграмм}
+\label{fig:erd}
 \end{figure}
 
 \subsection{Хүснэгтүүдийн тайлбар}
 
-Өгөгдлийн сангийн архитектур нь мэдээллийн бүрэн бүтэн байдал болон зэрэг хандалтын аюулгүй байдлыг хангах үүднээс хэвийнжүүлэлтийн гуравдугаар хэлбэрт нийцүүлэн зохион байгуулагдсан. Нийт есөн үндсэн хүснэгтийн гүйцэтгэх үүрэг, анхдагч түлхүүр болон гадаад түлхүүрийн хамаарлыг Хүснэгт~\ref{tab:db-tables}-д нэгтгэн харуулав.
+Өгөгдлийн сан нь системийн үндсэн үйл ажиллагааг хэрэгжүүлэх долоон үндсэн хүснэгтээс бүрдэх бөгөөд хүснэгтүүдийн хоорондын хамаарлыг анхдагч болон гадаад түлхүүрээр тодорхойлсон. Хүснэгт бүр тодорхой үүрэг гүйцэтгэхээр зохион байгуулагдсан бөгөөд захиалга, өрөө, хэрэглэгч болон цуцлалтын мэдээллийг тус тусад нь хадгалдаг. Үндсэн хүснэгтүүдийн зориулалт болон хамаарлыг Хүснэгт 3.5-д нэгтгэн үзүүлэв. Өгөгдлийн сангийн загварыг боловсруулахдаа дараах онцлогуудыг тусгасан.
+\begin{itemize}
+    \item \textbf{Хэрэглэгчийн эрхийн удирдлага.} Хэрэглэгч бүр тодорхой үүрэгтэй (амрагч, админ) байх бөгөөд системийн хандалтын хяналтыг энэхүү үүрэгт тулгуурлаж хийнэ.
 
+    \item \textbf{Өрөөний хүртээмжийн хяналт.} Өрөө бүрийн мэдээлэл, байршил болон төлөвийг тусад нь бүртгэхээс гадна өрөөг түр хугацаагаар түгжих механизмыг ашиглан зэрэг хандалтын үед давхар захиалга үүсэх эрсдэлийг бууруулсан.
+
+    \item \textbf{Захиалга цуцлалт.} Захиалга бүр цуцлалтын хүсэлттэй холбогдох боломжтой бөгөөд ингэснээр амрагчийн хүсэлт болон админы хүлээн зөвшөөрөх эсэх мэдээллийг тусад нь бүртгэх нөхцөл бүрдсэн.
+\end{itemize}
 \begin{table}[H]
   \centering
   \caption{Өгөгдлийн сангийн хүснэгтүүдийн тодорхойлолт}
@@ -739,95 +656,27 @@
     \toprule
     \textbf{Хүснэгт} & \textbf{Үүрэг, зориулалт} & \textbf{Анхдагч түлхүүр} & \textbf{Гадаад түлхүүр} \\
     \midrule
-    \texttt{users} & Системийн хэрэглэгчийн мэдээлэл (Нэвтрэх утас, овог, нэр, имэйл, \texttt{role}) & \texttt{id} & — \\
+    Хэрэглэгч & Системийн хэрэглэгчийн мэдээлэл (Нэвтрэх утас, овог, нэр, имэйл, role) & \texttt{id} & — \\
     \hline
-    \texttt{rooms} & Сувиллын өрөөний мэдээлэл (Нэр, төрөл, орны тоо, үнэ, давхар, корпус, дугаар, идэвхтэй эсэх) & \texttt{id} & — \\
+    Өрөө & Сувиллын өрөөний мэдээлэл (Нэр, төрөл, орны тоо, үнэ, давхар, корпус, дугаар, идэвхтэй эсэх) & \texttt{id} & — \\
     \hline
-    \texttt{bookings} & Захиалгын үндсэн бүртгэл (Ирэх/буцах огноо, хонох хоног, унаа, хүний тоо, нийт үнэ, статус, QPay мэдээлэл) & \texttt{id} & \texttt{userId} \\
+    Захиалга & Захиалгын үндсэн бүртгэл (Ирэх/буцах огноо, хоног, унаа, хүний тоо, нийт үнэ, статус, QPay мэдээлэл) & \texttt{id} & хэрэглэгчийн id \\
     \hline
-    \texttt{booking\_rooms} & Захиалга болон өрөөний холбоосыг зохицуулах завсрын хүснэгт & \texttt{id} & \texttt{bookingId, roomId} \\
+    Захиалга-Өрөө & Захиалга болон өрөөний холбоосыг зохицуулах завсрын хүснэгт & \texttt{id} & захиалгын id, өрөөний id \\
     \hline
-    \texttt{booking\_children} & Захиалгад хамаарах хүүхдийн мэдээлэл (Нас, ортой эсэх, эмчилгээтэй эсэх, үнэ) & \texttt{id} & \texttt{bookingId} \\
+    Хүүхдийн мэдээлэл & Захиалгад хамаарах хүүхдийн мэдээлэл (Нас, ортой эсэх, эмчилгээтэй эсэх, үнэ) & \texttt{id} & захиалгын id \\
     \hline
-    \texttt{room\_locks} & Зэрэг хандалтын үед өрөөг түр түгжих эсвэл засвартай үед хаах бүртгэл & \texttt{id} & \texttt{roomId} \\
+    Өрөөний түгжээ & Зэрэг хандалтын үед өрөөг түр түгжих эсвэл засвартай үед хаах бүртгэл & \texttt{id} & өрөөний id \\
     \hline
-    \texttt{cancellation\_requests} & Захиалга цуцлах хүсэлтийн мэдээлэл (Шалтгаан, статус, шийдвэрлэсэн ажилтан, огноо) & \texttt{id} & \texttt{bookingId} \\
+    Цуцлалтын хүсэлт & Захиалга цуцлах хүсэлтийн мэдээлэл (Шалтгаан, статус, шийдвэрлэсэн админ, огноо) & \texttt{id} & захиалгын id \\
     \hline
-    \texttt{booking\_sessions} & Захиалга үүсгэх явцад өрөөг 10 минутын хугацаатай түр түгжих сессийн бүртгэл & \texttt{id} & — \\
+    Захиалгын сейшн  & Захиалга үүсгэх явцад өрөөг 10 минутын хугацаатай түр түгжих & \texttt{id} & — \\
     \hline
-    \texttt{bus\_schedules} & Сувиллын унаа буюу автобусны ирэх/буцах өдрүүдийн хуваарийн тохиргоо & \texttt{id} & — \\
+    Автобусны хуваарь & Сувиллын унаа буюу автобусны ирэх/буцах өдрүүдийн хуваарийн тохиргоо & \texttt{id} & — \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Судалгааны ажлын хүрээнд системийн найдвартай байдлыг хангах үүднээс өгөгдлийн сангийн дараах гол онцлогуудыг тусгайлан төлөвлөсөн:
-\begin{itemize}
-    \item \textbf{Хэрэглэгчийн үүргийн хуваарилалт:} \texttt{users} хүснэгтийн \texttt{role} талбар нь зөвхөн \texttt{USER} болон \texttt{ADMIN} утгыг авах бөгөөд системийн түвшинд хандалтын хяналтыг уг талбараар дамжуулан зохицуулна.
-    \item \textbf{Өрөөний удирдлага:} \texttt{rooms} хүснэгт нь давхар, корпус (main/extension) болон өрөөний дугаар зэрэг дэлгэрэнгүй мэдээллийг хадгалж, сувиллын өрөөний бүртгэлийг системтэй зохион байгуулна.
-    \item \textbf{Захиалга цуцлах хүсэлт:} Захиалга бүр нь \texttt{cancellation\_requests} хүснэгттэй холбогдож, үйлчлүүлэгч өөрийн захиалгыг цуцлах хүсэлт гаргах, админ түүнийг хянан шийдвэрлэх боломжийг олгоно.
-\end{itemize}
-
-\subsection{Many-to-Many харилцааны шийдэл}
-
-Сувиллын захиалгын бизнесийн логикт нэг захиалгаар олон өрөөг зэрэг захиалах, мөн нэг өрөө нь өөр өөр хугацаанд олон захиалгад бүртгэгдэх шаардлага тулгардаг. Энэ нь \texttt{bookings} болон \texttt{rooms} хүснэгтүүдийн хооронд many-many ($N:N$) харилцааг үүсгэдэг.
-
-Реляци өгөгдлийн санд Many-to-Many харилцааг шууд гадаад түлхүүрээр холбох нь өгөгдлийн давхардал, логик зөрчилдөөнд хүргэдэг тул үүнийг \texttt{booking\_rooms} хэмээх завсрын холбоос хүснэгтийн тусламжтайгаар хоёр ширхэг $1:N$ харилцаанд хуваан шийдвэрлэсэн. Уг шийдлийг Зураг~\ref{fig:nn-booking-rooms}-д харуулав.
-
-\begin{figure}[H]
-  \centering
-  \begin{tikzpicture}[
-      font=\small,
-      entity/.style={
-          rectangle split,
-          rectangle split parts=2,
-          draw=#1!50!black,
-          line width=1pt,
-          rounded corners=4pt,
-          align=left,
-          text width=3.8cm,
-          inner sep=6pt,
-          rectangle split part fill={#1!12, white}
-      },
-      arr/.style={-{Latex[length=3mm, width=2mm]}, line width=1pt, #1!60!black},
-      lbl/.style={font=\footnotesize\bfseries, midway, fill=white, inner sep=2pt}
-  ]
-    \node[entity=blue] (B) at (0,0) {
-        \textbf{bookings} \nodepart{second}
-        \underline{id} : \textit{String} \hfill \textbf{\scriptsize PK} \\
-        guests : \textit{Int} \\
-        totalPrice : \textit{Float}
-    };
-
-    \node[entity=violet] (BR) at (5.8,0) {
-        \textbf{booking\_rooms} \nodepart{second}
-        \underline{id} : \textit{String} \hfill \textbf{\scriptsize PK} \\
-        bookingId : \textit{String} \hfill \textbf{\scriptsize FK} \\
-        roomId : \textit{String} \hfill \textbf{\scriptsize FK}
-    };
-
-    \node[entity=green!60!black] (R) at (11.6,0) {
-        \textbf{rooms} \nodepart{second}
-        \underline{id} : \textit{String} \hfill \textbf{\scriptsize PK} \\
-        name : \textit{String} \\
-        pricePerNight : \textit{Float}
-    };
-
-    % Connections
-    \draw[arr=blue] (B.east) -- node[lbl]{1 : N} (BR.west);
-    \draw[arr=green!60!black] (R.west) -- node[lbl]{1 : N} (BR.east);
-
-  \end{tikzpicture}
-  \caption{\texttt{bookings} ба \texttt{rooms} хоорондын N:N харилцааны загвар}
-  \label{fig:nn-booking-rooms}
-\end{figure}
-
-Завсрын хүснэгтийг ашигласан энэхүү архитектур нь дараах хоёр чухал давуу талыг системд олгож байна:
-\begin{enumerate}
-    \item \textbf{Захиалгын уян хатан байдал:} Хэрэглэгч нэг гүйлгээгээр олон өөр төрлийн өрөөг зэрэг сагслан захиалах боломжтой болно.
-    \item \textbf{Үнийн түүхийг хамгаалах:} Өрөөний үнэ цаг хугацааны явцад (\texttt{rooms.pricePerNight}) өөрчлөгдөх боломжтой. Хэрэв үнэ өөрчлөгдөх үед хуучин захиалгын мэдээллийг шууд холбосон бол өнгөрсөн үеийн тайлан баланс зөрөх эрсдэлтэй. Захиалга үүсгэх үед үнийн дүн болон хоносон хоногийг \texttt{bookings} хүснэгтэд түүх болгон тусад нь хадгалснаар санхүүгийн өгөгдлийн бүрэн бүтэн байдал найдвартай хангагдана.
-\end{enumerate}
-
-% ======= 3.9 =======
 \section{Туршилтын арга зүй}
 
 Системийн чанарыг олон талаас баталгаажуулахаар долоон чиглэлийн туршилтыг төлөвлөсөн. Туршилт бүрийн зорилго, хэрэгсэл болон хэмжих үзүүлэлтийг Хүснэгт~\ref{tab:test-strategy-overview}-д нэгтгэн харуулав.
